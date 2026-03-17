@@ -476,11 +476,9 @@
             \centering
             \begin{tikzpicture}
 
-            % Definindo cores
-            \definecolor{watercol}{RGB}{185, 230, 250} % Azul claro da água
-            \definecolor{textred}{RGB}{220, 0, 0}      % Vermelho para o texto
+            \definecolor{watercol}{RGB}{185, 230, 250} 
+            \definecolor{textred}{RGB}{220, 0, 0}    
 
-            % 1. Desenhando a água dentro do tanque (com superfície ondulada)
             \fill[watercol] 
                 (0,0) -- (6,0) -- (6,0.5) -- (7,0.5) -- (7,1.2) -- (6,1.2) -- (6,1.8) 
                 to[out=170,in=10] (4.5,1.9) 
@@ -488,26 +486,21 @@
                 to[out=170,in=10] (1.5,1.85) 
                 to[out=190,in=-10] (0,1.8) -- cycle;
 
-            % 2. Desenhando a água no cano de entrada e a queda d'água
-            \fill[watercol] (-1,2.8) rectangle (0,3.5); % Água no cano
+            \fill[watercol] (-1,2.8) rectangle (0,3.5);
             \fill[watercol] (0,3.5) to[out=0, in=110] (2.5, 1.82) -- (1.3, 1.84) to[out=110, in=0] (0,2.8) -- cycle; % Queda
 
-            % 3. Contorno do tanque (linhas pretas grossas)
             \draw[line width=1] (-1,3.5) -- (0,3.5) -- (0,4) -- (6,4) -- (6,1.2) -- (7,1.2);
             \draw[line width=1] (-1,2.8) -- (0,2.8) -- (0,0) -- (6,0) -- (6,0.5) -- (7,0.5);
 
-            % 4. Textos e Setas - Entrada (Esquerda)
             \node[align=right, anchor=east] at (-1.3, 3.15) {
                 $3~\mathrm{gal/min}$ \\[1mm] 
                 $2~\mathrm{lb/gal}$
             };
             \draw[->, >=stealth, line width=1.2pt] (-1.3, 3.15) -- (-0.3, 3.15);
 
-            % 5. Textos e Setas - Saída (Direita)
             \draw[->, >=stealth, line width=1.2pt] (6.5, 0.85) -- (7.5, 0.85);
             \node[anchor=west] at (7.5, 0.85) {$2~\mathrm{gal/min}$};
 
-            % 6. Texto central (Quantidade de sal/substância)
             \node at (3, 0.6) {\large $A(t)$};
             \node at (3, 1.3) {\large $V_0=300~\mathrm{gal}$};
 
@@ -567,43 +560,27 @@
             \centering
             \begin{tikzpicture}[>=stealth]
 
-                \def\Rs{0.3} % Raio da base da ogiva (mesmo do corpo do foguete)
-                \def\Lo{1.5} % Comprimento da ogiva
-                % Calculando o Raio de Ogiva (Ro)
+                \def\Rs{0.3}
+                \def\Lo{1.5}
                 \pgfmathsetmacro{\Ro}{(\Lo*\Lo + \Rs*\Rs)/(2*\Rs)}
 
-                % --- Bico Ogival ---
-                % Desenha o lado direito da ogiva
                 \draw[smooth, variable=\y, domain=1.5:{1.5+\Lo}, thick] 
                     plot ({sqrt(\Ro*\Ro - (\y-1.5)*(\y-1.5)) - (\Ro-\Rs)}, \y);
-                % Desenha o lado esquerdo da ogiva
                 \draw[smooth, variable=\y, domain=1.5:{1.5+\Lo}, thick] 
                     plot ({-sqrt(\Ro*\Ro - (\y-1.5)*(\y-1.5)) + (\Ro-\Rs)}, \y);
 
-                % 1. Desenhando o foguete (corpo, bico, aletas e chamas)
-                %\fill[gray!20] (-0.6, -1.5) rectangle (0.6, 1.5); % Corpo do foguete
-                %\fill[gray!50] (-0.6, 1.5) -- (0, 2.5) -- (0.6, 1.5) -- cycle; % Bico
-                \draw[smooth] (-0.3, -1.5) -- (-0.9, -2) -- (-0.3, -0.5) -- cycle; % Aleta esquerda
-                \draw[smooth] (0.3, -1.5) -- (0.9, -2) -- (0.3, -0.5) -- cycle; % Aleta direita
-                %\fill[orange!80!red] (-0.4, -1.5) -- (0, -2.5) -- (0.4, -1.5) -- cycle; % Fogo/Exaustão
-                \draw[smooth] (-0.3, -1.5) rectangle (0.3, 1.5); % Contorno do corpo
-                %\draw[thick] (-0.6, 1.5) -- (0, 2.5) -- (0.6, 1.5); % Contorno do bico
+                \draw[smooth] (-0.3, -1.5) -- (-0.9, -2) -- (-0.3, -0.5) -- cycle;
+                \draw[smooth] (0.3, -1.5) -- (0.9, -2) -- (0.3, -0.5) -- cycle;
+                \draw[smooth] (-0.3, -1.5) rectangle (0.3, 1.5);
 
-                % 2. Eixo de Referência (Direção Positiva)
                 \draw[->, thick] (-1.5, 0) -- (-1.5, 1.5) node[above] {$+y$};
 
-                % 3. Vetores de Força (saindo do CM)
-                
-                % Força de Propulsão (R) - Para cima
                 \draw[->, line width=1.5pt, blue] (0, -3.5) node[right] {$R$} -- (0, -1.5) ;
 
-                % Força Peso (m(t)g) - Para baixo (deslocado ligeiramente para a esquerda para não sobrepor)
                 \draw[->, line width=1.5pt] (-0.2, -1.5) -- (-0.2, -2.5) node[left] {$m(t)g$};
 
-                % Força de Resistência do ar (kv) - Para baixo (deslocado ligeiramente para a direita)
                 \draw[->, line width=1.5pt] (0.2, -1.5) -- (0.2, -2.5) node[right] {$kv(t)$};
 
-                % 4. Vetor Velocidade (ao lado, para indicar o movimento)
                 \draw[->, thick] (1.5, 0) -- (1.5, 1.5) node[above] {$v(t)$};
 
             \end{tikzpicture}
