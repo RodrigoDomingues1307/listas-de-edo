@@ -1,0 +1,339 @@
+%chktex-file 1 chktex-file 2 chktex-file 3
+%chktex-file 8 chktex-file 9 chktex-file 10
+%chktex-file 13 %chktex-file 17 %chktex-file 23
+%chktex-file 45 %chktex-file 25 %chktex-file 35
+%chktex-file 40
+
+\documentclass[oneside,12pt,a4paper]{report}
+
+\usepackage{template}
+
+\begin{document}
+
+    \begin{center}
+        \fontsize{17.28}{17.28}
+            \textbf{Equações Diferenciais Ordinárias}
+
+            \textbf{Segunda Lista de Exercícios}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QUESTÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \exercicio[Zill, Seção 2.1, Exercício 15 (a)] Esboce as curvas de isóclinas $f(x,y)=c$ para a equação diferencial
+    \[\frac{dy}{dx}=x+y\quad-5\leq c\leq 5,~c\in\mathbb{Z}\] 
+    usando os valores indicados de $c$. Construa um campo direcional sobre uma malha desenhando cuidadosamente elementos lineares com a inclinação apropriada nos pontos escolhidos em cada curva de isóclina. Use este campo direcional para esboçar uma curva solução aproximada para o PVI consistindo na ED e nas condições iniciais $y(0)=1$.
+
+    \exercicio[Zill, Seção 2.1, Exercícios 21, 23, 27, 28] Encontre os pontos críticos e o retrato de fase de cada equação diferencial de primeira ordem dada. Classifique cada ponto crítico como assintoticamente estável, instável ou semiestável. Esboce à mão curvas integrais típicas nas regiões do plano $xy$ determinadas pelos gráficos das soluções de equilíbrio.
+    \begin{itensquestao}[2]
+        \item $\dfrac{dy}{dx}=y^2-3y$
+        \item $\dfrac{dy}{dx}=(y-2)^4$
+        \item $\dfrac{dy}{dx}=y\ln(y+2)$
+        \item $\dfrac{dy}{dx}=\dfrac{ye^y-9y}{e^y}$
+    \end{itensquestao}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESOLUÇÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Resolução dos Exercícios}
+        
+    \begin{resolucao}
+        \definecolor{quivercolor}{HTML}{73B0FF}
+        \definecolor{isocolor}{HTML}{C9C9C9}
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=10cm,
+                height=10cm,
+                view={0}{90},
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                axis equal image, % Garante a proporção correta
+                grid=major,
+                xtick={-5,-4,...,5},
+                ytick={-5,-4,...,5},
+                xlabel={$x$},
+                ylabel={$y$},
+                % Corta qualquer coisa desenhada fora da área do gráfico (ex: a extrapolação)
+                restrict y to domain=-10:10, 
+                clip=true
+            ]
+
+            % 1. Campo Direcional (Quiver)
+            % Obs: O pgfplots vai desenhar o campo em toda a malha. 
+            % Se o vetor sair da área, o 'clip=true' corta automaticamente.
+            \addplot3 [
+                quiver={
+                    u={1 / sqrt(1 + (x+y)^2)},
+                    v={(x+y) / sqrt(1 + (x+y)^2)},
+                    scale arrows=0.5,
+                    every arrow/.append style={-stealth}
+                },
+                samples=11, % equivale ao passo de 1 no meshgrid (-5:1:5)
+                domain=-5:5,
+                y domain=-5:5,
+                color=quivercolor,
+                line width = 1pt,
+            ] (x,y,0);
+
+            % 2. Isóclinas (c = -5 a 5)
+            \pgfplotsinvokeforeach{-5,-4,...,5}{
+                \addplot [
+                    domain=-5:5, 
+                    samples=2, 
+                    dashed, 
+                    color=isocolor, 
+                    thick
+                ] {#1 - x};
+            }
+
+            % 3. Solução Analítica (Exata)
+            % Restringimos o domínio do x para não estourar o limite y e causar erros de compilação
+            \addplot [
+                domain=-5:1.6, 
+                samples=100, 
+                color=black, 
+                line width = 1pt
+            ] {2*exp(x) - x - 1};
+
+            % 4. Aproximação Linear (Interseção das isóclinas calculada do seu código)
+            % Pontos Backward: (-5, 4) -> (-1.5, 0.5) -> (-0.5, 0.5)
+            % Ponto Inicial: (0, 1)
+            % Pontos Forward: (0.5, 1.5) -> (0.833, 2.167) -> (1.083, 2.917) -> (1.283, 3.717)
+            % Extrapolação: (1.883, 6.717) - Será cortada visualmente pelo eixo do gráfico
+            \addplot [
+                color=blue, 
+                line width = 1pt, 
+                mark=*, 
+                mark options={fill=blue, scale=0.8}
+            ] coordinates {
+                (-5.0000, 4.0000)
+                (-1.5000, 0.5000)
+                (-0.5000, 0.5000)
+                (0.0000, 1.0000)
+                (0.5000, 1.5000)
+                (0.8333, 2.1667)
+                (1.0833, 2.9167)
+                (1.2833, 3.7167)
+                (1.8833, 6.7167)
+            };
+
+            % 5. Ponto Inicial em Destaque (com borda preta, igual ao seu scatter)
+            \addplot [
+                only marks,
+                mark=*,
+                mark options={fill=blue, draw=black, thick, scale=1.2}
+            ] coordinates {(0,1)};
+
+            \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+    \end{resolucao}
+
+    \begin{resolucao}
+
+        \itemresolucao
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[scale=0.5]
+                % Reta de fase
+                \draw[axis] (0,-2) -- (0,5);
+                
+                % Pontos críticos
+                \node[dot, label=right:{$y=3$ (Instável)}] at (0,3) {};
+                \node[dot, label=right:{$y=0$ (Assintoticamente estável)}] at (0,0) {};
+                
+                % Múltiplas setas
+                % Região y < 0 (Sobe)
+                \foreach \y in {-1.8, -1.0} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+                    
+                % Região 0 < y < 3 (Desce)
+                \foreach \y in {2.6, 1.8, 1.0} 
+                    \draw[dir] (0, \y) -- (0, \y-0.4);
+                    
+                % Região y > 3 (Sobe)
+                \foreach \y in {3.4, 4.2} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+            \end{tikzpicture}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:4,
+                    xmin=0, xmax=4,
+                    ymin=-1, ymax=4.5,
+                    xlabel=$x$, ylabel=$y$,
+                    axis lines=left,
+                    grid=both,
+                    grid style={dashed, gray!30},
+                    width=10cm, height=7cm,
+                    restrict y to domain=-1:5
+                ]
+                
+                % Retas de Equilíbrio
+                \addplot [black, dashed, thick, domain=0:4] {3} node[pos=0.8, above] {$y=3$};
+                \addplot [black, dashed, thick, domain=0:4] {0} node[pos=0.8, below] {$y=0$};
+                
+                % Curvas Integrais (Azul)
+                \addplot [blue, very thick, samples=30, domain=0:4] {3 + 0.05*exp(1.2*x)}; % Região y > 3
+                \addplot [blue, very thick, samples=30, domain=0:4] {3 / (1 + exp(2*(x-2)))}; % Região 0 < y < 3
+                \addplot [blue, very thick, samples=30, domain=0:4] {-0.8*exp(-1.5*x)}; % Região y < 0
+                \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+        \itemresolucao
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[scale=0.5]                
+                \draw[axis] (0,-2) -- (0,5);
+                
+                \node[dot, label=right:{$y=2$ (Semiestável)}] at (0,2) {};
+                
+                % Região y < 2 (Sobe)
+                \foreach \y in {-1.6, -0.6, 0.4, 1.4} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+                    
+                % Região y > 2 (Sobe)
+                \foreach \y in {2.4, 3.4, 4.4} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+            \end{tikzpicture}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:4,
+                    xmin=0, xmax=4,
+                    ymin=0.5, ymax=3.5,
+                    xlabel=$x$, ylabel=$y$,
+                    axis lines=left,
+                    grid=both,
+                    grid style={dashed, gray!30},
+                    width=10cm, height=7cm,
+                    restrict y to domain=0:4
+                ]
+                
+                % Retas de Equilíbrio
+                \addplot [black, dashed, thick, domain=0:4] {2} node[pos=0.8, above left] {$y=2$};
+                
+                % Curvas Integrais (Azul)
+                \addplot [blue, very thick, samples=30, domain=0:4] {2 + 0.05*exp(1.5*x)}; % Região y > 2
+                \addplot [blue, very thick, samples=30, domain=0:4] {2 - 0.8*exp(-1.5*x)}; % Região y < 2
+                \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+        \itemresolucao
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[scale=0.7]
+                
+                \draw[axis] (0,-2) -- (0,2);
+                
+                \node[dot, label=right:{$y=0$ (Instável)}] at (0,0) {};
+                \node[dot, label=right:{$y=-1$ (Assintoticamente estável)}] at (0,-1) {};
+                \node[open dot, label=right:{$y=-2$}] at (0,-2) {};
+                
+                % Região -2 < y < -1 (Sobe) - setas um pouco menores devido ao espaço curto
+                \foreach \y in {-1.8, -1.4} 
+                    \draw[dir] (0, \y) -- (0, \y+0.25);
+                    
+                % Região -1 < y < 0 (Desce)
+                \foreach \y in {-0.2, -0.6} 
+                    \draw[dir] (0, \y) -- (0, \y-0.25);
+                    
+                % Região y > 0 (Sobe)
+                \foreach \y in {0.4, 1.4} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+            \end{tikzpicture}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:4,
+                    xmin=0, xmax=4,
+                    ymin=-2.2, ymax=1.5,
+                    xlabel=$x$, ylabel=$y$,
+                    axis lines=left,
+                    grid=both,
+                    grid style={dashed, gray!30},
+                    width=10cm, height=7cm,
+                    restrict y to domain=-2.5:2
+                ]
+                
+                % Retas de Equilíbrio e Restrição
+                \addplot [black, dashed, thick, domain=0:4] {0} node[pos=0.8, above right] {$y=0$};
+                \addplot [black, dashed, thick, domain=0:4] {-1} node[pos=0.8, below] {$y=-1$};
+                \addplot [black, dotted, thick, domain=0:4] {-2} node[pos=0.8, above] {$y=-2$};
+                
+                % Curvas Integrais (Azul)
+                \addplot [blue, very thick, samples=30, domain=0:4] {0.05*exp(1.5*x)}; % Região y > 0
+                \addplot [blue, very thick, samples=30, domain=0:4] {-1 / (1 + exp(-3*(x-2)))}; % Região -1 < y < 0
+                \addplot [blue, very thick, samples=30, domain=0:4] {-2 + 1 / (1 + exp(-3*(x-2)))}; % Região -2 < y < -1
+                \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+        \itemresolucao
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[scale=0.5]
+
+                \draw[axis] (0,-2) -- (0,5);
+                
+                \node[dot, label=right:{$y=\ln(9)$ (Instável)}] at (0,2.197) {};
+                \node[dot, label=right:{$y=0$} (Assintoticamente estável)] at (0,0) {};
+                
+                % Região y < 0 (Sobe)
+                \foreach \y in {-1.8, -1.0} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+                    
+                % Região 0 < y < ln(9) (Desce)
+                \foreach \y in {1.6, 0.8} 
+                    \draw[dir] (0, \y) -- (0, \y-0.4);
+                    
+                % Região y > ln(9) (Sobe)
+                \foreach \y in {2.6, 3.4, 4.2} 
+                    \draw[dir] (0, \y) -- (0, \y+0.4);
+            \end{tikzpicture}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    domain=0:4,
+                    xmin=0, xmax=4,
+                    ymin=-1, ymax=3.5,
+                    xlabel=$x$, ylabel=$y$,
+                    axis lines=left,
+                    grid=both,
+                    grid style={dashed, gray!30},
+                    width=10cm, height=7cm,
+                    restrict y to domain=-1.5:4
+                ]
+                
+                % Retas de Equilíbrio
+                \addplot [black, dashed, thick, domain=0:4] {2.1972} node[pos=0.8, above] {$y=\ln(9)$};
+                \addplot [black, dashed, thick, domain=0:4] {0} node[pos=0.8, below] {$y=0$};
+                
+                % Curvas Integrais (Azul)
+                \addplot [blue, very thick, samples=30, domain=0:4] {2.1972 + 0.05*exp(1.2*x)}; % Região y > ln(9)
+                \addplot [blue, very thick, samples=30, domain=0:4] {2.1972 / (1 + exp(2*(x-2)))}; % Região 0 < y < ln(9)
+                \addplot [blue, very thick, samples=30, domain=0:4] {-0.8*exp(-1.5*x)}; % Região y < 0
+                \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+    \end{resolucao}
+
+\end{document}
