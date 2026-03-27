@@ -26,14 +26,99 @@
     \[\frac{dy}{dx}=x+y\quad-5\leq c\leq 5,~c\in\mathbb{Z}\] 
     usando os valores indicados de $c$. Construa um campo direcional sobre uma malha desenhando cuidadosamente elementos lineares com a inclinação apropriada nos pontos escolhidos em cada curva de isóclina. Use este campo direcional para esboçar uma curva solução aproximada para o PVI consistindo na ED e nas condições iniciais $y(0)=1$.
 
-    \exercicio[Zill, Seção 2.1, Exercícios 21, 23, 27, 28] Encontre os pontos críticos e o retrato de fase de cada equação diferencial de primeira ordem dada. Classifique cada ponto crítico como assintoticamente estável, instável ou semiestável. Esboce à mão curvas integrais típicas nas regiões do plano $xy$ determinadas pelos gráficos das soluções de equilíbrio.
-    \begin{itensquestao}[2]
+    \exercicio[Zill, Seção 2.1, Exercícios 21, 23, 28] Encontre os pontos críticos e o retrato de fase de cada equação diferencial de primeira ordem dada. Classifique cada ponto crítico como assintoticamente estável, instável ou semiestável. Esboce à mão curvas integrais típicas nas regiões do plano $xy$ determinadas pelos gráficos das soluções de equilíbrio.
+    \begin{itensquestao}[3]
         \item $\dfrac{dy}{dx}=y^2-3y$
         \item $\dfrac{dy}{dx}=(y-2)^4$
-        \item $\dfrac{dy}{dx}=y\ln(y+2)$
         \item $\dfrac{dy}{dx}=\dfrac{ye^y-9y}{e^y}$
     \end{itensquestao}
 
+    \exercicio[Zill Seção 2.2, Exercícios 2, 6, 11, 13, 17, 21] Resolva, por separação de variáveis, as equações diferenciais dadas.
+    \begin{itensquestao}[2]
+        \item $e^xy\dfrac{dy}{dx}=e^{-y}+e^{-2x-y}$
+        \item $\dfrac{dy}{dx} = \left(\dfrac{2y+3}{4x+5}\right)^2$
+        \item $\mathrm{cossec}(y)dx+\sec^2(x)dy=0$
+        \item $(e^y+1)^2e^{-y}dx+(e^x+1)^3e^{-x}dy=0$
+        \item $\dfrac{dP}{dt}=P-P^2$
+        \item $\dfrac{dy}{dx}=x\sqrt{1-y^2}$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.2, Exercício 38] Mostre que uma solução implícita de \[2x\sin^2(y)dx-(x^2+10)\cos(y)dy=0\] é dada por $\ln(x^2+10)+\mathrm{cossec}(y)=c$. Ache as soluções constantes, se houver, que foram perdidas na solução da equação diferencial.
+
+    \exercicio[Zill Seção 2.2, Exercícios 49, 50] Nos itens a) e b), use uma técnica de integração ou uma substituição para encontrar uma solução explícita do problema de valor inicial.
+    \begin{itensquestao}[2]
+        \item $\dfrac{dy}{dx}=\dfrac{e^{\sqrt{x}}}{y},\quad y(1)=4$
+        \item $\dfrac{dy}{dx}=\dfrac{x\arctan(x)}{y},\quad y(0)=3$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.3, Exercícios 3, 12, 14, 21] Ache a solução geral da equação diferencial dada. Dê o maior intervalo $I$ sobre o qual a solução geral está definida. Determine se há termos transientes na solução geral.
+    \begin{itensquestao}[2]
+        \item $\dfrac{dy}{dx}+y=e^{3x}$
+        \item $(1+x)\dfrac{dy}{dx}-xy=x+x^2$
+        \item $xy'+(1+x)y=e^{-x}\sin(2x)$
+        \item $\dfrac{dr}{d\theta}+r\sec{\theta}=\cos{\theta}$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.3, Exercícios 37, 40] Resolva o problema de valor inicial dado. Use um software gráfico para representar a função contínua $y(x)$.
+
+    \begin{itensquestao}[1]
+        \item \[\dfrac{dy}{dx}+2y=f(x),~\text{onde}~f(x)=
+        \begin{cases}
+            1,\quad0\leq x\leq 3\\
+            0,\quad x>3
+        \end{cases},~y(0)=0\]
+        \item \[(1+x^2)\dfrac{dy}{dx}+2xy=f(x),~\text{onde}~f(x)=
+        \begin{cases}
+            x,\quad0\leq x\leq 1\\
+            -x,\quad x>1
+        \end{cases},~y(0)=0\]
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.3, Exercício 42] Considere o problema de valor inicial $y'+e^xy=f(x),~y(0)=1$. Expresse a solução do PVI para $x>0$ como uma integral não elementar quando $f(x)=1$. Qual é a solução quando $f(x)=0$? E quando $f(x)=e^x$?
+
+    \exercicio[Zill Seção 2.4, Exercícios 11, 15, 17, 18] Determine se a equação diferencial dada é exata. Se for, resolva-a.
+    \begin{itensquestao}[1]
+        \item $(y\ln(y)-e^{-xy})dx+\left(\dfrac{1}{y}+x\ln(y)\right)dy=0$
+        \item $\left(x^2y^3-\dfrac{1}{1+9x^2}\right)\dfrac{dy}{dx}+x^3y^2=0$
+        \item $(\tan(x)-\sin(x)\sin(y))dx+\cos(x)\cos(y)dy=0$
+        \item $(2y\sin(x)\cos(x)-y+2y^2e^{xy^2})dx=(x-\sin^2(x)-4xye^{xy^2})dy$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.4, Exercícios 24, 26] Resolva os problemas de valor inicial dados.
+    \begin{itensquestao}[1]
+        \item $\left(\dfrac{3y^2-t^2}{y^5}\right)\dfrac{dy}{dt}+\dfrac{t}{2y^4}=0,\quad y(1)=1$
+        \item $\left(\dfrac{1}{1+y^2}+\cos(x)-2xy\right)\dfrac{dy}{dx}=y(y+\sin(x)),\quad y(0)=1$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.4, Exercícios 37, 38] Resolva o problema de valor inicial dado encontrando um fator integrante apropriado.
+    \begin{itensquestao}[1]
+        \item $xdx+(x^2y+4y)dy=0,~y(4)=0$
+        \item $(x^2+y^2-5)dx=(y+xy)dy,~y(0)=1$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.5, Exercícios 6, 8, 10, 13] Cada uma das EDs é homogênea. Resolva a equação diferencial ou problema de valor inicial dados por meio de uma substituição apropriada.
+    \begin{itensquestao}[1]
+        \item $(y^2+yx)dx+x^2dy=0$
+        \item $\dfrac{dy}{dx}=\dfrac{x+3y}{3x+y}$
+        \item $x\dfrac{dy}{dx}=y+\sqrt{x^2-y^2},\quad x>0$
+        \item $(x+ye^{y/x})dx-xe^{y/x}dy=0, \quad y(1)=0$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.5, Exercícios 16, 17, 20, 21] Cada uma das EDs é uma equação de Bernoulli. Resolva a equação diferencial ou problema de valor inicial por meio de uma substituição apropriada.
+    \begin{itensquestao}[1]
+        \item $\dfrac{dy}{dx}-y=e^xy^2$
+        \item $\dfrac{dy}{dx}=y(xy^3-1)$
+        \item $3(1+t^2)\dfrac{dy}{dx}=2ty(y^3-1)$
+        \item $x^2\dfrac{dy}{dx}-2xy=3y^4,\quad y(1)=\dfrac{1}{2}$
+    \end{itensquestao}
+
+    \exercicio[Zill Seção 2.5, Exercícios 24, 25, 27] Cada uma das EDs é da forma $y'=f(Ax+By+C)$. Resolva a equação diferencial ou problema de valor inicial por meio de uma substituição apropriada.
+    \begin{itensquestao}[1]
+        \item $\dfrac{dy}{dx}=\dfrac{1-x-y}{x+y}$
+        \item $\dfrac{dy}{dx}=\tan^2(x+y)$
+        \item $\dfrac{dy}{dx}=2+\sqrt{y-2x+3}$
+        \item $\dfrac{dy}{dx}=\cos(x+y),\quad y(0)=\dfrac{\pi}{4}$
+    \end{itensquestao}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESOLUÇÕES
@@ -44,6 +129,101 @@
     \begin{resolucao}
         \definecolor{quivercolor}{HTML}{73B0FF}
         \definecolor{isocolor}{HTML}{C9C9C9}
+
+        Para resolver o exercício, primeiramente, devemos determinar as equações das curvas de isóclina que usaremos. Assim, como $x+y=c$, reescrevemos $y=c-x,~c\in\mathbb{Z},~-5\leq c\leq5$. Traçando essas curvas, temos
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=10cm,
+                height=10cm,
+                view={0}{90},
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                axis equal image, % Garante a proporção correta
+                grid=major,
+                xtick={-5,-4,...,5},
+                ytick={-5,-4,...,5},
+                xlabel={$x$},
+                ylabel={$y$},
+                % Corta qualquer coisa desenhada fora da área do gráfico (ex: a extrapolação)
+                restrict y to domain=-10:10, 
+                clip=true
+            ]
+
+            % 2. Isóclinas (c = -5 a 5)
+            \pgfplotsinvokeforeach{-5,-4,...,5}{
+                \addplot [
+                    domain=-5:5, 
+                    samples=2, 
+                    dashed, 
+                    color=black, 
+                    thick
+                ] {#1 - x};
+            }
+
+            \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+        Em seguida, devemos traçar os elementos lineares com inclinação $\dfrac{dy}{dx}=c$ sobre cada isóclina $x+y=c$, compondo assim o campo direcional
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=10cm,
+                height=10cm,
+                view={0}{90},
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                axis equal image, % Garante a proporção correta
+                grid=major,
+                xtick={-5,-4,...,5},
+                ytick={-5,-4,...,5},
+                xlabel={$x$},
+                ylabel={$y$},
+                % Corta qualquer coisa desenhada fora da área do gráfico (ex: a extrapolação)
+                restrict y to domain=-10:10, 
+                clip=true
+            ]
+
+            % 1. Campo Direcional (Quiver)
+            % Obs: O pgfplots vai desenhar o campo em toda a malha. 
+            % Se o vetor sair da área, o 'clip=true' corta automaticamente.
+            \addplot3 [
+                quiver={
+                    u={1 / sqrt(1 + (x+y)^2)},
+                    v={(x+y) / sqrt(1 + (x+y)^2)},
+                    scale arrows=0.5,
+                    every arrow/.append style={-stealth}
+                },
+                samples=11, % equivale ao passo de 1 no meshgrid (-5:1:5)
+                domain=-5:5,
+                y domain=-5:5,
+                color=blue,
+                line width = 1pt,
+            ] (x,y,0);
+
+            % 2. Isóclinas (c = -5 a 5)
+            \pgfplotsinvokeforeach{-5,-4,...,5}{
+                \addplot [
+                    domain=-5:5, 
+                    samples=2, 
+                    dashed, 
+                    color=black, 
+                    thick
+                ] {#1 - x};
+            }
+
+            \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
+        A partir da condição inicial $y(0)=1$, fazemos o esboço da nossa curva solução, começando por $x\geq0$: como verificado pelo campo direcional traçado, ao sair do ponto inicial, a solução segue com inclinação $\dfrac{dy}{dx}=1$ até o ponto em que cruza a próxima curva isóclina $x+y=2$. A partir dele, a curva tem inclinação $\dfrac{dy}{dx}=2$ até encontrar a próxima isóclina, e assim por diante.
+        
+        O procedimento é semelhante para $x<0$: A curva chega até a condição inicial com inclinação $\dfrac{dy}{dx}=1$, partindo do ponto de cruzamento com a isóclina $x+y=0$. Nesse ponto, por sua vez, a curva chega com inclinação $\dfrac{dy}{dx}=0$ desde o ponto de cruzamento com a isóclina anterior. Na curva $x+y=-1$, a inclinação do campo direcional coincide com a de todas as isóclinas, indicando que a solução tende assintoticamente à reta descrita por $y=-1-x$ quando $x<0$. Um esboço da solução é apresentado a seguir:
 
         \begin{figure}[H]
             \centering
@@ -93,15 +273,6 @@
                 ] {#1 - x};
             }
 
-            % 3. Solução Analítica (Exata)
-            % Restringimos o domínio do x para não estourar o limite y e causar erros de compilação
-            \addplot [
-                domain=-5:1.6, 
-                samples=100, 
-                color=black, 
-                line width = 1pt
-            ] {2*exp(x) - x - 1};
-
             % 4. Aproximação Linear (Interseção das isóclinas calculada do seu código)
             % Pontos Backward: (-5, 4) -> (-1.5, 0.5) -> (-0.5, 0.5)
             % Ponto Inicial: (0, 1)
@@ -135,11 +306,126 @@
             \end{tikzpicture}
         \end{figure}
 
+        Apesar de não ser pedido na questão, vamos solucionar o PVI a fim de verificar se o esboço da solução se aproxima da solução analítica. Primeiramente, reorganizamos a equação na forma $\dfrac{dy}{dx}-y=x$. A equação linear de primeira ordem pode ser resolvida a partir do emprego de um fator integrante $\mu(x)=e^{\int P(x)dx}$, em que, nesse caso, $P(x)=-1$. Dessa forma, temos que $\mu(x)=e^{-x}$. Multiplicando o fator integrante em ambos os lados da equação,
+        \[e^{-x}\frac{dy}{dx}-e^{-x}y=xe^{-x}\Rightarrow\frac{d}{dx}(ye^{-x})=xe^{-x}\Rightarrow ye^{-x}=\int xe^{-x}dx\]
+        A fim de integrar o lado direito por partes, tomamos
+        \[\begin{cases}
+        u=x\rightarrow du=dx\\
+        dv=e^{-x}dx\rightarrow v=-e^{-x}
+        \end{cases}\]
+
+        Ou seja,\[\int xe^{-x}dx=-xe^{-x}+\int e^{-x}dx=-xe^{-x}-e^{-x}+C\]
+        Dessa maneira, \[ye^{-x}=-xe^{-x}-e^{-x}+C\Rightarrow y(x)=Ce^x-x-1\]
+
+        Substituindo a condição inicial na expressão de $y(x)$ encontrada, $1=-1+C$. Ou seja, $C=2$ e a solução do PVI é \[\boxed{y(x)=2e^x-x-1}\] O esboço previamente traçado é sobreposto pela solução encontrada:
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=10cm,
+                height=10cm,
+                view={0}{90},
+                xmin=-5, xmax=5,
+                ymin=-5, ymax=5,
+                axis equal image, % Garante a proporção correta
+                grid=major,
+                xtick={-5,-4,...,5},
+                ytick={-5,-4,...,5},
+                xlabel={$x$},
+                ylabel={$y$},
+                % Corta qualquer coisa desenhada fora da área do gráfico (ex: a extrapolação)
+                restrict y to domain=-10:10, 
+                clip=true,
+                legend style={at={(0.98,0.02)},anchor=south east},
+                legend cell align = {left}
+            ]
+
+            % 1. Campo Direcional (Quiver)
+            % Obs: O pgfplots vai desenhar o campo em toda a malha. 
+            % Se o vetor sair da área, o 'clip=true' corta automaticamente.
+            \addplot3 [
+                quiver={
+                    u={1 / sqrt(1 + (x+y)^2)},
+                    v={(x+y) / sqrt(1 + (x+y)^2)},
+                    scale arrows=0.5,
+                    every arrow/.append style={-stealth}
+                },
+                samples=11, % equivale ao passo de 1 no meshgrid (-5:1:5)
+                domain=-5:5,
+                y domain=-5:5,
+                color=quivercolor,
+                line width = 1pt,
+                forget plot
+            ] (x,y,0);
+
+            % 2. Isóclinas (c = -5 a 5)
+            \pgfplotsinvokeforeach{-5,-4,...,5}{
+                \addplot [
+                    domain=-5:5, 
+                    samples=2, 
+                    dashed, 
+                    color=isocolor, 
+                    thick,
+                    forget plot
+                ] {#1 - x};
+            }
+
+            % 3. Solução Analítica (Exata)
+            % Restringimos o domínio do x para não estourar o limite y e causar erros de compilação
+            \addplot [
+                domain=-5:1.6, 
+                samples=100, 
+                color=black, 
+                line width = 1pt
+            ] {2*exp(x) - x - 1};
+            \addlegendentry{Solução analítica}
+
+            % 4. Aproximação Linear (Interseção das isóclinas calculada do seu código)
+            % Pontos Backward: (-5, 4) -> (-1.5, 0.5) -> (-0.5, 0.5)
+            % Ponto Inicial: (0, 1)
+            % Pontos Forward: (0.5, 1.5) -> (0.833, 2.167) -> (1.083, 2.917) -> (1.283, 3.717)
+            % Extrapolação: (1.883, 6.717) - Será cortada visualmente pelo eixo do gráfico
+            \addplot [
+                color=blue, 
+                line width = 1pt, 
+                mark=*, 
+                mark options={fill=blue, scale=0.8}
+            ] coordinates {
+                (-5.0000, 4.0000)
+                (-1.5000, 0.5000)
+                (-0.5000, 0.5000)
+                (0.0000, 1.0000)
+                (0.5000, 1.5000)
+                (0.8333, 2.1667)
+                (1.0833, 2.9167)
+                (1.2833, 3.7167)
+                (1.8833, 6.7167)
+            };
+            \addlegendentry{Esboço}
+
+            % 5. Ponto Inicial em Destaque (com borda preta, igual ao seu scatter)
+            \addplot [
+                only marks,
+                mark=*,
+                mark options={fill=blue, draw=black, thick, scale=1.2}
+            ] coordinates {(0,1)};
+
+            \end{axis}
+            \end{tikzpicture}
+        \end{figure}
+
     \end{resolucao}
 
     \begin{resolucao}
 
-        \itemresolucao
+        \itemresolucao A fim de determinar os pontos críticos, tomamos $f(y)=y^2-3y=0$. Ou seja, $y=0$ ou $y=3$. Analisando o sinal de $f(y)=\dfrac{dy}{dx}$ nos intervalos definidos pelos pontos críticos, temos que
+        \[\begin{cases}
+            \dfrac{dy}{dx}>0,\quad y>3\\
+            \dfrac{dy}{dx}<0,\quad 0<y<3\\
+            \dfrac{dy}{dx}>0,\quad y<0\\
+        \end{cases}\]
+        A partir da análise do sinal da derivada, fazemos o retrato de fase da equação e classificamos cada ponto crítico:
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}[scale=0.5]
@@ -164,10 +450,12 @@
                     \draw[dir] (0, \y) -- (0, \y+0.4);
             \end{tikzpicture}
         \end{figure}
+        A partir disso, podemos esboçar curvas integrais típicas para cada região do plano:
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}
                 \begin{axis}[
+                    xmajorticks=false,
                     domain=0:4,
                     xmin=0, xmax=4,
                     ymin=-1, ymax=4.5,
@@ -191,7 +479,10 @@
             \end{tikzpicture}
         \end{figure}
 
-        \itemresolucao
+        \itemresolucao Igualando $f(y)$ a zero para encontrar as soluções de equilíbrio, temos
+        \[ (y - 2)^4 = 0 \implies y = 2 \]
+
+        Além disso, como a potência é par, $(y - 2)^4 \geq 0$ para todo $y$. A derivada não muda de sinal nas proximidades do ponto crítico, sendo sempre positiva. Dessa maneira, construímos o retrato de fase e classificamos o ponto de equilíbrio:
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}[scale=0.5]                
@@ -208,6 +499,7 @@
                     \draw[dir] (0, \y) -- (0, \y+0.4);
             \end{tikzpicture}
         \end{figure}
+        Assim, podemos esboçar as curvas integrais típicas para as duas regiões do plano:
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}
@@ -233,59 +525,16 @@
             \end{tikzpicture}
         \end{figure}
 
-        \itemresolucao
-        \begin{figure}[H]
-            \centering
-            \begin{tikzpicture}[scale=0.7]
-                
-                \draw[axis] (0,-2) -- (0,2);
-                
-                \node[dot, label=right:{$y=0$ (Instável)}] at (0,0) {};
-                \node[dot, label=right:{$y=-1$ (Assintoticamente estável)}] at (0,-1) {};
-                \node[open dot, label=right:{$y=-2$}] at (0,-2) {};
-                
-                % Região -2 < y < -1 (Sobe) - setas um pouco menores devido ao espaço curto
-                \foreach \y in {-1.8, -1.4} 
-                    \draw[dir] (0, \y) -- (0, \y+0.25);
-                    
-                % Região -1 < y < 0 (Desce)
-                \foreach \y in {-0.2, -0.6} 
-                    \draw[dir] (0, \y) -- (0, \y-0.25);
-                    
-                % Região y > 0 (Sobe)
-                \foreach \y in {0.4, 1.4} 
-                    \draw[dir] (0, \y) -- (0, \y+0.4);
-            \end{tikzpicture}
-        \end{figure}
-        \begin{figure}[H]
-            \centering
-            \begin{tikzpicture}
-                \begin{axis}[
-                    domain=0:4,
-                    xmin=0, xmax=4,
-                    ymin=-2.2, ymax=1.5,
-                    xlabel=$x$, ylabel=$y$,
-                    axis lines=left,
-                    grid=both,
-                    grid style={dashed, gray!30},
-                    width=10cm, height=7cm,
-                    restrict y to domain=-2.5:2
-                ]
-                
-                % Retas de Equilíbrio e Restrição
-                \addplot [black, dashed, thick, domain=0:4] {0} node[pos=0.8, above right] {$y=0$};
-                \addplot [black, dashed, thick, domain=0:4] {-1} node[pos=0.8, below] {$y=-1$};
-                \addplot [black, dotted, thick, domain=0:4] {-2} node[pos=0.8, above] {$y=-2$};
-                
-                % Curvas Integrais (Azul)
-                \addplot [blue, very thick, samples=30, domain=0:4] {0.05*exp(1.5*x)}; % Região y > 0
-                \addplot [blue, very thick, samples=30, domain=0:4] {-1 / (1 + exp(-3*(x-2)))}; % Região -1 < y < 0
-                \addplot [blue, very thick, samples=30, domain=0:4] {-2 + 1 / (1 + exp(-3*(x-2)))}; % Região -2 < y < -1
-                \end{axis}
-            \end{tikzpicture}
-        \end{figure}
+        \itemresolucao Igualamos a expressão de $f(y)$ a zero:
+        \[ \frac{ye^y - 9y}{e^y} = 0 \implies ye^y - 9y = 0 \]
 
-        \itemresolucao
+        Fatorando a expressão, obtemos $y(e^y - 9) = 0$. Ou seja, os pontos críticos são $y = 0$ e $y = \ln(9)$. Além disso, analisando o sinal de $\dfrac{dy}{dx}=f(y)$, temos que
+        \[\begin{cases}
+            \dfrac{dy}{dx}>0,\quad y<0\\
+            \dfrac{dy}{dx}<0,\quad 0<y<\ln(9)\\
+            \dfrac{dy}{dx}>0,\quad y>\ln(9)\\
+        \end{cases}\]
+        Dessa maneira, traçamos o retrato de fase da equação diferencial e classificamos os pontos críticos.
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}[scale=0.5]
@@ -308,6 +557,7 @@
                     \draw[dir] (0, \y) -- (0, \y+0.4);
             \end{tikzpicture}
         \end{figure}
+        Por fim, podemos esboçar as curvas típicas para cada uma das regiões definidas pelos pontos críticos.
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}
@@ -334,6 +584,131 @@
                 \end{axis}
             \end{tikzpicture}
         \end{figure}
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao A equação diferencial dada pode ser reescrita da seguinte forma, separando as variáveis:
+        \[e^xy\frac{dy}{dx}=e^{-y}(1+e^{-2x})\Rightarrow ye^ydy=e^{-x}+e^{-3x}dx\]
+        Integrando ambos os lados,
+        \[\int ye^ydy=\int e^{-x}+e^{-3x}dx\Rightarrow ye^y-e^y=-e^{-x}-\frac{e^{-3x}}{3}+C\]
+        Ou seja, uma solução implícita da equação diferencial dada é
+        \[\boxed{e^y(y-1)=-e^{-x}-\frac{e^{-3x}}{3}+C}\]
+
+        \itemresolucao Reescrevendo a equação diferencial dada,
+        \[\frac{dy}{(2y+3)^2}=\frac{dx}{(4x+5)^2}\]
+        Integrando ambos os lados,
+        \[\int\frac{dy}{(2y+3)^2}=\int\frac{dx}{(4x+5)^2}\]
+        Fazemos as seguintes mudanças de variáveis:
+        \[\begin{cases}
+            u=2y+3\Rightarrow du=2dy\\
+            v=4x+5\Rightarrow dv=4dx\\
+        \end{cases}\]
+        Dessa maneira,
+        \[\frac{1}{2}\int\frac{du}{u^2}=\frac{1}{4}\int\frac{dv}{v^2}\Rightarrow\frac{1}{2}\left(-\frac{1}{u}\right)=\frac{1}{4}\left(-\frac{1}{v}\right)+C_1\]
+        \[\frac{1}{2y+3}=\frac{1}{2(4x+5)}+C,\quad\text{onde }C=-C_1\]
+        Isolando y para determinar uma solução explícita, 
+        \[\boxed{y=\frac{(8-24C)x+7-30C}{16Cx+20C+2}}\]
+
+        \itemresolucao Manipulando a equação diferencial fornecida, temos
+        \[\frac{1}{\sin(y)}dx=-\frac{1}{\cos^2(x)}dy\Rightarrow-\cos^2(x)dx=\sin(y)dy\Rightarrow-\int\cos^2(x)dx=\int\sin(y)dy\]
+        A integração do lado direito da equação é direta. Desenvolvendo a integral do lado esquerdo por partes, adotamos
+        \[\begin{cases}
+            u=\cos(x)\rightarrow du=-\sin(x)dx\\
+            dv=\cos(x)dx\rightarrow v=\sin(x)dx
+        \end{cases}\]
+        Dessa maneira,
+        \[\int\cos^2(x)dx=\sin(x)\cos(x)+\int \sin^2(x)dx=\sin(x)\cos(x)+\int 1-\cos^2(x)dx\]
+        \[\int\cos^2(x)dx=\sin(x)\cos(x)+\int dx-\int\cos^2(x)dx\]
+        Agrupando as integrais de $\cos^2(x)$,
+        \[2\int\cos^2(x)dx=\sin(x)\cos(x)+x\Rightarrow \int\cos^2(x)dx=\frac{\sin(x)\cos(x)}{2}+\frac{x}{2}\]
+        Retornando à equação diferencial dada,
+        \[-\cos(y)+C=-\frac{\sin(x)\cos(x)}{2}+\frac{x}{2}\Rightarrow\boxed{y=\arccos\left(\frac{\sin(x)\cos(x)+x}{2}-C\right)}\]
+
+        \itemresolucao Reescrevendo a equação diferencial,
+        \[(e^y+1)^2e^{-y}dx=-e^{-x}(e^x+1)^3dy\Rightarrow\frac{e^x}{(e^x+1)^3}dx=-\frac{e^y}{(e^y+1)^2}dy\]
+        Antes de integrar ambos os lados, façamos as seguintes substituições:
+        \[\begin{cases}
+            u=e^y+1\rightarrow du=e^ydy\\
+            v=e^x+1\rightarrow dv=e^xdx\\
+        \end{cases}\]
+        Dessa maneira, temos
+        \[\int\frac{dv}{v^3}=-\int\frac{du}{u^2}\Rightarrow-\frac{1}{2v^2}+C=\frac{1}{u}\Rightarrow\frac{2v^2C-1}{2v^2}=\frac{1}{u}\Rightarrow u=\frac{2v^2}{2v^2C-1}\]
+        Por fim, substituindo os valores,
+        \[e^y+1=\frac{2(e^x+1)^2}{2(e^x+1)^2C-1}\Rightarrow\boxed{y=\ln\left(\frac{2(e^x+1)^2}{2(e^x+1)^2C-1}-1\right)}\]
+
+        \itemresolucao Podemos reescrever a equação da seguinte forma: \[\frac{dP}{P(1-P)}=dt\Rightarrow\frac{dP}{P}+\frac{dP}{1-P}=dt\]
+        Integrando ambos os lados da equação, obtemos
+        \[\ln|P|-\ln|1-P|=t+C_1\Rightarrow\ln\left|\frac{P}{1-P}\right|=t+C_1\Rightarrow\left|\frac{P}{1-P}\right|=C_2e^t\]
+        onde $C_2=e^{C_1}$. Retirando o módulo,
+        \[\frac{P}{1-P}=\pm C_2e^t=Ce^t\]
+        já que $C$ é uma constante arbitrária e pode assumir qualquer sinal. Por fim, isolando $P$, obtemos
+        \[\boxed{P=\frac{Ce^t}{1+Ce^t}}\]
+
+        \itemresolucao Separando os termos da equação,
+        \[\frac{dy}{\sqrt{1-y}}=xdx\Rightarrow\int\frac{dy}{\sqrt{1-y}}=\int xdx\]
+        Para integrar o lado esquerdo da equação, fazemos a seguinte substituição de variáveis:
+        \[\begin{cases}
+            y=\sin(\theta)\\
+            dy=\cos(\theta)d\theta
+        \end{cases}\]
+        Dessa forma,
+        \[\int \frac{\cos(\theta)}{\sqrt{1-\sin^2(\theta)}}d\theta=\int \frac{\cos(\theta)}{\sqrt{\cos^2(\theta)}}d\theta=\int \frac{\cos(\theta)}{\cos(\theta)}d\theta=\theta,\quad-\frac{\pi}{2}\leq\theta\leq\frac{\pi}{2}\]
+        Pela substituição previamente realizada, sabemos, portanto, que o resultado da integral é $\theta=\arcsin(y)$. Substituindo na equação diferencial,
+        \[\arcsin(y)=\frac{x^2}{2}+C\Rightarrow \boxed{y=\sin\left(\frac{x^2}{2}+C\right)}\]
+
+    \end{resolucao}
+
+    \begin{resolucao}
+        Separando as variáveis da equação diferencial dada, \[\frac{2x}{x^2+10}dx=\frac{\cos(y)}{\sin^2(y)}dy\Rightarrow\int\frac{2x}{x^2+10}dx=\int\frac{\cos(y)}{\sin^2(y)}dy\]
+        Façamos as seguintes mudanças de variável:
+        \[\begin{cases}
+            u=x^2+10\rightarrow du=2xdx\\
+            v=\sin(y)\rightarrow dv=\cos(y)dy
+        \end{cases}\]
+        Dessa forma,
+        \[\int\frac{du}{u}=\frac{dv}{v^2}\Rightarrow\ln|u|=-\frac{1}{v}+C\Rightarrow\ln|x^2+10|=-\frac{1}{\sin(y)}+C\]
+        Como $x^2+10$ é sempre positivo, podemos retirar o módulo. Dessa forma, chegamos à expressão do enunciado, $\boxed{\ln(x^2+10)+\mathrm{cossec}(y)=C}$
+        A fim de encontrar as soluções constantes da EDO, podemos reorganizá-la na forma
+        \[\frac{dy}{dx}=\frac{2x}{x^2+10}\frac{\sin^2(y)}{\cos(y)}=0\Rightarrow2x\sin^2(y)=0\Rightarrow\boxed{y=k\pi,~k\in\mathbb{Z}}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Separando as variáveis, temos
+        \[ydy=e^{\sqrt{x}}dx\Rightarrow\int ydy=\int e^{\sqrt{x}}dx\]
+        Para resolver a integral do lado direito, podemos realizar a seguinte mudança de variáveis:
+        \[
+            u=x^{\frac{1}{2}}\rightarrow du=\frac{1}{2}x^{-\frac{1}{2}}dx\Rightarrow dx=2x^{\frac{1}{2}}du=2udu
+        \]
+        Portanto, a equação diferencial se torna
+        \[\frac{y^2}{2}=\int e^u2udu\Rightarrow\frac{y^2}{4}=ue^u-e^u+C\]
+        \[\frac{y^2}{4}=e^{\sqrt{x}}(\sqrt{x}-1)+C\Rightarrow y=\pm\sqrt{4e^{\sqrt{x}}(\sqrt{x}-1)+C}\]
+        Tomamos a equação de sinal positivo, pois dada a condição inicial fornecida, $y(x)$ deve assumir valores positivos. Substituindo a CI para determinar a constante de integração,
+        \[4=\sqrt{4e\cdot0+C}\Rightarrow C=16\]
+        Assim, obtemos a solução da equação diferencial:
+        \[\boxed{y(x)=\sqrt{4e^{\sqrt{x}}(\sqrt{x}-1)+16}},\quad x\geq0\]
+
+        \itemresolucao Reescrevendo a equação diferencial,
+        \[ydy=x\arctan(x)dx\Rightarrow\int ydy=\int x\arctan(x)dx\]
+        Podemos integrar o lado direito da equação por partes. Tomemos
+        \[\begin{cases}
+            u=\arctan(u)\rightarrow du=\dfrac{1}{x^2+1}dx\\
+            dv=xdx\rightarrow v=\dfrac{x^2}{2}
+        \end{cases}\]
+        Dessa maneira,
+        \[\int x\arctan(x)dx=\frac{x^2}{2}\arctan(x)-\frac{1}{2}\int\frac{x^2}{x^2+1}dx \]
+        Podemos desenvolver a integral de $\dfrac{x^2}{x^2+1}$ da seguinte forma:
+        \[\int\frac{x^2}{x^2+1}dx=\int\frac{x^2+1-1}{x^2+1}dx=\int\frac{x^2+1}{x^2+1}dx-\int\frac{1}{x^2+1}dx\]
+        \[\int\frac{x^2}{x^2+1}dx=x-\arctan(x)+C\]
+        Portanto, 
+        \[\int x\arctan(x)dx=\frac{x^2}{2}\arctan(x)-\frac{1}{2}(x-\arctan(x)+C)\]
+        Substituindo na equação diferencial,
+        \[\frac{y^2}{2}=\frac{x^2}{2}\arctan(x)-\frac{1}{2}(x-\arctan(x)+C)\]
+        \[y^2=(x^2+1)\arctan(x)-x-C\Rightarrow y=\pm\sqrt{(x^2+1)\arctan(x)-x-C}\]
+        Dada a condição inicial positiva, tomamos a expressão de $y$ que retorna valores positivos. Substituindo a CI em $y$, temos
+        \[3=\sqrt{-C}\Rightarrow -C=9\]
+        Dessa maneira,
+        \[\boxed{y(x)=\sqrt{(x^2+1)\arctan(x)-x+9}}\]
+
     \end{resolucao}
 
 \end{document}
