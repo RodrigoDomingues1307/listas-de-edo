@@ -59,20 +59,12 @@
         \item $\dfrac{dr}{d\theta}+r\sec{\theta}=\cos{\theta}$
     \end{itensquestao}
 
-    \exercicio[Zill Seção 2.3, Exercícios 37, 40] Resolva o problema de valor inicial dado. Use um software gráfico para representar a função contínua $y(x)$.
-
-    \begin{itensquestao}[1]
-        \item \[\dfrac{dy}{dx}+2y=f(x),~\text{onde}~f(x)=
+    \exercicio[Zill Seção 2.3, Exercício 37] Resolva o problema de valor inicial dado. Use um software gráfico para representar a função contínua $y(x)$.
+        \[\dfrac{dy}{dx}+2y=f(x),~\text{onde}~f(x)=
         \begin{cases}
             1,\quad0\leq x\leq 3\\
             0,\quad x>3
         \end{cases},~y(0)=0\]
-        \item \[(1+x^2)\dfrac{dy}{dx}+2xy=f(x),~\text{onde}~f(x)=
-        \begin{cases}
-            x,\quad0\leq x\leq 1\\
-            -x,\quad x>1
-        \end{cases},~y(0)=0\]
-    \end{itensquestao}
 
     \exercicio[Zill Seção 2.3, Exercício 42] Considere o problema de valor inicial $y'+e^xy=f(x),~y(0)=1$. Expresse a solução do PVI para $x>0$ como uma integral não elementar quando $f(x)=1$. Qual é a solução quando $f(x)=0$? E quando $f(x)=e^x$?
 
@@ -685,7 +677,7 @@
         Tomamos a equação de sinal positivo, pois dada a condição inicial fornecida, $y(x)$ deve assumir valores positivos. Substituindo a CI para determinar a constante de integração,
         \[4=\sqrt{4e\cdot0+C}\Rightarrow C=16\]
         Assim, obtemos a solução da equação diferencial:
-        \[\boxed{y(x)=\sqrt{4e^{\sqrt{x}}(\sqrt{x}-1)+16}},\quad x\geq0\]
+        \[\boxed{y(x)=\sqrt{4e^{\sqrt{x}}(\sqrt{x}-1)+16}}\]
 
         \itemresolucao Reescrevendo a equação diferencial,
         \[ydy=x\arctan(x)dx\Rightarrow\int ydy=\int x\arctan(x)dx\]
@@ -711,4 +703,450 @@
 
     \end{resolucao}
 
+    \begin{resolucao}
+        \itemresolucao Dada a equação diferencial, temos que $P(x)=1$. Dessa maneira, $\mu(x)=e^{\int P(x)dx}=e^{\int dx}e^{x}$. Multiplicando o fator integrante encontrado em ambos os lados da ED,
+        \[e^x\frac{dy}{dx}+e^xy=e^{4x}\Rightarrow \frac{d}{dx}(ye^x)=e^{4x}\Rightarrow \int\frac{d}{dx}(ye^x)dx=\int e^{4x}dx\]
+        \[ye^x=\frac{e^{4x}}{4}+C\Rightarrow \boxed{y(x)=Ce^{-x}+\frac{e^{3x}}{4}}\]
+        O termo $Ce^{-x}$ é transiente, dado que $e^{-3x}\to0$ quando $x\to\infty$. Tanto a ED quanto a solução geral são definidas para todo $x\in\mathbb{R}$. Portanto, tomamos o intervalo como $I=(\infty, \infty)$.
+
+        \itemresolucao Podemos reorganizar a equação diferencial da seguinte forma:
+        \[\frac{dy}{dx}-\frac{x}{1+x}y=\frac{x(1+x)}{1+x}\Rightarrow\frac{dy}{dx}-\frac{x}{1+x}y=x\]
+        Assim, identificamos $P(x)=-\dfrac{x}{1+x}$. A fim de integrar esse fator, somamos e subtraímos 1 no numerador:
+        \[-\int\frac{x}{1+x}dx=-\int\frac{x+1-1}{1+x}dx=-\left[\int dx-\int\frac{1}{1+x}dx\right]\]
+        \[-\int\frac{x}{1+x}dx=-x+\ln|1+x|\]
+        Dessa forma, $\mu(x)=e^{\int P(x)dx}=e^{-x}e^{\ln|1+x|}=|1+x|e^{-x}$. Ou, como o fator integrante multiplica os dois lados da equação, $\mu(x)=(1+x)e^{-x}$, já que o sinal é anulado. Multiplicando ambos os lados da equação diferencial,
+        \[\frac{d}{dx}(y(1+x)e^{-x})=(x+x^2)e^{-x}\]
+        A fim de integrar o lado direito, fazemos a seguinte mudança de variáveis:
+        \[\begin{cases}
+            u=x^2+x\rightarrow du=(2x+1)dx\\
+            dv=e^{-x}dx\rightarrow v=-e^{-x}
+        \end{cases}\]
+        Assim,
+        \[\int (x+x^2)e^{-x}dx=-(x^2+x)e^{-x}+\int e^{-x}(2x+1)dx=-(x^2+x)e^{-x}+\int 2xe^{-x}+e^{-x}dx\]
+        \[\int (x+x^2)e^{-x}dx=-(x^2+x)e^{-x}+2(-xe^{-x}-e^{-x})-e^{-x}+C\]
+        \[\int (x+x^2)e^{-x}dx=-e^{-x}(x^2+3x+3)+C\]
+        Ou seja,
+        \[y(1+x)e^{-x}=-e^{-x}(x^2+3x+3)+C\Rightarrow \boxed{y(x)=\frac{Ce^{x}}{1+x}-\frac{x^2+3x+3}{1+x}}\]
+        Tanto a solução encontrada quanto a equação diferencial na forma padrão não são definidas para $x=-1$. Dessa forma, tomamos $I=(-1,\infty)$ como o maior intervalo de definição. Não há termos transientes.
+
+        \itemresolucao Dividindo ambos os lados da equação por $x$
+        \[y'+\frac{1+x}{x}y=\frac{e^{-x}\sin(2x)}{x}\]
+        Dessa maneira, o fator integrante é dado por
+        \[\mu(x)=e^{\int \frac{x+1}{x}dx}=e^{x+\ln|x|}=|x|e^x\]
+        Ou, considerando que o fator multiplica ambos os lados da equação, $\mu(x)=xe^x$. Realizando esse passo e integrando ambos os lados,
+        \[\int\frac{d}{dx}(yxe^x)dx=\int\sin(2x)dx\Rightarrow yxe^x=\frac{-\cos(2x)}{2}+C\]
+        \[\boxed{y(x)=\frac{-e^{-x}\cos(2x)}{2x}+\frac{Ce^{-x}}{x}}\]
+        Analisando a equação diferencial na forma padrão e a solução obtidas, observa-se que nenhuma das duas é definida para $x=0$. Dessa forma, podemos tomar $I=(0, \infty)$ como o maior intervalo de definição. Ademais, como $e^{-x}$ aparece em ambos os termos da solução, dizemos que esta é transiente (ou seja, tende a $0$ quando $x\to\infty$).
+
+        \itemresolucao A equação diferencial já está organizada na forma padrão. Assim, temos $P(\theta)=\sec(\theta)$. Integrando esse termo em relação a $\theta$, temos
+        \[\int \sec(\theta)d\theta=\int\sec(\theta)\frac{\sec(\theta)+\tan(\theta)}{\sec(\theta)+\tan(\theta)}d\theta=\int\frac{\sec^2(\theta)+\sec(\theta)\tan(\theta)}{\sec(\theta)+\tan(\theta)}d\theta\]
+        Com isso, fazemos a seguinte mudança de variáveis: 
+        \[\begin{cases}
+            u=\sec(\theta)+\tan(\theta)\\
+            du=\sec^2(\theta)+\sec(\theta)\tan(\theta)d\theta
+        \end{cases}\]
+        Portanto,
+        \[\int \sec(\theta)d\theta=\int\frac{du}{u}=\ln|u|=\ln|\sec(\theta)+\tan(\theta)|\]
+        Dessa maneira, o fator integrante é $\mu(x)=e^{\ln|\sec(\theta)+\tan(\theta)|}=\sec(\theta)+\tan(\theta)$
+        Multiplicando e integrando ambos os lados da equação diferencial,
+        \[(\sec(\theta)+\tan(\theta))r=\int 1+\sin(\theta)d\theta=\theta-\cos(\theta)+C\]
+        \[\boxed{r(\theta)=\frac{\theta-\cos(\theta)+C}{\sec(\theta)+\tan(\theta)}}\]
+        A equação diferencial é indefinida em $\mathbb{R}$ quando $\cos(\theta)=0$. Ou seja, $\theta\neq\dfrac{(2k+1)\pi}{2},~k\in\mathbb{Z}$. Além disso, o denominador da solução encontrada deve ser diferente de $0$ e $\theta$ deve satisfazer os intervalos de definição das funções trigonométricas, condição também satisfeita por $\theta\neq\dfrac{(2k+1)\pi}{2},~k\in\mathbb{Z}$. Assim, tomamos o maior intervalo de definição como $I=\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)$.
+    \end{resolucao}
+
+    \begin{resolucao}
+        Primeiramente, devemos encontrar o fator integrante. Como $P(x)=2$, $\mu(x)=e^{2x}$. Multiplicando e integrando ambos os lados da equação, temos
+        \[ye^{2x}=\int e^{2x}f(x)dx\]
+        Substituindo $f(x)=1$, podemos determinar
+        \[ye^{2x}=\int e^{2x}dx=\frac{e^{2x}}{2}+C\Rightarrow y(x)=Ce^{-2x}+\frac{1}{2},~0\leq x\leq3\]
+        Substituindo a condição inicial, $C=-\dfrac{1}{2}$. Portanto,
+        \[y(x)=\frac{1-e^{-2x}}{2},~0\leq x\leq3\]
+        Agora, substituímos $f(x)=0$ na equação expressão previamente encontrada. Com isso, calculamos
+        \[ye^{2x}=\int dx=C\Rightarrow y=Ce^{-2x},~x>3\]
+        Usamos o fato que a função deve ser contínua em $x=3$ para encontrar o valor da constante de integração:
+        \[\frac{1-e^{-2\cdot3}}{2}=Ce^{-2\cdot3}\Rightarrow C=\frac{e^6-1}{2}\]
+        Ou seja, $y(x)=\dfrac{e^6-1}{2}e^{-2x},~x>3$. Assim a função que resolve o PVI dado é
+        \begin{gather*}
+            \boxed{
+            y(x)=\begin{cases}
+                \dfrac{1-e^{-2x}}{2},\quad0\leq x\leq3\\
+                \dfrac{e^6-1}{2}e^{-2x},\quad x>3
+            \end{cases}
+            }
+        \end{gather*}
+        O plot da função pode ser observado abaixo:
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines = left,
+                    xlabel = {$x$},
+                    ylabel = {$y(x)$},
+                    ymin = 0, ymax = 1, % Ajuste os limites de y conforme necessário
+                    xmin = 0, xmax = 10, 
+                    grid = major,
+                    width = 10cm,
+                    height = 6cm,
+                    samples = 100,
+                    xtick = {0, 1,...,10},
+                    ytick = {0, 0.2,...,1}
+                    %legend pos = north east
+                ]
+
+                % Primeira parte da função: 0 <= x <= 3
+                \addplot [
+                    domain=0:3,
+                    color=blue,
+                    line width=1.5
+                ]
+                {(1 - exp(-2*x))/2};
+
+                % Segunda parte da função: x > 3
+                \addplot [
+                    domain=3:10, % Limite superior arbitrário (6) para visualização
+                    color=blue,
+                    line width = 1.5
+                ]
+                {((exp(6) - 1)/2) * exp(-2*x)};
+
+                \end{axis}
+                \end{tikzpicture}
+        \end{figure}
+    \end{resolucao}
+
+    \begin{resolucao}
+        Temos que $P(x)=e^x$. Portanto, o fator integrante da equação diferencial será $\mu(x)=e^{e^x}$. Multiplicando ambos os lados da equação quando $f(x)=1$, temos
+        \[\frac{d}{dx}ye^{e^x}=e^{e^x}\]
+        Ao tentar integrar ambos os lados, notamos que $\int e^{e^x}dx$ é uma integral não elementar. Dessa forma, utilizaremos integrais definidas na variável auxiliar $t$ para expressar a solução do problema, em que $x>0$:
+        \[\int_{0}^{x}\frac{d}{dt}y(t)e^{e^t}dt=\int_{0}^{x}e^{e^t}dt\Rightarrow y(x)e^{e^x}-y(0)e^{e^0}=\int_{0}^{x}e^{e^t}dt\]
+        Ou seja,
+        \[y(x)=y(0)e^{1-e^x}+e^{-e^x}\int_{0}^{x}e^{e^t}dt\]
+        Ou, substituindo a condição inicial,
+        \[\boxed{y(x)=e^{1-e^x}+e^{-e^x}\int_{0}^{x}e^{e^t}dt}\]
+        Agora, para $f(x)=0$, temos
+        \[\int\frac{d}{dx}(ye^{e^x})dx=\int 0dx\Rightarrow ye^{e^x}=C\Rightarrow y=Ce^{-e^x}\]
+        Substituindo a condição inicial, $C=e$. Portanto, $\boxed{y(x)=e^{1-e^x}}$.
+        Por fim, para $f(x)=e^x$, temos
+        \[\frac{d}{dx}ye^{e^x}=e^{x+e^x}\Rightarrow\int\frac{d}{dx}(ye^{e^x})dx=\int e^{x+e^x}dx\]
+        Fazendo a mudança de variáveis $u=e^x$, $du=e^xdx$, desenvolvemos
+        \[ye^{e^x}=\int e^udu=e^u+C=e^{e^x}+C\]
+        \[y(x)=Ce^{-e^x}+1\]
+        Substituindo a condição inicial, $C=0$. Portanto, a solução é simplesmente $\boxed{y(x)=1}$
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Para que a equação seja exata, $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$. Assim, analisemos as derivadas parciais:
+        \[\frac{\partial M}{\partial y}=\frac{\partial}{\partial y}(y\ln(y)-e^{-xy})=\ln(y)+1+xe^{-xy}\]
+        \[\frac{\partial N}{\partial x}=\frac{\partial}{\partial x}\left(\frac{1}{y}+x\ln(y)\right)=\ln(y)\]
+        Como $\dfrac{\partial M}{\partial y}\neq\dfrac{\partial N}{\partial x}$, a equação fornecida não é exata.
+
+        \itemresolucao Reorganizando a equação diferencial dada,
+        \[\left(x^2y^3-\frac{1}{1+9x^2}\right)dx-x^3y^2dy=0\]
+        Analisando as derivadas parciais de $M$ e $N$,
+        \[\frac{\partial M}{\partial y}=\frac{\partial}{\partial y}\left(x^2y^3-\frac{1}{1+9x^2}\right)=3x^2y^2\]
+        \[\frac{\partial N}{\partial x}=\frac{\partial}{\partial x}(x^3y^2)=3x^2y^2\]
+        Portanto, a equação é exata. Para resolvê-la, integramos $N$ em relação a $y$:
+        \[f(x,y)=\int Ndy=\int x^3y^2dy=\frac{x^3y^3}{3}+g(x)\]
+        Derivando em relação a $x$, 
+        \[\frac{\partial f}{\partial x}=M=x^2y^3+g'(x)\Rightarrow g'(x)=-\frac{1}{1+9x^2}\]
+        Integrando $g'(x)$, fazemos a seguinte mudança de variáveis: $3x=u\rightarrow dx=du/3$. Dessa maneira,
+        \[\int g'(x)dx=-\frac{1}{3}\int \frac{du}{1+u^2}=-\frac{1}{3}\arctan(3x)\]
+        Assim, encontramos $f(x,y)=c$ que satisfaz a equação diferencial:
+        \[\boxed{\frac{x^3y^3}{3}-\frac{1}{3}\arctan(3x)=c}\]
+
+        \itemresolucao Para a equação $(\tan(x)-\sin(x)\sin(y))dx+\cos(x)\cos(y)dy=0$, identificamos as funções $M(x,y)=\tan(x)-\sin(x)\sin(y)$ e $N(x,y)=\cos(x)\cos(y)$. 
+        Para verificar se a equação é exata, calculamos as derivadas parciais:
+        \[\frac{\partial M}{\partial y}=-\sin(x)\cos(y)\]
+        \[\frac{\partial N}{\partial x}=-\sin(x)\cos(y)\]
+        Como $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$, a equação é de fato exata. Para resolvê-la, integramos $N$ em relação a $y$:
+        \[f(x,y)=\int\cos(x)\cos(y)dy=\cos(x)\sin(y)+g(x)\]
+        Derivando esse resultado em relação a $x$ e igualando a $M$, temos:
+        \[\frac{\partial f}{\partial x}=-\sin(x)\sin(y)+g'(x)=\tan(x)-\sin(x)\sin(y)\]
+        Logo, concluímos que $g'(x)=\tan(x)$, o que nos fornece $g(x)=\int\tan(x)dx=-\ln|\cos(x)|$. Portanto, a solução da equação diferencial é dada implicitamente por:
+        \[\boxed{\cos(x)\sin(y)-\ln|\cos(x)|=c}\]
+
+        \itemresolucao Reorganizando a equação dada para a forma diferencial, obtemos $(2y\sin(x)\cos(x)-y+2y^2e^{xy^2})dx+(-x+\sin^2(x)+4xye^{xy^2})dy=0$. Identificamos $M$ e $N$:
+        \[M=2y\sin(x)\cos(x)-y+2y^2e^{xy^2}\]
+        \[N=-x+\sin^2(x)+4xye^{xy^2}\]
+        Analisando as derivadas parciais:
+        \[\frac{\partial M}{\partial y}=2\sin(x)\cos(x)-1+4ye^{xy^2}+4xy^3e^{xy^2}\]
+        \[\frac{\partial N}{\partial x}=-1+2\sin(x)\cos(x)+4ye^{xy^2}+4xy^3e^{xy^2}\]
+        Como as derivadas parciais são iguais, a equação é exata. Integrando $N$ em relação a $y$:
+        \[f(x,y)=\int\left(-x+\sin^2(x)+4xye^{xy^2}\right)dy=-xy+y\sin^2(x)+2e^{xy^2}+g(x)\]
+        Derivando em relação a $x$ e igualando a $M$:
+        \[\frac{\partial f}{\partial x}=-y+2y\sin(x)\cos(x)+2y^2e^{xy^2}+g'(x)\]
+        Assim, concluímos que $g'(x)=0$, o que implica $g(x)=C_1$. Portanto, a solução implícita geral pode ser expressa como:
+        \[\boxed{y\sin^2(x)-xy+2e^{xy^2}=c}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Reescrevendo a equação diferencial na forma $Mdt+Ndy=0$, obtemos:
+        \[\left(\frac{t}{2y^4}\right)dt+\left(\frac{3y^2-t^2}{y^5}\right)dy=0\]
+        Calculamos as derivadas parciais para verificar se a equação é exata:
+        \[\frac{\partial M}{\partial y}=\frac{\partial}{\partial y}\left(\frac{t}{2}y^{-4}\right)=-2ty^{-5}=-\frac{2t}{y^5}\]
+        \[\frac{\partial N}{\partial t}=\frac{\partial}{\partial t}\left(3y^{-3}-t^2y^{-5}\right)=-2ty^{-5}=-\frac{2t}{y^5}\]
+        A equação é exata. Integrando $M$ em relação a $t$:
+        \[f(t,y)=\int \frac{t}{2y^4}dt=\frac{t^2}{4y^4}+g(y)\]
+        Derivando em relação a $y$ e igualando a $N$:
+        \[\frac{\partial f}{\partial y}=-\frac{t^2}{y^5}+g'(y)=\frac{3y^2-t^2}{y^5}=\frac{3}{y^3}-\frac{t^2}{y^5}\]
+        Disso, extraímos que $g'(y)=\dfrac{3}{y^3}$, o que nos dá $g(y)=\int 3y^{-3}dy=-\dfrac{3}{2y^2}$.
+        A família de soluções a um parâmetro é $\dfrac{t^2}{4y^4}-\dfrac{3}{2y^2}=C$. Usando a condição inicial do PVI, $y(1)=1$:
+        \[\frac{1^2}{4(1)^4}-\frac{3}{2(1)^2}=C\implies C=\frac{1}{4}-\frac{6}{4}=-\frac{5}{4}\]
+        Multiplicando toda a equação por $4$, a solução do Problema de Valor Inicial é dada por:
+        \[\boxed{\frac{t^2}{y^4}-\frac{6}{y^2}=-5}\]
+
+        \itemresolucao Reescrevendo a equação diferencial,
+        \[(y^2+y\sin(x))dx+\left(2xy-\frac{1}{1+y^2}+\cos(x)\right)=0\]
+        Dessa forma,
+        \[\frac{\partial M}{\partial y}=\frac{\partial}{\partial y}(y^2+y\sin(x))=2y+\sin(x)\]
+        \[\frac{\partial N}{\partial x}=\frac{\partial}{\partial x}\left(2xy-\frac{1}{1+y^2}-\cos(x)\right)=2y+\sin(x)\]
+        Assim, conclui-se que a equação é exata. Integrando $M$ em relação a $x$,
+        \[f(x,y)=\int y^2+y\sin(x)dx=y^2x-y\cos(x)+g(y)\]
+        Derivando em relação a $y$,
+        \[\frac{\partial f}{\partial y}=N=2xy-\cos(x)+g'(y)\]
+        Ou seja, $g'(y)=-\dfrac{1}{1+y^2}$ e, portanto, $g(y)=-\arctan(y)$. Dessa maneira, a família de soluções a um parâmetro é $y^2x-y\cos(x)-\arctan(y)=c$. Substituindo a condição inicial fornecida, $c=-1+\pi/4$. Assim, a solução do PVI é
+        \[\boxed{y^2x-y\cos(x)-\arctan(y)=-\left(1+\frac{\pi}{4}\right)}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao A equação diferencial dada é $xdx+(x^2y+4y)dy=0$. Identificamos $M(x,y)=x$ e $N(x,y)=x^2y+4y=y(x^2+4)$.
+        Calculando as derivadas parciais, temos:
+        \[\frac{\partial M}{\partial y}=0 \quad \text{e} \quad \frac{\partial N}{\partial x}=2xy\]
+        Como $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, a equação não é exata. Vamos procurar um fator integrante $\mu$. Calculando a expressão proposta:
+        \[\frac{\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}}{M}=\frac{2xy-0}{x}=2y\]
+        Como o resultado depende apenas de $y$, podemos encontrar um fator integrante $\mu(y)$:
+        \[\mu(y)=e^{\int 2y dy}=e^{y^2}\]
+        Multiplicando a equação original por $\mu(y)$, obtemos a nova equação:
+        \[xe^{y^2}dx+y(x^2+4)e^{y^2}dy=0\]
+        Esta equação agora é exata. Integrando a nova parcela $M$ em relação a $x$:
+        \[f(x,y)=\int xe^{y^2} dx=\frac{x^2}{2}e^{y^2}+g(y)\]
+        Derivando em relação a $y$ e igualando à nova parcela $N$:
+        \[\frac{\partial f}{\partial y}=\frac{x^2}{2}(2ye^{y^2})+g'(y)=x^2ye^{y^2}+g'(y)\]
+        \[x^2ye^{y^2}+g'(y) = y(x^2+4)e^{y^2} = x^2ye^{y^2}+4ye^{y^2}\]
+        Isso nos fornece $g'(y)=4ye^{y^2}$. Para integrar e achar $g(y)$, fazemos a substituição $u=y^2$, com $du=2ydy$:
+        \[g(y)=\int 4ye^{y^2}dy = 2\int e^{u}du = 2e^{y^2}\]
+        A família de soluções a um parâmetro é dada por $\dfrac{x^2}{2}e^{y^2}+2e^{y^2}=C_1$.
+        Multiplicando por $2$ e colocando a exponencial em evidência, obtemos a solução implícita:
+        \[(x^2+4)e^{y^2}=C\]
+        Aplicando a condição inicial do PVI, $y(4)=0$:
+        \[(4^2+4)e^{0^2}=C \implies C=20 \cdot 1 = 20\]
+        Portanto, a solução do Problema de Valor Inicial é:
+        \[(x^2+4)e^{y^2}=20\]
+        Ou, na forma explícita,
+        \[y(x)=\sqrt{\ln\left(\frac{20}{x^2+4}\right)}\]
+
+        \itemresolucao Reescrevendo a equação diferencial na forma $Mdx+Ndy=0$, obtemos:
+        \[(x^2+y^2-5)dx-(y+xy)dy=0\]
+        Identificamos $M(x,y)=x^2+y^2-5$ e $N(x,y)=-y(1+x)$.
+        Calculando as derivadas parciais:
+        \[\frac{\partial M}{\partial y}=2y \quad \text{e} \quad \frac{\partial N}{\partial x}=-y\]
+        Como $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$, a equação não é exata. Buscamos um fator integrante através da expressão:
+        \[\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}=\frac{2y-(-y)}{-y(1+x)}=\frac{3y}{-y(1+x)}=-\frac{3}{1+x}\]
+        Como a expressão depende apenas de $x$, o fator integrante $\mu(x)$ é:
+        \[\mu(x)=e^{\int -\frac{3}{1+x} dx}=e^{-3\ln|1+x|}=\frac{1}{(1+x)^3}\]
+        Multiplicando a equação original por $\mu(x)$, obtemos a equação exata:
+        \[\frac{x^2+y^2-5}{(1+x)^3}dx-\frac{y}{(1+x)^2}dy=0\]
+        Integrando a nova parcela $N$ em relação a $y$, 
+        \[f(x,y)=\int -\frac{y}{(1+x)^2} dy=-\frac{y^2}{2(1+x)^2}+g(x)\]
+        Derivando em relação a $x$ e igualando à nova parcela $M$:
+        \[\frac{\partial f}{\partial x}=\frac{y^2}{(1+x)^3}+g'(x)=\frac{x^2+y^2-5}{(1+x)^3}=\frac{x^2-5}{(1+x)^3}+\frac{y^2}{(1+x)^3}\]
+        Isso nos fornece $g'(x)=\frac{x^2-5}{(1+x)^3}$. Para integrar essa expressão, fazemos a substituição $u=1+x$, o que nos dá $x=u-1$ e $dx=du$:
+        \[g(x)=\int \frac{(u-1)^2-5}{u^3} du=\int \frac{u^2-2u-4}{u^3} du=\int \left(\frac{1}{u}-\frac{2}{u^2}-\frac{4}{u^3}\right) du\]
+        \[g(x)=\ln|u|+\frac{2}{u}+\frac{2}{u^2}=\ln|1+x|+\frac{2}{1+x}+\frac{2}{(1+x)^2}\]
+        A família de soluções a um parâmetro é $-\dfrac{y^2}{2(1+x)^2}+\ln|1+x|+\dfrac{2}{1+x}+\dfrac{2}{(1+x)^2}=C_1$.
+        Multiplicando por $2$ e desenvolvendo as frações, temos:
+        \[\frac{-y^2+4(1+x)+4}{(1+x)^2}+2\ln|1+x|=C\]
+        \[\frac{-y^2+4x+8}{(1+x)^2}+2\ln|1+x|=C\]
+        Aplicando a condição inicial $y(0)=1$:
+        \[\frac{-(1)^2+4(0)+8}{(0+1)^2}+2\ln|1|=C \implies C=7\]
+        Portanto, a solução implícita do PVI é:
+        \[\boxed{\frac{-y^2+4x+8}{(1+x)^2}+2\ln|1+x|=7}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Faremos a substituição $y=ux$, o que implica $dy=udx+xdu$. Substituindo na equação:
+        \[((ux)^2+(ux)x)dx+x^2(udx+xdu)=0\]
+        \[(u^2x^2+ux^2)dx+x^2(udx+xdu)=0\]
+        Dividindo toda a equação por $x^2$ (assumindo $x \neq 0$), obtemos:
+        \[(u^2+u)dx+udx+xdu=0 \implies (u^2+2u)dx+xdu=0\]
+        Separando as variáveis:
+        \[\frac{du}{u^2+2u}=-\frac{dx}{x}\]
+        Para integrar o lado esquerdo, utilizamos frações parciais:
+        \[\frac{1}{u(u+2)}=\frac{A}{u}+\frac{B}{u+2} \implies 1 = (A+B)+2A \implies A=\frac{1}{2},~B=-\frac{1}{2}\]
+        Integrando ambos os lados:
+        \[\frac{1}{2}\int\left(\frac{1}{u}-\frac{1}{u+2}\right)du=-\int\frac{dx}{x}\]
+        \[\frac{1}{2}(\ln|u|-\ln|u+2|)=-\ln|x|+C_1 \implies \ln\left|\frac{u}{u+2}\right|=-2\ln|x|+2C_1\]
+        Aplicando a exponencial em ambos os lados e chamando $C=e^{2C_1}$:
+        \[\frac{u}{u+2}=\frac{C}{x^2}\]
+        Substituindo $u=\dfrac{y}{x}$ de volta:
+        \[\frac{\frac{y}{x}}{\frac{y}{x}+2}=\frac{C}{x^2} \implies \frac{y}{y+2x}=\frac{C}{x^2}\]
+        Portanto, a solução implícita é dada por:
+        \[\boxed{x^2y=C(y+2x)}\]
+
+        \itemresolucao Usaremos a substituição $y=ux$, o que nos dá $\dfrac{dy}{dx}=u+x\dfrac{du}{dx}$:
+        \[u+x\frac{du}{dx}=\frac{x+3(ux)}{3x+ux}=\frac{x(1+3u)}{x(3+u)}=\frac{1+3u}{3+u}\]
+        Isolando $x\dfrac{du}{dx}$:
+        \[x\frac{du}{dx}=\frac{1+3u}{3+u}-u=\frac{1+3u-u(3+u)}{3+u}=\frac{1-u^2}{3+u}\]
+        Separando as variáveis:
+        \[\frac{3+u}{1-u^2}du=\frac{dx}{x}\]
+        Decompondo o lado esquerdo em frações parciais:
+        \[\frac{3+u}{(1-u)(1+u)}=\frac{A}{1-u}+\frac{B}{1+u} \implies 3+u=(A-B)u+(A+B) \implies A=2,~B=1\]
+        Integrando:
+        \[\int\left(\frac{2}{1-u}+\frac{1}{1+u}\right)du=\int\frac{dx}{x}\]
+        \[-2\ln|1-u|+\ln|1+u|=\ln|x|+C_1 \implies \ln\left|\frac{1+u}{(1-u)^2}\right|=\ln|x|+C_1\]
+        Removendo o logaritmo, com $C=e^{C_1}$:
+        \[\frac{1+u}{(1-u)^2}=Cx\]
+        Substituindo $u=\dfrac{y}{x}$:
+        \[\frac{1+\frac{y}{x}}{\left(1-\frac{y}{x}\right)^2}=\frac{\frac{x+y}{x}}{\frac{(x-y)^2}{x^2}}=\frac{x(x+y)}{(x-y)^2}=Cx\]
+        Dividindo ambos os lados por $x$, chegamos à solução final:
+        \[\boxed{x+y=C(x-y)^2}\]
+
+        \itemresolucao Dividindo toda a expressão por $x$, já que $x>0$:
+        \[\frac{dy}{dx}=\frac{y}{x}+\frac{\sqrt{x^2-y^2}}{x}\]
+        Como $x>0$, podemos inserir o $x$ na raiz quadrada como $x^2$:
+        \[\frac{dy}{dx}=\frac{y}{x}+\sqrt{1-\left(\frac{y}{x}\right)^2}\]
+        Aplicando a substituição $y=ux \implies \dfrac{dy}{dx}=u+x\dfrac{du}{dx}$:
+        \[u+x\frac{du}{dx}=u+\sqrt{1-u^2} \implies x\frac{du}{dx}=\sqrt{1-u^2}\]
+        Separando as variáveis:
+        \[\frac{du}{\sqrt{1-u^2}}=\frac{dx}{x}\]
+        Integrando de ambos os lados:
+        \[\arcsin(u)=\ln(x)+C\]
+        Isolando $u$:
+        \[u=\sin(\ln(x)+C)\]
+        Substituindo $u=\dfrac{y}{x}$, obtemos a solução explícita:
+        \[\boxed{y=x\sin(\ln(x)+C)}\]
+
+        \itemresolucao Substituindo $y=ux$ e $dy=udx+xdu$:
+        \[(x+uxe^u)dx-xe^u(udx+xdu)=0\]
+        Dividindo a equação por $x$:
+        \[(1+ue^u)dx-e^u(udx+xdu)=0\]
+        Distribuindo os termos:
+        \[dx+ue^udx-ue^udx-xe^udu=0 \implies dx-xe^udu=0\]
+        Separando as variáveis:
+        \[e^udu=\frac{dx}{x}\]
+        Integrando:
+        \[e^u=\ln|x|+C\]
+        Voltando à variável $y$:
+        \[e^{\frac{y}{x}}=\ln|x|+C\]
+        Aplicando a condição inicial do PVI, $y(1)=0$:
+        \[e^{0}=\ln|1|+C \implies 1=0+C \implies C=1\]
+        Portanto, a solução é dada implicitamente por $e^{\frac{y}{x}}=\ln|x|+1$. Isolando $y$,
+        \[\boxed{y(x)=x\ln(\ln|x|+1)}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Tomemos $u=y^{-1}$. Isolando $y$ em função de $u$, temos $y=u^{-1}$.
+        Aplicando a regra da cadeia para encontrar a derivada de $y$ em relação a $x$:
+        \[\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx} = \frac{d}{du}(u^{-1})\cdot\frac{du}{dx} = -u^{-2}\frac{du}{dx}\]
+        Substituímos $y$ e $\dfrac{dy}{dx}$ diretamente na equação diferencial original:
+        \[\left(-u^{-2}\frac{du}{dx}\right) - u^{-1} = e^x(u^{-1})^2\]
+        \[-u^{-2}\frac{du}{dx} - u^{-1} = e^xu^{-2}\]
+        \[\frac{du}{dx}+u=-e^x\]
+        A equação é linear em $u$. O fator integrante é $\mu(x)=e^{\int 1 dx}=e^x$. Multiplicando a equação por $\mu(x)$:
+        \[e^x\frac{du}{dx}+e^xu=-e^{2x} \implies \frac{d}{dx}(e^xu)=-e^{2x}\]
+        Integrando ambos os lados em relação a $x$:
+        \[e^xu = \int -e^{2x}dx = -\frac{1}{2}e^{2x}+C\]
+        Isolando $u$:
+        \[u = -\frac{1}{2}e^x+Ce^{-x}\]
+        Como $y=u^{-1}=\dfrac{1}{u}$, invertemos a expressão para encontrar a solução geral explícita:
+        \[\boxed{y=\frac{1}{Ce^{-x}-\frac{1}{2}e^x}}\]
+
+        \itemresolucao A equação diferencial é $\frac{dy}{dx}=y(xy^3-1)$, ou seja, $\dfrac{dy}{dx}+y=xy^4$. Dessa forma, a substituição é $u=y^{1-4}=y^{-3}$. Isolando $y$, temos $y=u^{-1/3}$.
+        Pela regra da cadeia, derivamos $y$ em relação a $x$:
+        \[\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx} = \frac{d}{du}(u^{-\frac{1}{3}})\cdot\frac{du}{dx} = -\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dx}\]
+        Substituímos na equação:
+        \[\left(-\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dx}\right) + u^{-\frac{1}{3}} = x(u^{-\frac{1}{3}})^4\]
+        \[\frac{du}{dx}-3u=-3x\]
+        O fator integrante da equação linear é $\mu(x)=e^{\int -3 dx}=e^{-3x}$. Multiplicando a equação por $\mu(x)$:
+        \[e^{-3x}\frac{du}{dx}-3e^{-3x}u=-3xe^{-3x} \implies \frac{d}{dx}(e^{-3x}u)=-3xe^{-3x}\]
+        Integrando por partes o lado direito ($w=x \rightarrow dw=dx$ e $dv=-3e^{-3x}dx \rightarrow v=e^{-3x}$):
+        \[e^{-3x}u = xe^{-3x} - \int e^{-3x}dx = xe^{-3x}+\frac{1}{3}e^{-3x}+C\]
+        Isolando $u$:
+        \[u = x+\frac{1}{3}+Ce^{3x}\]
+        Sabendo que $y=u^{-\frac{1}{3}}$, podemos reescrever como $u=y^{-3}$ e obter a solução
+        \[\boxed{y=\sqrt[3]{\frac{1}{x+\frac{1}{3}+Ce^{3x}}}}\]
+
+        \itemresolucao A equação é $3(1+t^2)\dfrac{dy}{dt}=2ty(y^3-1)$, que se rearranja para $\dfrac{dy}{dt}+\dfrac{2t}{3(1+t^2)}y=\dfrac{2t}{3(1+t^2)}y^4$. Usaremos a substituição $u=y^{1-4}=y^{-3}$. Isolando $y$, temos $y=u^{-1/3}$.
+        Pela regra da cadeia,
+        \[\frac{dy}{dt}=\frac{dy}{du}\cdot\frac{du}{dt} = \frac{d}{du}(u^{-\frac{1}{3}})\cdot\frac{du}{dt} = -\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dt}\]
+        Substituindo na equação manipulada:
+        \[\left(-\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dt}\right) + \frac{2t}{3(1+t^2)}u^{-\frac{1}{3}} = \frac{2t}{3(1+t^2)}(u^{-\frac{1}{3}})^4\]
+        \[-\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dt} + \frac{2t}{3(1+t^2)}u^{-\frac{1}{3}} = \frac{2t}{3(1+t^2)}u^{-\frac{4}{3}}\]
+        \[\frac{du}{dt}-\frac{2t}{1+t^2}u=-\frac{2t}{1+t^2}\]
+        O fator integrante é $\mu(t)=e^{\int -\frac{2t}{1+t^2}dt}=e^{-\ln|1+t^2|}=\frac{1}{1+t^2}$. Multiplicando por $\mu(t)$:
+        \[\frac{1}{1+t^2}\frac{du}{dt}-\frac{2t}{(1+t^2)^2}u=-\frac{2t}{(1+t^2)^2} \implies \frac{d}{dt}\left(\frac{u}{1+t^2}\right)=-\frac{2t}{(1+t^2)^2}\]
+        Integrando de ambos os lados:
+        \[\frac{u}{1+t^2} = \int -\frac{2t}{(1+t^2)^2}dt = \frac{1}{1+t^2}+C\]
+        Isolando $u$:
+        \[u = 1+C(1+t^2)\]
+        Sendo $y=u^{-\frac{1}{3}}$, podemos obter a solução explícita
+        \[\boxed{y=\sqrt[3]{\frac{1}{1+C(1+t^2)}}}\]
+
+        \itemresolucao A equação é $x^2\dfrac{dy}{dx}-2xy=3y^4$, que dividida por $x^2$ fica $\dfrac{dy}{dx}-\dfrac{2}{x}y=\dfrac{3}{x^2}y^4$, com $y(1)=1/2$. Dessa forma, a substituição é $u=y^{1-4}=y^{-3}$. Isolando $y$, $y=u^{-\frac{1}{3}}$ e
+        \[\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx} = \frac{d}{du}(u^{-\frac{1}{3}})\cdot\frac{du}{dx} = -\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dx}\]
+        Substituindo na equação:
+        \[\left(-\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dx}\right) - \frac{2}{x}u^{-\frac{1}{3}} = \frac{3}{x^2}(u^{-\frac{1}{3}})^4\]
+        \[-\frac{1}{3}u^{-\frac{4}{3}}\frac{du}{dx} - \frac{2}{x}u^{-\frac{1}{3}} = \frac{3}{x^2}u^{-\frac{4}{3}}\]
+        \[\frac{du}{dx}+\frac{6}{x}u=-\frac{9}{x^2}\]
+        O fator integrante é $\mu(x)=e^{\int \frac{6}{x}dx}=e^{6\ln|x|}=x^6$. Multiplicando a equação por $x^6$:
+        \[x^6\frac{du}{dx}+6x^5u=-9x^4 \implies \frac{d}{dx}(x^6u)=-9x^4\]
+        Integrando:
+        \[x^6u = \int -9x^4dx = -\frac{9}{5}x^5+C \implies u = -\frac{9}{5x}+\frac{C}{x^6}\]
+        Retornamos à variável $y$, sabendo que $u=y^{-3}$:
+        \[y^{-3} = -\frac{9}{5x}+\frac{C}{x^6}\]
+        Aplicando a condição inicial $y(1)=1/2$:
+        \[\left(\frac{1}{2}\right)^{-3} = -\frac{9}{5(1)}+\frac{C}{1^6} \implies 8 = -\frac{9}{5}+C \implies C = \frac{49}{5}\]
+        Substituindo o valor de $C$:
+        \[y^{-3} = -\frac{9}{5x}+\frac{49}{5x^6} = \frac{49-9x^5}{5x^6}\]
+        Dessa forma, a solução explícita do PVI é dada por
+        \[\boxed{y=\sqrt[3]{\frac{5x^6}{49-9x^5}}}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Façamos a substituição $u=x+y$, o que nos dá $\dfrac{du}{dx}=1+\dfrac{dy}{dx} \implies \dfrac{dy}{dx}=\dfrac{du}{dx}-1$.
+        Substituindo na equação:
+        \[\frac{du}{dx}-1=\frac{1-u}{u} \implies \frac{du}{dx}=1+\frac{1-u}{u}=\frac{u+1-u}{u}=\frac{1}{u}\]
+        Separando as variáveis e integrando de ambos os lados:
+        \[\int udu=\int dx \implies \frac{u^2}{2}=x+C_1\]
+        Substituindo $u=x+y$ de volta à equação e multiplicando tudo por $2$ (adotando a constante $C=2C_1$):
+        \[\boxed{(x+y)^2=2x+C}\]
+
+        \itemresolucao A equação dada é $\dfrac{dy}{dx}=\tan^2(x+y)$. 
+        Usaremos a substituição $u=x+y$, que resulta em $\dfrac{dy}{dx}=\dfrac{du}{dx}-1$.
+        Substituindo na equação diferencial:
+        \[\frac{du}{dx}-1=\tan^2(u) \implies \frac{du}{dx}=1+\tan^2(u)=\sec^2(u)\]
+        Logo,
+        \[\frac{du}{dx}=\sec^2(u) \implies \frac{du}{\sec^2(u)}=dx \implies \cos^2(u)du=dx\]
+        Integrando ambos os lados usando a identidade do ângulo duplo para o cosseno:
+        \[\int \cos^2(u)du=\int dx \implies \int \frac{1+\cos(2u)}{2}du = x+C_1\]
+        \[\frac{u}{2}+\frac{\sin(2u)}{4}=x+C_1\]
+        Substituindo $u=x+y$:
+        \[\frac{x+y}{2}+\frac{\sin(2(x+y))}{4}=x+C_1\]
+        Multiplicando por $4$ e rearranjando os termos, obtemos a solução implícita (onde $C=4C_1$):
+        \[2x+2y+\sin(2(x+y))=4x+C \implies \boxed{2y-2x+\sin(2(x+y))=C}\]
+
+        \itemresolucao Apliquemos a substituição $u=y-2x+3$. Derivando em relação a $x$, temos $\dfrac{du}{dx}=\dfrac{dy}{dx}-2 \implies \dfrac{dy}{dx}=\dfrac{du}{dx}+2$.
+        Substituindo na equação original:
+        \[\frac{du}{dx}+2=2+u^{\frac{1}{2}} \implies \frac{du}{dx}=u^{\frac{1}{2}}\]
+        Separando as variáveis:
+        \[u^{-\frac{1}{2}}du=dx\]
+        Integrando ambos os lados:
+        \[\int u^{-\frac{1}{2}}du=\int dx \implies 2u^{\frac{1}{2}}=x+C\]
+        Retornando à variável original $y$, através de $u=y-2x+3$, chegamos à nossa família de soluções:
+        \[\boxed{2\sqrt{y-2x+3}=x+C}\]
+
+        \itemresolucao A substituição que adotaremos é $u=x+y$, resultando em $\dfrac{dy}{dx}=\dfrac{du}{dx}-1$.
+        Substituindo na equação:
+        \[\frac{du}{dx}-1=\cos(u) \implies \frac{du}{dx}=1+\cos(u)\]
+        Separando as variáveis:
+        \[\frac{du}{1+\cos(u)}=\frac{du}{1+\cos(2\cdot\frac{u}{2})}=\frac{1}{2}\frac{du}{\cos^2(\frac{u}{2})}=dx\]
+        Para auxiliar a integração, vamos realizar mais uma substituição: $r=\tan\left(\dfrac{u}{2}\right)\Rightarrow dr=\dfrac{du}{2\cos^2(u/2)}$. Dessa forma,
+        \[\int\frac{1}{2}\frac{du}{\cos^2(\frac{u}{2})}=\int dx\Rightarrow \int dr=\int dx\Rightarrow r=x+C=\tan\left(\frac{u}{2}\right)\]
+        \[u=2\arctan(x+C)\]
+        Substituindo $u=x+y$, obtemos a solução geral \[y=2\arctan(x+C)-x\]
+        Aplicando a condição inicial do PVI, $y(0)=\dfrac{\pi}{4}$:
+        \[C=\tan\left(\frac{\pi}{8}\right)=\sqrt{2}-1\]
+        Portanto, a solução explícita do PVI é
+        \[\boxed{y=2\arctan(x+\sqrt{2}-1)-x}\]
+    \end{resolucao}
 \end{document}
