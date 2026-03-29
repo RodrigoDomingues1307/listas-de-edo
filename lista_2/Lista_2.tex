@@ -71,7 +71,7 @@
     \exercicio[Zill Seção 2.4, Exercícios 11, 15, 17, 18] Determine se a equação diferencial dada é exata. Se for, resolva-a.
     \begin{itensquestao}[1]
         \item $(y\ln(y)-e^{-xy})dx+\left(\dfrac{1}{y}+x\ln(y)\right)dy=0$
-        \item $\left(x^2y^3-\dfrac{1}{1+9x^2}\right)\dfrac{dy}{dx}+x^3y^2=0$
+        \item $\left(x^2y^3-\dfrac{1}{1+9x^2}\right)\dfrac{dx}{dy}+x^3y^2=0$
         \item $(\tan(x)-\sin(x)\sin(y))dx+\cos(x)\cos(y)dy=0$
         \item $(2y\sin(x)\cos(x)-y+2y^2e^{xy^2})dx=(x-\sin^2(x)-4xye^{xy^2})dy$
     \end{itensquestao}
@@ -534,7 +534,7 @@
                 \draw[axis] (0,-2) -- (0,5);
                 
                 \node[dot, label=right:{$y=\ln(9)$ (Instável)}] at (0,2.197) {};
-                \node[dot, label=right:{$y=0$} (Assintoticamente estável)] at (0,0) {};
+                \node[dot, label=right:{$y=0$ (Assintoticamente estável)}] at (0,0) {};
                 
                 % Região y < 0 (Sobe)
                 \foreach \y in {-1.8, -1.0} 
@@ -602,8 +602,9 @@
         \[\boxed{y=\frac{(8-24C)x+7-30C}{16Cx+20C+2}}\]
 
         \itemresolucao Manipulando a equação diferencial fornecida, temos
-        \[\frac{1}{\sin(y)}dx=-\frac{1}{\cos^2(x)}dy\Rightarrow-\cos^2(x)dx=\sin(y)dy\Rightarrow-\int\cos^2(x)dx=\int\sin(y)dy\]
-        A integração do lado direito da equação é direta. Desenvolvendo a integral do lado esquerdo por partes, adotamos
+        \[\frac{1}{\sin(y)}dx=-\frac{1}{\cos^2(x)}dy\Rightarrow-\cos^2(x)dx=\sin(y)dy\]
+        \[-\int\cos^2(x)dx=\int\sin(y)dy\]
+        A integração do lado direito da equação é direta. Desenvolvendo a integral do lado esquerdo por partes (note que ela também pode ser resolvida pela manipulação de $\cos(2x)=2\cos^2(x)-1$), adotamos
         \[\begin{cases}
             u=\cos(x)\rightarrow du=-\sin(x)dx\\
             dv=\cos(x)dx\rightarrow v=\sin(x)dx
@@ -637,7 +638,7 @@
         \[\boxed{P=\frac{Ce^t}{1+Ce^t}}\]
 
         \itemresolucao Separando os termos da equação,
-        \[\frac{dy}{\sqrt{1-y}}=xdx\Rightarrow\int\frac{dy}{\sqrt{1-y}}=\int xdx\]
+        \[\frac{dy}{\sqrt{1-y^2}}=xdx\Rightarrow\int\frac{dy}{\sqrt{1-y^2}}=\int xdx\]
         Para integrar o lado esquerdo da equação, fazemos a seguinte substituição de variáveis:
         \[\begin{cases}
             y=\sin(\theta)\\
@@ -659,7 +660,8 @@
         \end{cases}\]
         Dessa forma,
         \[\int\frac{du}{u}=\frac{dv}{v^2}\Rightarrow\ln|u|=-\frac{1}{v}+C\Rightarrow\ln|x^2+10|=-\frac{1}{\sin(y)}+C\]
-        Como $x^2+10$ é sempre positivo, podemos retirar o módulo. Dessa forma, chegamos à expressão do enunciado, $\boxed{\ln(x^2+10)+\mathrm{cossec}(y)=C}$
+        Como $x^2+10$ é sempre positivo, podemos retirar o módulo. Dessa forma, chegamos à expressão do enunciado, $\boxed{\ln(x^2+10)+\mathrm{cossec}(y)=C}$.
+
         A fim de encontrar as soluções constantes da EDO, podemos reorganizá-la na forma
         \[\frac{dy}{dx}=\frac{2x}{x^2+10}\frac{\sin^2(y)}{\cos(y)}=0\Rightarrow2x\sin^2(y)=0\Rightarrow\boxed{y=k\pi,~k\in\mathbb{Z}}\]
     \end{resolucao}
@@ -707,7 +709,7 @@
         \itemresolucao Dada a equação diferencial, temos que $P(x)=1$. Dessa maneira, $\mu(x)=e^{\int P(x)dx}=e^{\int dx}e^{x}$. Multiplicando o fator integrante encontrado em ambos os lados da ED,
         \[e^x\frac{dy}{dx}+e^xy=e^{4x}\Rightarrow \frac{d}{dx}(ye^x)=e^{4x}\Rightarrow \int\frac{d}{dx}(ye^x)dx=\int e^{4x}dx\]
         \[ye^x=\frac{e^{4x}}{4}+C\Rightarrow \boxed{y(x)=Ce^{-x}+\frac{e^{3x}}{4}}\]
-        O termo $Ce^{-x}$ é transiente, dado que $e^{-3x}\to0$ quando $x\to\infty$. Tanto a ED quanto a solução geral são definidas para todo $x\in\mathbb{R}$. Portanto, tomamos o intervalo como $I=(\infty, \infty)$.
+        O termo $Ce^{-x}$ é transiente, dado que $e^{-x}\to0$ quando $x\to\infty$. Tanto a ED quanto a solução geral são definidas para todo $x\in\mathbb{R}$. Portanto, tomamos o intervalo como $I=(\infty, \infty)$.
 
         \itemresolucao Podemos reorganizar a equação diferencial da seguinte forma:
         \[\frac{dy}{dx}-\frac{x}{1+x}y=\frac{x(1+x)}{1+x}\Rightarrow\frac{dy}{dx}-\frac{x}{1+x}y=x\]
@@ -761,11 +763,11 @@
         \[ye^{2x}=\int e^{2x}dx=\frac{e^{2x}}{2}+C\Rightarrow y(x)=Ce^{-2x}+\frac{1}{2},~0\leq x\leq3\]
         Substituindo a condição inicial, $C=-\dfrac{1}{2}$. Portanto,
         \[y(x)=\frac{1-e^{-2x}}{2},~0\leq x\leq3\]
-        Agora, substituímos $f(x)=0$ na equação expressão previamente encontrada. Com isso, calculamos
+        Agora, substituímos $f(x)=0$ na expressão previamente encontrada. Com isso, calculamos
         \[ye^{2x}=\int dx=C\Rightarrow y=Ce^{-2x},~x>3\]
-        Usamos o fato que a função deve ser contínua em $x=3$ para encontrar o valor da constante de integração:
+        Usamos o fato de que a função deve ser contínua em $x=3$ para encontrar o valor da constante de integração:
         \[\frac{1-e^{-2\cdot3}}{2}=Ce^{-2\cdot3}\Rightarrow C=\frac{e^6-1}{2}\]
-        Ou seja, $y(x)=\dfrac{e^6-1}{2}e^{-2x},~x>3$. Assim a função que resolve o PVI dado é
+        Ou seja, $y(x)=\dfrac{e^6-1}{2}e^{-2x},~x>3$. Assim, a função que resolve o PVI dado é
         \begin{gather*}
             \boxed{
             y(x)=\begin{cases}
@@ -841,7 +843,7 @@
         Como $\dfrac{\partial M}{\partial y}\neq\dfrac{\partial N}{\partial x}$, a equação fornecida não é exata.
 
         \itemresolucao Reorganizando a equação diferencial dada,
-        \[\left(x^2y^3-\frac{1}{1+9x^2}\right)dx-x^3y^2dy=0\]
+        \[\left(x^2y^3-\frac{1}{1+9x^2}\right)dx+x^3y^2dy=0\]
         Analisando as derivadas parciais de $M$ e $N$,
         \[\frac{\partial M}{\partial y}=\frac{\partial}{\partial y}\left(x^2y^3-\frac{1}{1+9x^2}\right)=3x^2y^2\]
         \[\frac{\partial N}{\partial x}=\frac{\partial}{\partial x}(x^3y^2)=3x^2y^2\]
@@ -904,7 +906,7 @@
         \[f(x,y)=\int y^2+y\sin(x)dx=y^2x-y\cos(x)+g(y)\]
         Derivando em relação a $y$,
         \[\frac{\partial f}{\partial y}=N=2xy-\cos(x)+g'(y)\]
-        Ou seja, $g'(y)=-\dfrac{1}{1+y^2}$ e, portanto, $g(y)=-\arctan(y)$. Dessa maneira, a família de soluções a um parâmetro é $y^2x-y\cos(x)-\arctan(y)=c$. Substituindo a condição inicial fornecida, $c=-1+\pi/4$. Assim, a solução do PVI é
+        Ou seja, $g'(y)=-\dfrac{1}{1+y^2}$ e, portanto, $g(y)=-\arctan(y)$. Dessa maneira, a família de soluções a um parâmetro é $y^2x-y\cos(x)-\arctan(y)=c$. Substituindo a condição inicial fornecida, $c=-1-\pi/4$. Assim, a solução do PVI é
         \[\boxed{y^2x-y\cos(x)-\arctan(y)=-\left(1+\frac{\pi}{4}\right)}\]
     \end{resolucao}
 
@@ -933,7 +935,7 @@
         Portanto, a solução do Problema de Valor Inicial é:
         \[(x^2+4)e^{y^2}=20\]
         Ou, na forma explícita,
-        \[y(x)=\sqrt{\ln\left(\frac{20}{x^2+4}\right)}\]
+        \[\boxed{y(x)=\sqrt{\ln\left(\frac{20}{x^2+4}\right)}}\]
 
         \itemresolucao Reescrevendo a equação diferencial na forma $Mdx+Ndy=0$, obtemos:
         \[(x^2+y^2-5)dx-(y+xy)dy=0\]
@@ -1145,7 +1147,8 @@
         \[u=2\arctan(x+C)\]
         Substituindo $u=x+y$, obtemos a solução geral \[y=2\arctan(x+C)-x\]
         Aplicando a condição inicial do PVI, $y(0)=\dfrac{\pi}{4}$:
-        \[C=\tan\left(\frac{\pi}{8}\right)=\sqrt{2}-1\]
+        \[C=\tan\left(\frac{\pi}{8}\right)=\sqrt{\frac{1-\cos(\pi/4)}{1+\cos(\pi/4)}}=\sqrt{\frac{2-\sqrt{2}}{2+\sqrt{2}}}\Rightarrow\]
+        \[\Rightarrow C=\sqrt{2-2\sqrt{2}+1}=\sqrt{(\sqrt{2}-1)^2}=\sqrt{2}-1\]
         Portanto, a solução explícita do PVI é
         \[\boxed{y=2\arctan(x+\sqrt{2}-1)-x}\]
     \end{resolucao}
