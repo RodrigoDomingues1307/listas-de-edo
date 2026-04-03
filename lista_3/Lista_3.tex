@@ -206,6 +206,95 @@
         \item Sendo $\mu=\dfrac{\sqrt{3}}{4}$ e $\theta=23^\circ$, estime, a partir do modelo (ii), a menor velocidade inicial $v_0$ que a caixa deve ter para, iniciando do ponto mais alto ($50~\mathrm{ft}$ acima do chão), escorregar completamente no plano inclinado. Encontre ainda o tempo total desse movimento.
     \end{itensquestao}
 
+    \exercicio[Zill, Seção 3.2, Exercício 5]
+        \begin{itensquestao}
+            \item Se um número constante $h$ de peixes é removido de um pesqueiro por unidade de tempo, então um modelo para a população $P(t)$ do pesqueiro em um instante de tempo $t$ é dado por
+            $$ \frac{dP}{dt} = P(a - bP) - h, \quad P(0) = P_0, $$
+            em que $a, b, h$ e $P_0$ são constantes positivas. Suponha que $a = 5, b = 1$ e $h = 4$. Uma vez que a ED é autônoma, utilize o conceito de fase para esboçar curvas solução representativas dos três casos $P_0 > 4$, $1 < P_0 < 4$ e $0 < P_0 < 1$. Determine o comportamento a longo prazo da população em cada caso.
+            \item Resolva o PVI da parte (a). Verifique os resultados do seu gráfico de fase na parte (a) usando um software para determinar um gráfico de $P(t)$ com condições iniciais tomadas de cada um dos três intervalos dados.
+            \item Use os resultados das partes (a) e (b) para determinar se a população de peixes é extinta em um tempo finito. Em caso positivo, encontre esse tempo.
+        \end{itensquestao}
+
+    \exercicio[Zill, Seção 3.2, Exercício 9] Duas substâncias químicas, $A$ e $B$, são combinadas para formar uma substância química $C$. A taxa ou velocidade de reação é proporcional ao produto da quantidade instantânea de $A$ e $B$ não convertida na substância $C$. Inicialmente, há $40$ g de $A$ e $50$ g de $B$, e para cada grama de $B$ são usados $2$ g de $A$. É observado que em $5$ minutos são formados $10$ g de $C$. Quanto será formado em $20$ minutos? Qual será a quantidade limite de $C$ após um longo período? Quanto resta das substâncias $A$ e $B$ após um longo período?
+
+    \exercicio[Zill, Seção 3.2, Exercício 18] A equação diferencial
+    $$ \frac{dy}{dx} = \frac{-x + \sqrt{x^2+y^2}}{y} $$
+    descreve a forma de uma curva plana $C$ que refletirá para o mesmo ponto todos os feixes de luz incidentes e poderia ser um modelo para o espelho de um telescópio refletivo, uma antena de um satélite ou um coletor solar.
+        \begin{itensquestao}
+            \item Verifique que a equação diferencial é homogênea. Mostre que a substituição $y = ux$ dá lugar a
+            $$ \frac{u \, du}{\sqrt{1+u^2}(1 - \sqrt{1+u^2})} = \frac{dx}{x}. $$
+            Use uma substituição para integrar o lado esquerdo da equação. Mostre que a curva $C$ deve ser uma parábola com o foco na origem e simétrica em relação ao eixo $x$.
+            \item Mostre que a primeira equação diferencial pode também ser resolvida por meio da substituição $u = x^2 + y^2$.
+        \end{itensquestao}
+
+    \exercicio[Zill, Seção 3.2, Exercício 20] Um lago decorativo em Palm Springs, Califórnia, tem a forma de um tanque hemisférico que deve ser enchido com água bombeada por meio de um orifício no fundo do tanque. Suponha que o raio do tanque seja $R = 10~\mathrm{ft}$, a água seja bombeada a uma taxa de $\pi~\mathrm{ft^3/min}$ e que o tanque esteja inicialmente vazio. À medida que o tanque é enchido, a água evapora. Suponha que a taxa de evaporação seja proporcional à área $A$ da superfície da água e que a constante de proporcionalidade seja igual a $k = 0,01$.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=0.9]
+            % --- Parte A: Tanque Hemisférico ---
+            \begin{scope}[shift={(0,0)}]
+                % Textos superiores
+                \node[align=center, font=\scriptsize] at (0, 2) {Saída: a água evapora \\ a uma taxa proporcional \\ à área $A$ da superfície};
+                
+                % Setas de evaporação
+                \draw[->, thick] (0, -1) -- (0, 1);
+                
+                % Elipse superior (borda do tanque)
+                \draw[thick] (0,0) ellipse (2cm and 0.5cm);
+                
+                % Arco do tanque (hemisfério)
+                \draw[thick] (-2,0) arc (180:360:2cm);
+                
+                % Superfície da água
+                \draw[thick, fill=gray!20] (0,-1) ellipse (1.732cm and 0.35cm);
+                \node at (0, -1) {$A$};
+                \node at (0, -1.7) {$V$};
+                
+                % Tubo de entrada de água (fundo)
+                \draw[thick] (-0.2,-2) -- (-0.2,-2.4);
+                \draw[thick] (0.2,-2) -- (0.2,-2.4);
+                \draw[->, thick] (0,-2.8) -- (0,-2.1);
+                
+                % Texto inferior (Entrada)
+                \node[align=center, font=\scriptsize] at (0, -3.3) {Entrada: água é bombeada \\ a uma taxa de $\pi$ pés$^3$/min};
+            \end{scope}
+
+            % --- Parte B: Seção Transversal ---
+            \begin{scope}[shift={(6,0)}]
+                % Borda superior e arco do tanque
+                \draw[thick] (-2,0) -- (2,0);
+                \draw[thick] (-2,0) arc (180:360:2cm);
+                
+                % Nível da água
+                \draw[thick] (-1.732,-1) -- (1.732,-1);
+                
+                % Eixo central tracejado
+                \draw[dashed, thick] (0,0) -- (0,-2);
+                
+                % Raio R
+                \draw[|<->|, thick] (0,0.2) -- (2,0.2);
+                \node[font=\footnotesize, fill=white, inner sep=1pt] at (1, 0.3) {$R$};
+                
+                % Raio r (superfície da água)
+                \draw[|<->|, thick] (0,-0.8) -- (1.732,-0.8);
+                \node[font=\footnotesize, fill=white, inner sep=1pt] at (0.866, -0.8) {$r$};
+                
+                % Altura h
+                \draw[<->, thick] (-0.3,-1) -- (-0.3,-2);
+                \node[font=\footnotesize, left] at (-0.3, -1.5) {$h$};
+            \end{scope};
+
+        \end{tikzpicture}
+    \end{figure}
+
+    \begin{itensquestao}
+        \item A taxa de variação $dV/dt$ do volume de água no instante $t$ é uma taxa líquida. Use esta taxa líquida para determinar uma equação diferencial para a altura $h$ da água no instante $t$. O volume de água mostrado na figura é $V = \pi Rh^2 - \dfrac{1}{3}\pi h^3$, onde $R = 10$. Expresse a área da superfície da água $A = \pi r^2$ em termos de $h$.
+        \item Resolva a equação diferencial do item (a). Faça o gráfico da solução.
+        \item Se não houvesse evaporação, quanto tempo levaria para o tanque ficar cheio?
+        \item Com a evaporação, qual será a profundidade da água no instante encontrado no item (c)? O tanque chegará a encher? Prove sua afirmativa.
+    \end{itensquestao}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESOLUÇÕES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
