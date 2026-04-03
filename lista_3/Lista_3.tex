@@ -1,0 +1,221 @@
+%chktex-file 1 chktex-file 2 chktex-file 3
+%chktex-file 8 chktex-file 9 chktex-file 10
+%chktex-file 13 %chktex-file 17 %chktex-file 23
+%chktex-file 45 %chktex-file 25 %chktex-file 35
+%chktex-file 40
+
+\documentclass[oneside,12pt,a4paper]{report}
+
+\usepackage{template}
+
+\begin{document}
+
+    \begin{center}
+        \fontsize{17.28}{17.28}
+            \textbf{Equações Diferenciais Ordinárias}
+
+            \textbf{Terceira Lista de Exercícios}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QUESTÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \exercicio[Zill, Seção 3.1, Exercício 12] O sudário de Turim mostra a imagem, em negativo, do corpo de um homem que aparentemente foi crucificado, e que muitos acreditam ser Jesus de Nazaré. Em 1988, o Vaticano deu a permissão para datar por carbono o sudário. Três laboratórios científicos e independentes analisaram o tecido e concluíram que o sudário tinha aproximadamente 660 anos, idade consistente com seu aparecimento histórico. Usando essa idade, determine a porcentagem da quantidade original de C-14 remanescente no tecido em 1988.
+
+    \exercicio[Zill, Seção 3.1, Exercício 18] Em $t=0$, um tubo de ensaio contendo um produto químico é imerso em um banho líquido. A temperatura inicial da substância química no tubo de ensaio é $80~^\circ F$. O banho de líquido tem uma temperatura controlada (medida em graus Fahrenheit) dada por $T_m=100-40e^{-0.1t},~t\geq0$, em que $t$ é medido em minutos.
+    \begin{itensquestao}[1]
+        \item Suponha que, dada a lei do aquecimento de Newton, $\dfrac{dT}{dt}=k(T-T_m)$, $k=-0.1$. Antes de resolver o PVI, descreva como você espera que a temperatura $T(t)$ do produto químico dentro do tubo de ensaio se comporte no curto prazo. E no longo prazo?
+        \item Resolva o problema de valor inicial. Use um software para traçar o gráfico de $T(t)$ em intervalos de tempo de vários comprimentos. Os gráficos estão em acordo com as previsões realizadas no item anterior?
+    \end{itensquestao}
+
+    \exercicio[Zill, Seção 3.1, Exercício 28] Suponha que, em um tanque em que é realizada uma mistura, a taxa na qual a salmoura é bombeada para o reservatório é de $3~\mathrm{gal/min}$ com concentração de $2~\mathrm{lb/gal}$, mas que a solução misturada é bombeada para fora a uma taxa de $2~\mathrm{gal/min}$. Uma vez que a salmoura está se acumulando no tanque a uma taxa de $1~\mathrm{gal/min}$, qualquer tanque finito deve, mais cedo ou mais tarde, derramar. Suponha que o tanque tenha uma tampa aberta e uma capacidade total de $400$ galões.
+    \begin{itensquestao}[1]
+        \item Quando o tanque transbordará?
+        \item No instante em que estiver transbordando, qual será a quantidade de libras de sal no tanque?
+        \item Suponha que, embora o tanque esteja transbordando, a solução salina continue a ser bombeada para dentro a uma taxa de $3~\mathrm{gal/min}$ e a solução bem misturada continue a ser bombeada para fora a uma taxa de $2~\mathrm{gal/min}$. Determine a quantidade de libras de sal no tanque no instante $t=150~\mathrm{min}$.
+        \item Determine a quantidade de libras de sal no tanque quando $t\to\infty$.
+        \item Use um software para obter o gráfico de $A(t)$ no intervalo $[0,500)$.
+    \end{itensquestao}
+
+    \exercicio[Zill, Seção 3.1, Exercício 45] Um marca-passo cardíaco consiste de uma chave, uma bateria, um capacitor, e o coração como resistor. Quando a chave $S$ está em $P$, o capacitor se carrega. Já quando $S$ está em $Q$, o capacitor descarrega, enviando um estímulo elétrico para o coração. Durante esse tempo que o estímulo elétrico é aplicado para o coração, a tensão $E$ através do coração satisfaz a ED linear
+    \[\frac{dE}{dt}=-\frac{1}{RC}E\]
+
+    \begin{itensquestao}
+        \item Vamos supor que, durante o intervalo de tempo $t_1$, $0<t<t_1$, a chave $S$ esteja na posição $P$ e o capacitor esteja sendo carregado. Quando a chave é movida para a posição $Q$ no instante $t_1$ o capacitor descarrega, enviando um impulso para o coração durante o intervalo de tempo $t_2$: $t_1\leq t<t_1+t_2$. Assim, durante o processo inicial de carregamento/descarregamento, $0<t<t_1+t_2$, a tensão para o coração é modelada pela equação diferencial definida por partes
+        \begin{gather*}
+            \frac{dE}{dt}=\begin{cases}
+                0,\quad 0\leq t<t_1\\
+                -\dfrac{1}{RC}E,\quad t_1\leq t<t_1+t_2
+            \end{cases}
+        \end{gather*}
+        Movendo $S$ entre $P$ e $Q$, o carregamento e descarregamento em intervalos de tempo $t_1$ e $t_2$ é repetido indefinidamente. Suponha $t_1=4~s$, $t_2=2~s$, $E_0=12~V$, $E(0)=0$, $E(4)=12$, $E(6)=0$, $E(10)=12$, $E(12)=0$ e assim por diante. Resolva $E(t)$ para $0\leq t\leq24$.
+        \item Suponha a título de ilustração que $R=C=1$. Use uma ferramenta gráfica para determinar a curva para o PVI no intervalo dado no item anterior.
+    \end{itensquestao}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=0.7, >=latex, thick]
+
+            % Coordenadas para os cantos do circuito principal
+            \coordinate (BL) at (0,0); % Inferior Esquerdo
+            \coordinate (BR) at (5,0); % Inferior Direito
+            \coordinate (TL) at (0,6); % Superior Esquerdo
+            \coordinate (TR) at (5,6); % Superior Direito
+
+            % Coordenadas da chave
+            \coordinate (P) at (0, 2);
+            \coordinate (Q) at (0, 4);
+            \coordinate (S) at (1.5, 3);
+
+            % --- Fios Principais ---
+            
+            % Lado Esquerdo (interrompido pela chave)
+            \draw (BL) -- (P);
+            \draw (Q) -- (TL);
+            
+            % Lado Inferior (interrompido pela fonte E_0 centralizada em x=2.5)
+            \draw (BL) -- (2.05, 0);
+            \draw (2.95, 0) -- (BR);
+            
+            % Lado Direito
+            \draw (BR) -- (TR);
+            
+            % Lado Superior (interrompido pelo resistor R centralizado em x=2.5)
+            % Desenhando o resistor em zigue-zague
+            \draw (TL) -- (1.75, 6) 
+                -- (1.9, 6.2) -- (2.1, 5.8) 
+                -- (2.3, 6.2) -- (2.5, 5.8) 
+                -- (2.7, 6.2) -- (2.9, 5.8) 
+                -- (3.1, 6.2) -- (3.25, 6) 
+                -- (TR);
+            
+            % Fio horizontal do meio (interrompido pelo capacitor)
+            % O segmento útil vai de x=1.5 até x=5. O centro é x=3.25.
+            \draw (S) -- (2.95, 3);
+            \draw (3.55, 3) -- (5, 3);
+
+            % --- Componentes ---
+
+            % Resistor R (rótulo)
+            \node[above] at (2.5, 6.3) {$R$};
+
+            % Capacitor C (centralizado no fio do meio)
+            \draw (2.95, 2.4) -- (2.95, 3.6);
+            \draw (3.55, 2.4) -- (3.55, 3.6);
+            \node at (3.25, 1.9) {$C$};
+
+            % Fonte de Tensão E_0 (centralizada no fio de baixo)
+            \draw[fill=white, thin] (2.5, 0) circle (0.45);
+            \node at (2.5, 0) {$E_0$};
+
+            % Elementos da Chave (P, Q, S)
+            \filldraw (P) circle (2pt) node[left=3pt] {$P$};
+            \filldraw (Q) circle (2pt) node[left=3pt] {$Q$};
+            \filldraw (S) circle (2pt) node[below=3pt] {$S$};
+            
+            \node at (-1.0, 3) {chave};
+            
+            % Braço móvel da chave (de S para P)
+            \draw[->, shorten >=3pt] (S) -- (P);
+
+        \end{tikzpicture}
+    \end{figure}
+
+    \exercicio[Zill, Seção 3.1, Exercícios 46, 47 (a)] Uma caixa de massa $m$ desliza por um plano inclinado de ângulo $\theta$ com a horizontal, conforme a figura abaixo.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[>=stealth, scale=0.8]
+            % Parâmetros do plano inclinado
+            \pgfmathsetmacro{\angle}{30} % Ângulo de inclinação theta
+            \pgfmathsetmacro{\base}{8}   % Comprimento da base
+            \pgfmathsetmacro{\height}{\base*tan(\angle)} % Altura
+
+            % Chão (sombreado e linha)
+            \fill[gray!20] (-0.3,-0.15) rectangle (\base+0.3, 0);
+            \draw[thick, gray!70!black] (-0.3,0) -- (\base+0.3,0);
+
+            % Triângulo do plano inclinado
+            \draw[thick] (0,0) -- (\base,0) -- (\base,\height) -- cycle;
+
+            % Ângulo theta
+            \draw (1,0) arc (0:\angle:1);
+            \node at (\angle/2:1.3) {$\theta$};
+
+            % Coordenadas para o bloco (centro da base do bloco)
+            \pgfmathsetmacro{\px}{4.2}
+            \pgfmathsetmacro{\py}{\px*tan(\angle)}
+            \coordinate (P) at (\px,\py);
+
+            % Bloco
+            \begin{scope}[shift={(P)}, rotate=\angle]
+                \draw[fill=gray!50, draw=gray!70!black, thick, rounded corners=0.5pt] (-0.75,0) rectangle (0.75, 1.2);
+            \end{scope}
+
+            % Vetor Peso (W)
+            \def\wlen{2}
+            \coordinate (W) at ($(P) + (0,-\wlen)$);
+
+            % Projeções tracejadas do peso (componentes x e y)
+            \coordinate (Incline) at ($(P) + (\angle:1)$);
+            \coordinate (Perp) at ($(P) + (\angle-90:1)$);
+            \coordinate (Wpar) at ($(P)!(W)!(Incline)$);
+            \coordinate (Wperp) at ($(P)!(W)!(Perp)$);
+
+            % Linhas tracejadas formando o retângulo das componentes
+            \draw[dashed, thick] (P) -- (Wperp) -- (W) -- (Wpar);
+
+            % Vetores de Força e Movimento
+            % Força de atrito
+            \draw[->, line width=1.5pt, gray!80!black] (P) -- ++(\angle:2) node[pos=0.8, below right, text=black] {atrito};
+
+            % Sentido do movimento
+            \draw[->, line width=1.5pt, gray!80!black] (P) -- ++(180+\angle:2) node[pos=0.6, above left, text=black] {movimento};
+
+            % Linha do vetor peso
+            \draw[->, line width=1.5pt, blue!75!black] (P) -- (W);
+
+            % Rótulo "W = mg" com seta apontando para o vetor
+            \node[right] (Wlabel) at ($(P) + (1.2, -1.5)$) {$W = mg$};
+            \draw[->, thin] (Wlabel.west) -- ($(P)!0.47!(W)$);
+
+            % Ponto central (desenhado por último para ficar sobre as linhas)
+            \fill (P) circle (2.5pt);
+
+            % Indicador de altura no lado direito (50 pés)
+            \draw (\base+0.2, 0) -- (\base+0.6, 0);
+            \draw (\base+0.2, \height) -- (\base+0.6, \height);
+            \draw[<->] (\base+0.4, 0) -- (\base+0.4, \height) node[midway, fill=white, inner sep=2pt] {50 pés};
+
+        \end{tikzpicture}
+    \end{figure}
+
+    \begin{itensquestao}
+        \item Encontre uma equação diferencial para a velocidade $v(t)$ da caixa no instante $t$ em cada um dos três casos seguintes:
+        \begin{enumerate}[label=\roman*)]
+            \item Ausência de atrito e resistência do ar
+            \item Com atrito e ausência de resistência do ar
+            \item Com atrito e resistência do ar
+        \end{enumerate}
+        Nos casos (i) e (ii), use o fato de que a força de atrito que se opõe ao movimento da caixa é $\mu N$, onde $\mu$ é o coeficiente de atrito de deslizamento e $N$ é o componente normal do peso da caixa. No caso (iii), assuma que a resistência do ar é proporcional à velocidade instantânea.
+
+        \item Na parte (a), suponha que a caixa pesa $96~\mathrm{lb}$, que $\theta=30^\circ$, que $\mu=\dfrac{\sqrt{3}}{4}$ e que a força de resistência do ar é numericamente igual a $\dfrac{v}{4}$. Resolva a equação diferencial em cada um dos três casos, assumindo que a caixa começa a partir do repouso no ponto mais alto, $50~\mathrm{ft}$ acima do solo.
+        
+        \item Sendo $\mu=\dfrac{\sqrt{3}}{4}$ e $\theta=23^\circ$, estime, a partir do modelo (ii), a menor velocidade inicial $v_0$ que a caixa deve ter para, iniciando do ponto mais alto ($50~\mathrm{ft}$ acima do chão), escorregar completamente no plano inclinado. Encontre ainda o tempo total desse movimento.
+    \end{itensquestao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESOLUÇÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Resolução dos Exercícios}
+        
+    \begin{resolucao}
+        \itemresolucao
+        
+        \itemresolucao 
+    \end{resolucao}
+
+\end{document}
