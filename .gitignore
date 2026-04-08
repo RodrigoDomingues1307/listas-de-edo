@@ -1,5 +1,8 @@
 *.json
 
+# Ignore the PDF file in this specific folder
+trabalho/esboco.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
