@@ -20,23 +20,21 @@ As entregas do trabalho serão feitas em um relatório em formato _.pdf_, sendo 
 5. Referências bibliográficas **(comum para ambas as entregas)**.
 
 ### Primeira etapa (entrega até XX/XX)
-Nessa etapa, deve ser apresentada uma EDO (uma equação) que represente o modelo escolhido pelo grupo (por exemplo, um circuito RLC ou um sistema massa-mola de uma massa excitado por uma força externa senoidal). Como já explicado, o relatório deve conter capa; uma seção (título: "Primeira Etapa") contendo:
+Nessa etapa, deve ser apresentada uma EDO (uma equação) que represente o modelo escolhido pelo grupo (por exemplo, um circuito RLC ou um sistema massa-mola de uma massa excitado por uma força externa senoidal). Deve ser adicionada uma seção intitulada "Primeira etapa" que contenha:
 
-* Introdução a respeito do modelo de uma equação; 
-* Solução do modelo e análise gráfica; 
-* Breve conclusão
-
-Além da lista de referências utilizadas.
+* Contextualização a respeito do modelo de uma equação: quais são as aplicações da modelagem escolhida? Quais são suas limitações? 
+* Solução do modelo e análise gráfica dos resultados; 
+* Breve conclusão.
 
 ### Segunda etapa (entrega até XX/XX)
 Nessa etapa, o grupo deve expandir a modelagem de uma equação realizada anteriormente para um sistema de EDOs de primeira ordem que utilize essa modelagem (por exemplo, se foi escolhido representar um sistema massa-mola de uma massa na etapa anterior, uma alternativa é analisar um sistema contendo três massas conectadas por molas). Lembre-se, também, que uma EDO de ordem superior pode ser reduzida para um sistema de EDOs de primeira ordem, se necessário.
 
 **O modelo deve ser resolvido utilizando autovalores e autovetores, usando a Fórmula de Variação dos Parâmetros para o caso não-homogêneo.** 
 
-O grupo deve adicionar ao relatório uma nova seção que contenha:
+O grupo deve adicionar ao relatório uma nova seção intitulada "Segunda entrega" que contenha:
 * Contextualização do sistema de EDOs modelado: o que ele representa? Como a modelagem difere daquela realizada da etapa anterior? Quais alterações foram necessárias?
 
-* Desenvolvimento matemático: desenvolvimento passo a passo do sistema escolhido. Na análise gráfica, dar enfoque à análise paramétrica: como a solução de cada variável é afetada? Como o acoplamento entre as variáveis afeta a solução?
+* Desenvolvimento matemático: desenvolvimento passo a passo do sistema escolhido. Na análise gráfica, dar enfoque a respeito de como o acoplamento entre as variáveis afeta a solução;
 
 * Conclusão a respeito do sistema modelado e seus resultados.
     
