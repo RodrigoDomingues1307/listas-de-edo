@@ -1,0 +1,60 @@
+%chktex-file 1 chktex-file 2 chktex-file 3
+%chktex-file 8 chktex-file 9 chktex-file 10
+%chktex-file 13 %chktex-file 17 %chktex-file 23
+%chktex-file 45 %chktex-file 25 %chktex-file 35
+%chktex-file 40
+
+\documentclass[oneside,12pt,a4paper]{article}
+
+\usepackage{template}
+
+\begin{document}
+
+    \begin{center}
+        \fontsize{17.28}{17.28}
+            \textbf{SME0340 -- Equações Diferenciais Ordinárias}
+
+            \textbf{Projeto}
+    \end{center}
+
+    Este trabalho propõe o desenvolvimento de uma modelagem envolvendo equações diferenciais ordinárias. O grupo deve escolher ou desenvolver uma modelagem, justificar sua relevância e aplicação e realizar seu estudo qualitativo, primeiro de forma isolada, e em seguida em um sistema de EDOs.
+
+    \section{Entregas}
+
+    As entregas do trabalho serão feitas em um relatório em formato \textit{.pdf}, sendo o primeiro uma entrega parcial (\textit{Primeira entrega}), e o segundo a entrega final (\textit{Primeira entrega} acrescida da \textit{Segunda entrega}). As entregas serão realizadas via \textit{e-Disciplinas}. O conteúdo dos relatórios é apresentado abaixo:
+
+    \subsection{Conteúdo geral das entregas}
+
+    \begin{enumerate}
+        \item Capa: deve conter nome e número USP dos integrantes do grupo (\textbf{comum para ambas as entregas});
+        \item Contextualização: deve apresentar detalhadamente o modelo escolhido, destacando sua importância, além de simplificações e hipóteses adotadas;
+        \item Desenvolvimento matemático do modelo, dividido em:
+        \begin{itemize}
+            \item Desenvolvimento literal da solução do modelo, detalhando todas as etapas;
+            \item Análise gráfica do modelo: estudo qualitativo da solução por meio de variação dos parâmetros e das condições iniciais, análise dos gráficos da solução, e discussão a respeito dos regimes transiente e estacionário na solução. Recomenda-se o uso de ferramentas computacionais nessa etapa (Matplotlib, MATLAB ou outra ferramenta de escolha do grupo);
+        \end{itemize}
+        \item Conclusão;
+        \item Referências bibliográficas (\textbf{comum para ambas as entregas}).
+    \end{enumerate}
+
+    \subsection{Primeira etapa (entrega até XX/XX)}
+
+    Nessa etapa, deve ser apresentada uma EDO (uma única equação) que represente um modelo escolhido pelo grupo (por exemplo, um circuito RLC ou um sistema massa-mola de uma massa). Deve ser adicionada ao relatório uma seção intitulada ``Primeira etapa'' que contenha:
+    \begin{enumerate}
+        \item Contextualização a respeito do modelo de uma equação: quais são as aplicações da modelagem escolhida? No que ela consiste? Quais são seus parâmetros? Quais são suas limitações? 
+        \item Solução do modelo e análise gráfica dos resultados; 
+        \item Breve conclusão.
+    \end{enumerate}
+
+    \subsection{Segunda etapa (entrega até XX/XX)}
+
+    Nessa etapa, o grupo deve expandir a modelagem de uma equação realizada anteriormente para um sistema de EDOs de primeira ordem que utilize essa modelagem (por exemplo, se foi escolhido representar um sistema massa-mola de uma massa na etapa anterior, uma alternativa é analisar um sistema contendo três massas conectadas por molas). Lembre-se, também, que uma EDO de ordem superior pode ser reduzida para um sistema de EDOs de primeira ordem, se necessário. 
+    
+    \textbf{O modelo deve ser resolvido utilizando autovalores e autovetores, usando a Fórmula de Variação dos Parâmetros para o caso não-homogêneo}. O grupo deve adicionar ao relatório uma nova seção intitulada ``Segunda entrega'' que contenha, além dos assuntos abordados em ``Conteúdo geral das entregas'', os seguintes tópicos:
+    \begin{itemize}
+        \item Contextualização do sistema de EDOs modelado: o que ele representa? Como a modelagem difere daquela realizada da etapa anterior? Quais alterações, adaptações e considerações foram necessárias?
+        \item Desenvolvimento matemático: desenvolvimento passo a passo do sistema escolhido. Na análise gráfica, discutir como as soluções do sistema se relacionam e influenciam umas às outras;
+        \item Conclusão a respeito do sistema modelado e seus resultados.
+    \end{itemize}
+
+\end{document}
