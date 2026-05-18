@@ -506,14 +506,117 @@
 \exercicio[Zill, Seção 4.6, Exercício 23] As funções indicadas são soluções linearmente independentes da equação diferencial homogênea associada em $(0,\infty)$. Ache a solução geral da equação não homogênea dada:
 \[x^2y''+xy'+\left(x^2-\frac{1}{4}\right)y=x^\frac{3}{2};\quad y_1=x^{-\frac{1}{2}}\cos(x),~y_2=x^{-\frac{1}{2}}\sin(x)\]
 
+\begin{resolucao}
+    Em primeira análise, percebemos que a derivada de maior ordem é multiplicada por um termo diferente de $1$, isto é, não está na forma normal. A fim de prosseguir com a resolução do problema, reorganizamos a equação nessa forma:
+    \[y''+\frac{1}{x}y'+\left(1-\frac{1}{4x^2}\right)y=x^{-\frac{1}{2}}\]
+
+    O enunciado indica que as funções dadas são soluções L.I. da equação homogênea associada. Nesse sentido, temos que a combinação linear dessas soluções também é solução da equação homogênea, da forma $y_h(x)=c_1x^{-\frac{1}{2}}\cos(x)+c_2x^{-\frac{1}{2}}\sin(x)$.
+
+    Além disso, fornecidas as soluções, podemos encontrar seu Wronskiano:
+    \[W(x)=\left|\begin{array}{c:c}
+       x^{-\frac{1}{2}}\cos(x) & x^{-\frac{1}{2}}\sin(x)\\ \hdashline
+       -\frac{1}{2}x^{-\frac{3}{2}}\cos(x)-x^{-\frac{1}{2}}\sin(x) & -\frac{1}{2}x^{-\frac{3}{2}}\sin(x)+x^{-\frac{1}{2}}\cos(x)
+    \end{array}\right|=x^{-1}\]
+
+    Além disso,
+    \[W_1(x)=\left|\begin{array}{c:c}
+        0 & x^{-\frac{1}{2}}\sin(x)\\ \hdashline
+        1 & -\frac{1}{2}x^{-\frac{3}{2}}\sin(x)+x^{-\frac{1}{2}}\cos(x)
+    \end{array}\right|=-x^{-\frac{1}{2}}\sin(x)\]
+    \[W_2(x)=\left|\begin{array}{c:c}
+        x^{-\frac{1}{2}}\cos(x)  & 0\\ \hdashline
+        -\frac{1}{2}x^{-\frac{3}{2}}\cos(x)-x^{-\frac{1}{2}}\sin(x) & 1
+    \end{array}\right|=x^{-\frac{1}{2}}\cos(x)\]
+
+    Aplicando a fórmula de variação dos parâmetros, com $f(x)=x^{-\frac{1}{2}}$,
+    \[y_p(x)=x^{-\frac{1}{2}}\cos(x)\int\frac{x^{-\frac{1}{2}}(-x^{-\frac{1}{2}}\sin(x))}{x^{-1}}dx+x^{-\frac{1}{2}}\sin(x)\int\frac{x^{-\frac{1}{2}}\cdot x^{-\frac{1}{2}}\cos(x)}{x^{-1}}dx\]
+    \[y_p(x)=x^{-\frac{1}{2}}\cos^2(x)+x^{-\frac{1}{2}}\sin^(x)=x^{-\frac{1}{2}}\]
+
+    Dessa maneira, a solução geral da equação diferencial é
+    \[\boxed{y(x)=c_1x^{-\frac{1}{2}}\cos(x)+c_2x^{-\frac{1}{2}}\sin(x)+x^{-\frac{1}{2}}}\]
+
+\end{resolucao}
+
 \exercicio[Zill, Seção 4.6, Exercícios 25, 27] Resolva as equações diferenciais de terceira ordem por variação dos parâmetros.
 \begin{itensquestao}[2]
-    \item $y'''+y''=\tan(x)$
+    \item $y'''+y'=\tan(x)$
     \item $y'''-2y''-y'+2y=e^{4x}$
 \end{itensquestao}
 
+\begin{resolucao}
+    
+    \itemresolucao Primeiramente, determinamos as soluções da equação homogênea associada:
+    \[\lambda^3+\lambda=0\Rightarrow\lambda(\lambda^2+1)=0\Rightarrow\lambda=0,~\lambda=+i\text{ ou }\lambda=-i\]
+    Dessa maneira, temos $y_1=1$, $y_2=\cos(x)$ e $y_3=\sin(x)$, com $y_h=c_1+c_2\cos(x)+c_3\sin(x)$. Assim, partimos para a determinação do Wronskiano das soluções:
+    \[W(x)=\begin{vmatrix}
+        1 & \cos(x) & \sin(x)\\
+        0 & -\sin(x) & \cos(x)\\
+        0 & -\cos(x) & -\sin(x)
+    \end{vmatrix}=1\]
+    \[W_1(x)=\begin{vmatrix}
+        0 & \cos(x) & \sin(x)\\
+        0 & -\sin(x) & \cos(x)\\
+        1 & -\cos(x) & -\sin(x)
+    \end{vmatrix}=1, 
+    \quad W_2(x)=\begin{vmatrix}
+        1 & 0 & \sin(x)\\
+        0 & 0 & \cos(x)\\
+        0 & 1 & -\sin(x)
+    \end{vmatrix}=-\cos(x)\]
+    \[W_3(x)=\begin{vmatrix}
+        1 & \cos(x) &  0\\
+        0 & -\sin(x) & 0\\
+        0 & -\cos(x) & 1
+    \end{vmatrix}=-\sin(x)\]
+
+    A partir da fórmula de variação dos parâmetros, então,
+    \[y_p(x)=1\int\tan(x)dx+\cos(x)\int\tan(x)(\cos(x))dx+\sin(x)\int\tan(x)(-\sin(x))dx\]
+    \[y_p(x)=-\ln|\cos(x)|+\cos(x)\int\sin(x)dx+\sin(x)\int\frac{\sin^2(x)}{\cos(x)}dx\]
+
+    Mas $\displaystyle\frac{\sin^2(x)}{\cos(x)}=\frac{1-\cos^2(x)}{\cos(x)}=\sec(x)-\cos(x)$. Dessa forma, temos
+
+    \[y_p(x)=-\ln|\cos(x)|-\cos^2(x)+\sin(x)\left[\int\sec(x)dx-\int\cos(x)dx\right]\]
+    \[y_p(x)=-\ln|\cos(x)|-\cos^2(x)+\sin(x)\left[\ln|\sec(x)+\tan(x)|-\sin(x)\right]\]
+    \[y_p(x)=-\ln|\cos(x)|+\sin(x)\ln|\sec(x)+\tan(x)|-1\]
+
+    Ou seja, a solução geral é dada por
+    \begin{gather*}
+        \boxed{y(x)=c_1'+c_2\cos(x)+c_3\sin(x)-\ln|\cos(x)|+\sin(x)\ln|\sec(x)+\tan(x)|},\\
+        c_1'=c_1-1
+    \end{gather*}
+
+    \itemresolucao
+
+\end{resolucao}
+
 \exercicio[] Resolva a equação diferencial
 \[y''+7y=\sum_{k=3}^{n}e^{3kt}\]
+
+\begin{resolucao}
+    Resolvendo a equação homogênea associada,
+    \[\lambda^2+7\lambda=0\Rightarrow\lambda=\pm i\sqrt{7}\]
+    Assim, tomamos $y_1=\cos(\sqrt{7}t)$, $y_2=\sin(\sqrt{7}t)$ e $y_h(x)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)$.
+
+    Calculando o Wronskiano das soluções encontradas,
+    \[W(x)=\begin{vmatrix}
+        \cos(\sqrt{7}t)          & \sin(\sqrt{7}t)\\
+        -\sqrt{7}\sin(\sqrt{7}t) & \sqrt{7}\cos(\sqrt{7}t)
+    \end{vmatrix}=\sqrt{7}\]
+
+    Além disso,
+    \[W_1(x)=\begin{vmatrix}
+        0 & \sin(\sqrt{7}t)\\
+        1 & \sqrt{7}\cos(\sqrt{7}t)
+    \end{vmatrix}=-\sin(\sqrt{7}t)\]
+    \[W_2(x)=\begin{vmatrix}
+        \cos(\sqrt{7}t)          & 0\\
+        -\sqrt{7}\sin(\sqrt{7}t) & 1
+    \end{vmatrix}=\cos(\sqrt{7}t)\]
+
+    Da fórmula de variação de parâmetros, então,
+    \[ y_p(x)=\cos(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}(-\sin(\sqrt{7}t))}{\sqrt{7}}dt+\sin(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}\cos(\sqrt{7}t)}{\sqrt{7}}dt\]
+
+\end{resolucao}
 
 \exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
 
