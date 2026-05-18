@@ -46,6 +46,22 @@ abnt-etal-cite, abnt-etal-list=3, abnt-etal-text=emph]{abntex2cite}
 \subsubsectionfont{\fontsize{12}{12}\selectfont}
 \usepackage{cmbright} % Fonte Sans-Serif
 
+\makeatletter
+% Para capítulos numerados (\chapter)
+\renewcommand{\@makechapterhead}[1]{%
+	{\setlength{\parindent}{0em} \raggedright
+		\bfseries\fontsize{14}{14} \thechapter~\MakeUppercase{#1} \par \nobreak \vspace{1cm}
+	}
+}
+% Para capítulos não numerados (\chapter*, Sumário, Listas, etc)
+\renewcommand{\@makeschapterhead}[1]{%
+	\vspace*{0cm}%
+	{\setlength{\parindent}{0em} \raggedright \normalfont
+	    \bfseries\normalsize\MakeUppercase{#1} \par \nobreak \vspace{1cm}
+	}
+}
+\makeatother
+
 % =========================================================
 % COMANDOS PERSONALIZADOS PARA LISTAS DE EXERCÍCIO
 % =========================================================
