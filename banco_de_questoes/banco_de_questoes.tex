@@ -585,7 +585,49 @@
         c_1'=c_1-1
     \end{gather*}
 
-    \itemresolucao
+    \itemresolucao A equação característica da homogênea associada é 
+    \[\lambda^3-2\lambda^2-\lambda+2=0\]
+    
+    Por teste, percebemos que $1$ é raiz da equação. Aplicando o dispositivo de Briot-Ruffini para dividir a equação por $(\lambda-1)$,
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cccc}
+            1 & 1 & -2 & -1 & 2\\
+            \hline
+              & 1 & -1 & -2 & 0
+        \end{tabular}
+    \end{table}
+
+    Dessa forma podemos fatorar a equação em $(\lambda-1)(\lambda^2-\lambda-2)=0$, o que implica que $(\lambda-1)(\lambda-2)(\lambda+1)=0$. Ou seja, são raízes da equação $\lambda=1$, $\lambda=2$ e $\lambda=-1$. Com isso, determinamos a solução homogênea como $y_h(x)=c_1e^x+c_2e^{2x}+c_3e^{-x}$. Calculando o Wronskiano das soluções,
+    \[W(x)=\begin{vmatrix}
+        e^x & e^{2x} & e^{-x}\\
+        e^x & 2e^{2x} & -e^{-x}\\
+        e^x & 4e^{2x} & e^{-x}
+    \end{vmatrix}=6e^{2x}\]
+    \[W_1(x)=\begin{vmatrix}
+        0 & e^{2x} & e^{-x}\\
+        0 & 2e^{2x} & -e^{-x}\\
+        1 & 4e^{2x} & e^{-x}
+    \end{vmatrix}=-3e^x, 
+    \quad W_2(x)=\begin{vmatrix}
+        e^x & 0 & e^{-x}\\
+        e^x & 0 & -e^{-x}\\
+        e^x & 1 & e^{-x}
+    \end{vmatrix}=2\]
+    \[W_3(x)=\begin{vmatrix}
+        e^x & e^{2x} &  0\\
+        e^x & 2e^{2x} & 0\\
+        e^x & 4e^{2x} & 1
+    \end{vmatrix}=e^{3x}\]
+
+    Da fórmula de variação dos parâmetros, então,
+    \[y_p(x)=e^x\int\frac{e^{4x}(-3e^x)}{6e^{2x}}dx+e^{2x}\int\frac{e^{4x}\cdot2}{6e^{2x}}dx+e^{-x}\int\frac{e^{4x}(e^{3x})}{6e^{2x}}dx\]
+    \[y_p(x)=-\frac{e^x}{2}\int e^{3x}dx+\frac{e^{2x}}{3}\int e^{2x}dx+\frac{e^{-x}}{6}\int e^{5x}dx\]
+    \[y_p(x)=\frac{1}{30}e^{4x}\]
+
+    Assim, combinando as soluções homogênea e particular, temos
+    \[\boxed{y(x)=c_1e^x+c_2e^{2x}+c_3e^{-x}+\frac{1}{30}e^{4x}}\]
 
 \end{resolucao}
 
@@ -595,29 +637,64 @@
 \begin{resolucao}
     Resolvendo a equação homogênea associada,
     \[\lambda^2+7\lambda=0\Rightarrow\lambda=\pm i\sqrt{7}\]
-    Assim, tomamos $y_1=\cos(\sqrt{7}t)$, $y_2=\sin(\sqrt{7}t)$ e $y_h(x)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)$.
+    Assim, tomamos $y_1=\cos(\sqrt{7}t)$, $y_2=\sin(\sqrt{7}t)$ e $y_h(t)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)$.
 
     Calculando o Wronskiano das soluções encontradas,
-    \[W(x)=\begin{vmatrix}
+    \[W(t)=\begin{vmatrix}
         \cos(\sqrt{7}t)          & \sin(\sqrt{7}t)\\
         -\sqrt{7}\sin(\sqrt{7}t) & \sqrt{7}\cos(\sqrt{7}t)
     \end{vmatrix}=\sqrt{7}\]
 
     Além disso,
-    \[W_1(x)=\begin{vmatrix}
+    \[W_1(t)=\begin{vmatrix}
         0 & \sin(\sqrt{7}t)\\
         1 & \sqrt{7}\cos(\sqrt{7}t)
     \end{vmatrix}=-\sin(\sqrt{7}t)\]
-    \[W_2(x)=\begin{vmatrix}
+    \[W_2(t)=\begin{vmatrix}
         \cos(\sqrt{7}t)          & 0\\
         -\sqrt{7}\sin(\sqrt{7}t) & 1
     \end{vmatrix}=\cos(\sqrt{7}t)\]
 
     Da fórmula de variação de parâmetros, então,
-    \[ y_p(x)=\cos(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}(-\sin(\sqrt{7}t))}{\sqrt{7}}dt+\sin(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}\cos(\sqrt{7}t)}{\sqrt{7}}dt\]
+    \[ y_p(t)=\cos(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}(-\sin(\sqrt{7}t))}{\sqrt{7}}dt+\sin(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}\cos(\sqrt{7}t)}{\sqrt{7}}dt\]
+
+    Ou, reorganizando a fim de facilitar a integração,
+    \[ y_p(t)=-\frac{\cos(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\color{blue}\underbrace{\int e^{3kt}\sin(\sqrt{7}t)dt}_{\circled{1}}\color{black}+\frac{\sin(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\color{red}{\underbrace{\int e^{3kt}\cos(\sqrt{7}t)dt}_{\circled{2}}}\]
+
+    Em um primeiro momento, calcularemos a integral \circled{1} por partes. Tomamos $\sin(\sqrt{7}t)=u\rightarrow\sqrt{7}\cos(\sqrt{7}t)dt=du$ e $e^{3kt}dt=dv\rightarrow\dfrac{e^{3kt}}{3k}=v$. Dessa forma,
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\int e^{3kt}\cos(\sqrt{7}t)dt\]
+
+    Novamente, calcularemos a integral resultante por partes. Tomamos $\cos(\sqrt{7}t)=u\rightarrow-\sqrt{7}\sin(\sqrt{7}t)dt=du$ e $e^{3kt}dt=dv\rightarrow\dfrac{e^{3kt}}{3k}=v$. Ou seja,
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\left[\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\int e^{3kt}\sin(\sqrt{7}t)dt\right]\]
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}e^{3kt}}{9k^2}\cos(\sqrt{7}t)-\frac{7}{9k^2}\int e^{3kt}\sin(\sqrt{7}t)dt\]
+    \[\left(1+\frac{7}{9k^2}\right)\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}e^{3kt}}{9k^2}\cos(\sqrt{7}t)\]
+    \[\color{blue}\text{\circled{1} }\int e^{3kt}\sin(\sqrt{7}t)dt\color{black}=\frac{e^{3kt}}{7+9k^2}\left[3k\sin(\sqrt{7}t)-\sqrt{7}\cos(\sqrt{7}t)\right]\]
+
+    É feito procedimento análogo para a integral \circled{2}, utilizando integração por partes:
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\int e^{3kt}\sin(\sqrt{7}t)dt\]
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\left[\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\int e^{3kt}\cos(\sqrt{7}t)dt\right]\]
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}e^{3kt}}{9k^2}\sin(\sqrt{7}t)-\frac{7}{9k^2}\int e^{3kt}\cos(\sqrt{7}t)dt\]
+    \[\left(1+\frac{7}{9k^2}\right)\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}e^{3kt}}{9k^2}\sin(\sqrt{7}t)\]
+    \[\color{red}\text{\circled{2} }\int e^{3kt}\cos(\sqrt{7}t)dt\color{black}=\frac{e^{3kt}}{7+9k^2}\left[3k\cos(\sqrt{7}t)+\sqrt{7}\sin(\sqrt{7}t)\right]\]
+
+    Substituindo as expressões encontradas na equação de $y_p$, 
+    \begin{gather*}
+        y_p(t)=-\frac{\cos(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[3k\sin(\sqrt{7}t)-\sqrt{7}\cos(\sqrt{7}t)\right]+\\+\frac{\sin(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[3k\cos(\sqrt{7}t)+\sqrt{7}\sin(\sqrt{7}t)\right]
+    \end{gather*}
+    \begin{gather*}
+        y_p(t)=\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[-\frac{3k}{\sqrt{7}}\cos(\sqrt{7}t)\sin(\sqrt{7}t)+\cos^2(\sqrt{7}t)\right.+\\\left.+\frac{3k}{\sqrt{7}}\sin(\sqrt{7}t)\cos(\sqrt{7}t)+\sin^2(\sqrt{7}t)\right]
+    \end{gather*}
+    \[y_p(t)=\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\]
+
+    Assim, encontramos a solução geral da EDO, da forma $y(t)=y_h(t)+y_p(t)$:
+    \[\boxed{y(t)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)+\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}}\]
 
 \end{resolucao}
 
 \exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
+
+\begin{resolucao}
+    
+\end{resolucao}
 
 \end{document}

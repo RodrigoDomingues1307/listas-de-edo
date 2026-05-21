@@ -1,7 +1,7 @@
 %PACKAGES======================================================================
 \usepackage[brazil]{babel}
 \usepackage{graphicx}
-\usepackage[left=3.0 cm, top=3.0 cm, right=2.0 cm, bottom=2.0 cm]{geometry}
+\usepackage[left=2.0 cm, top=2.0 cm, right=2.0 cm, bottom=2.0 cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,dsfont,mathtools,blindtext}
 \usepackage{indentfirst}
@@ -62,6 +62,9 @@ abnt-etal-cite, abnt-etal-list=3, abnt-etal-text=emph]{abntex2cite}
 	}
 }
 \makeatother
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1.2pt] (char) {\footnotesize #1};}}
 
 % =========================================================
 % COMANDOS PERSONALIZADOS PARA LISTAS DE EXERCÍCIO
