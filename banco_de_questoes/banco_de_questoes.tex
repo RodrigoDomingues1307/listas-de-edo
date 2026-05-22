@@ -694,7 +694,59 @@
 \exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
 
 \begin{resolucao}
-    
+    Considerando que o circuito é configurado em série, as fontes e quedas de tensões devem ser somadas. Nesse sentido, temos
+    \[E(t)-\frac{1}{C}Q(t)-R\frac{dQ(t)}{dt}-L\frac{d^2Q(t)}{dt^2}=0\]
+    \[500=\frac{1}{\frac{1}{108}\times10^{-3}}Q(t)+300\frac{dQ(t)}{dt}+0.2\frac{d^2Q(t)}{dt^2}\]
+    \[Q''+1500Q'+540\cdot10^3Q=2500\]
+
+    Resolvendo a equação homogênea associada,
+    \[\lambda^2+1500\lambda+540\cdot10^3=0\]
+    \[\lambda_{1,2}=\frac{1500\pm\sqrt{1500^2-4\cdot1\cdot540\cdot10^3}}{2}\Rightarrow\lambda_1=-600,~\lambda_2=-900\]
+
+    Sendo assim, são soluções do sistema $Q_1(t)=e^{-600t}$ e $Q_2(t)=e^{-900t}$, e a solução homogênea pode ser expressa por uma combinação linear das duas, da forma $Q_h(t)=c_1e^{-600t}+c_2e^{-900t}$.
+
+    Encontradas as soluções que resolvem a equação homogênea, prosseguimos com o cálculo do Wronskiano:
+    \[W(t)=\begin{vmatrix}
+        e^{-600t}          & e^{-900t}\\
+        -600e^{-600t} & -900e^{-900t}
+    \end{vmatrix}=-300e^{-1500t}\]
+
+    Além disso,
+    \[W_1(t)=\begin{vmatrix}
+        0 & e^{-900t}\\
+        1 & -900e^{-900t}
+    \end{vmatrix}=-e^{-900t}\quad e \quad W_2(t)=\begin{vmatrix}
+        e^{-600t} & 0\\
+        -600e^{-600t} & 1
+    \end{vmatrix}=e^{-600t}\]
+
+    Aplicando a fórmula de variação dos parâmetros, 
+    \[Q_p(t)=e^{-600t}\int\frac{2500(-e^{-900t})}{-300e^{-1500t}}dt+e^{-900t}\int\frac{2500e^{-600t}}{-300e^{-1500t}}dt\]
+    \[Q_p(t)=\frac{25}{3}e^{-600t}\int e^{600t}dt-\frac{25}{3}e^{-900t}\int e^{900t}dt\]
+    \[Q_p(t)=\frac{25}{1800}-\frac{25}{2700}=\frac{1}{216}\]
+
+    Dessa forma, dado que $Q(t)=Q_h(t)+Q_p(t)$, encontramos que
+    \[Q(t)=c_1e^{-600t}+c_2e^{-900t}+\frac{1}{216}\]
+
+    O enunciado fornece as seguintes condições iniciais:
+    \[\begin{cases}
+        \displaystyle Q(0)=\frac{217}{216}\\
+        \displaystyle i(0)=\frac{dQ}{dt}(0)=0
+    \end{cases}\]
+
+    Aplicando essas condições à expressão de $Q(t)$ encontrada,
+    \[\begin{cases}
+        \displaystyle\frac{217}{216}=c_1+c_2+\frac{1}{216}\\
+        \displaystyle0=-600c_1-900c_2
+    \end{cases}\Rightarrow
+    \begin{cases}
+        \displaystyle1=c_1+c_2\\
+        \displaystyle0=c_1+\frac{3}{2}c_2
+    \end{cases}\]
+
+    Resolvendo o sistema, encontramos $c_1=3$ e $c_2=-2$. Dessa maneira, temos como resposta do problema
+    \[\boxed{Q(t)=3e^{-600t}-2e^{-900t}+\frac{1}{216}}\]
+    \[\boxed{i(t)=\frac{dQ}{dt}(t)=1800\left(e^{-900t}-e^{-600t}\right)}\]
 \end{resolucao}
 
 \end{document}
