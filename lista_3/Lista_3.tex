@@ -59,6 +59,13 @@ respectivamente, soluções particulares de
 \end{align*}
 \end{itensquestao}
 
+\exercicio[Zill, Seção 4.2, Exercícios 17, 19, 20] A função indicada $y_1(x)$ é uma solução da equação homogênea associada. Use o método de redução de ordem para encontrar uma segunda solução $y_2(x)$ da equação homogênea e uma solução particular da equação não-homogênea dada.
+\begin{itensquestao}
+    \item $y''-4y=2,\quad y_1=e^{-2x}$
+    \item $y''-3y'+2y=5e^{3x},\quad y_1=e^{x}$
+    \item $y''-4y'+3y=x,\quad y_1=e^{x}$
+\end{itensquestao}
+
 \exercicio[Zill, Seção 4.6, Exercícios 9, 12, 15, 17 e 21] Resolva cada equação diferencial por variação dos parâmetros, respeitando as condições iniciais quando houver.
 \begin{itensquestao}[2]
     \item $y''-4y=\dfrac{e^{2x}}{x}$
@@ -244,6 +251,89 @@ respectivamente, soluções particulares de
     Para a segunda equação,
     \[y''-6y'+5y=-2 \cdot g_2(x) + \frac{1}{9} \cdot g_1(x)\Rightarrow y_p(x)=-2\cdot y_{p_2}+\frac{1}{9}\cdot y_{p_1}\]
     \[\boxed{y_p(x)=-2x^2-6x-\frac{1}{3}e^{2x}}\]
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Realizando a substituição $y(x)=u(x)y_1(x)=u(x)e^{-2x}$, temos:
+    \[\begin{cases}
+        y'=u'y_1+uy_1'=-2e^{-2x}u+e^{-2x}u'\\
+        y''=y_1''u+2y'u'+y_1u''=4e^{-2x}u-4e^{-2x}u'+e^{-2x}u''
+    \end{cases}\]
+
+    Substituindo na equação diferencial fornecida, 
+    \[4e^{-2x}u-4e^{-2x}u'+e^{-2x}u''-4e^{-2x}u=2\]
+    \[e^{-2x}(u''-4u')=2\]
+    \[u''-4u'=2e^{2x}\]
+
+    A partir da substituição $w=u'$, a equação é reduzida para a primeira ordem. Assim,
+    \[w'-4w=2e^{2x}\]
+
+    Um fator integrante para essa equação é $\mu(x)=e^{\int -4dx}=e^{-4x}$. Multiplicando a equação por $\mu(x)$, temos
+    \[\frac{d}{dt}\left(we^{-4x}\right)=2e^{-2x}\Rightarrow we^{-4x}=-e^{-2x}+c_2\]
+    \[w=-e^{2x}+c_2'e^{4x}\]
+
+    Integrando $w$ para obter $u$, temos
+    \[u=-\frac{1}{2}e^{2x}+\frac{c_2'}{4}e^{4x}+c_1\]
+
+    Substituindo de volta em $y$,
+    \[y(x)=e^{-2x}\left(-\frac{1}{2}e^{2x}+\frac{c_2'}{4}e^{4x}+c_1\right)\]
+    \[y(x)=-\frac{1}{2}+c_2e^{2x}+c_1e^{-2x}\]
+
+    Onde $c_2=c_2'/4$. Assim, a segunda solução da equação homogênea associada é $\boxed{y_2(x)=e^{2x}}$ e uma solução particular da equação não homogênea é $\boxed{y_p(x)=-\frac{1}{2}}$.
+
+    \itemresolucao Realizando a substituição $y(x)=u(x)y_1(x)=u(x)e^{x}$, temos:
+    \[\begin{cases}
+        y'=u'y_1+uy_1'=e^{x}u+e^{x}u'\\
+        y''=y_1''u+2y'u'+y_1u''=e^{x}u+e^{x}u'+e^{x}u''
+    \end{cases}\]
+
+    Substituindo na equação diferencial fornecida, 
+    \[e^{x}u+e^{x}u'+e^{x}u''-3e^{x}u-3e^{x}u'+2e^{x}u=0\]
+    \[e^xu''-e^xu'=5e^{3x}\]
+    \[u''-u'=5e^{2x}\]
+
+    A partir da substituição $w=u'$, a equação é reduzida para a primeira ordem. Assim,
+    \[w'-w=5e^{2x}\]
+
+    Um fator integrante para essa equação é $\mu(x)=e^{\int -1dx}=e^{-x}$. Multiplicando a equação por $\mu(x)$, temos
+    \[\frac{d}{dt}\left(we^{-x}\right)=5e^{x}\Rightarrow we^{-x}=5e^{x}+c_2\]
+    \[w=5e^{2x}+c_2e^{x}\]
+
+    Integrando $w$ para obter $u$, temos
+    \[u=\frac{5}{2}e^{2x}+c_2e^{x}+c_1\]
+
+    Substituindo de volta em $y$,
+    \[y(x)=e^{x}\left(\frac{5}{2}e^{2x}+c_2e^{x}+c_1\right)\]
+    \[y(x)=\frac{5}{2}e^{3x}+c_2e^{2x}+c_1e^{x}\]
+
+    Assim, a segunda solução da equação homogênea associada é $\boxed{y_2(x)=e^{2x}}$ e uma solução particular da equação não homogênea é $\boxed{y_p(x)=\frac{5}{2}e^{3x}}$.
+
+    \itemresolucao Realizando a substituição $y(x)=u(x)y_1(x)=u(x)e^{x}$, temos:
+    \[\begin{cases}
+        y'=u'y_1+uy_1'=e^{x}u+e^{x}u'\\
+        y''=y_1''u+2y'u'+y_1u''=e^{x}u+2e^{x}u'+e^{x}u''
+    \end{cases}\]
+
+    Substituindo na equação diferencial fornecida, 
+    \[e^{x}u+2e^{x}u'+e^{x}u''-4e^{x}u-4e^{x}u'+3e^{x}u=0\]
+    \[e^xu''-2e^xu'=x\]
+    \[u''-2u'=xe^{-x}\]
+
+    A partir da substituição $w=u'$, a equação é reduzida para a primeira ordem. Assim,
+    \[w'-2w=xe^{-x}\]
+
+    Um fator integrante para essa equação é $\mu(x)=e^{\int -2dx}=e^{-2x}$. Multiplicando a equação por $\mu(x)$, temos
+    \[\frac{d}{dt}\left(we^{-2x}\right)=xe^{-3x}\Rightarrow we^{-2x}=-\frac{1}{3}xe^{-3x}-\frac{1}{9}e^{-3x}+c_2'\]
+    \[w=-\frac{1}{3}xe^{-x}-\frac{1}{9}e^{-x}+c_2'e^{2x}\]
+
+    Integrando $w$ para obter $u$, temos
+    \[u=\frac{1}{3}xe^{-x}+\frac{4}{9}e^{-x}+\frac{c_2'}{2}e^{2x}+c_1\]
+
+    Substituindo de volta em $y$,
+    \[y(x)=e^{x}\left(\frac{1}{3}e^{-x}+\frac{4}{9}e^{-x}+\frac{c_2'}{2}e^{2x}+c_1\right)\]
+    \[y(x)=\frac{1}{3}x+\frac{4}{9}+c_2e^{3x}+c_1e^{x}\]
+
+    Onde $c_2=c_2'/2$. Assim, a segunda solução da equação homogênea associada é $\boxed{y_2(x)=e^{3x}}$ e uma solução particular da equação não homogênea é $\boxed{y_p(x)=\frac{1}{3}x+\frac{4}{9}}$.
 \end{resolucao}
 
 \begin{resolucao}
