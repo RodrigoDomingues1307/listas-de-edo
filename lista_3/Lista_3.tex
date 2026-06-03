@@ -1,0 +1,640 @@
+%chktex-file 1 chktex-file 2 chktex-file 3
+%chktex-file 8 chktex-file 9 chktex-file 10
+%chktex-file 13 %chktex-file 17 %chktex-file 23
+%chktex-file 45 %chktex-file 25 %chktex-file 35
+%chktex-file 40
+
+\documentclass[oneside,12pt,a4paper]{report}
+
+\usepackage{template}
+
+\begin{document}
+
+    \begin{center}
+        \fontsize{17.28}{17.28}
+            \textbf{SME0340 -- Equações Diferenciais Ordinárias}
+
+            \textbf{Terceira Lista de Exercícios}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QUESTÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\exercicio[Zill, Seção 4.1, Exercícios 7, 8] 
+\begin{itensquestao}
+    \item Dado que $x(t) = c_1 \cos \omega t + c_2 \sin \omega t$ é a solução geral
+    de $x'' + \omega^2 x = 0$ no intervalo $(-\infty, \infty)$, mostre que uma solução
+    que satisfaça as condições iniciais $x(0) = x_0$ e $x'(0) = x_1$ é dada por
+    \[x(t) = x_0 \cos \omega t + \frac{x_1}{\omega} \sin \omega t.\]
+
+    \item Use a solução geral de $x'' + \omega^2 x = 0$ dada no Problema 7 para
+    mostrar que uma solução satisfazendo as condições $x(t_0) = x_0$ e
+    $x'(t_0) = x_1$ é a solução dada no Problema 7, deslocada por $t_0$ unidades:
+    \[x(t) = x_0 \cos \omega(t - t_0) + \frac{x_1}{\omega} \sin\, \omega(t - t_0).\]
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.1, Exercícios 16, 17, 20, 22] Determine se o conjunto de funções dado é
+linearmente independente no intervalo $(-\infty, \infty)$.
+\begin{itensquestao}[1]
+    \item $f_1(x) = 0, \quad f_2(x) = x, \quad f_3(x) = e^x$
+    \item $f_1(x) = 5, \quad f_2(x) = \cos^2 x, \quad f_3(x) = \sin^2 x$
+    \item $f_1(x) = 2 + x, \quad f_2(x) = 2 + |x|$
+    \item $f_1(x) = e^x, \quad f_2(x) = e^{-x}, \quad f_3(x) = \sinh x$
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.1, Exercício 35]
+\begin{itensquestao}
+\item Verifique que $y_{p_1} = 3e^{2x}$ e $y_{p_2} = x^2 + 3x$ são,
+respectivamente, soluções particulares de
+\begin{align*}
+    y'' - 6y' + 5y &= -9e^{2x} \\
+    \text{e} \quad y'' - 6y' + 5y &= 5x^2 + 3x - 16.
+\end{align*}
+
+\item Use o item (a) para encontrar soluções particulares de
+\begin{align*}
+    y'' - 6y' + 5y &= 5x^2 + 3x - 16 - 9e^{2x} \\
+    \text{e} \quad y'' - 6y' + 5y &= -10x^2 - 6x + 32 + e^{2x}.
+\end{align*}
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.6, Exercícios 9, 12, 15, 17 e 21] Resolva cada equação diferencial por variação dos parâmetros, respeitando as condições iniciais quando houver.
+\begin{itensquestao}[2]
+    \item $y''-4y=\dfrac{e^{2x}}{x}$
+    \item $y''-2y'+y=\dfrac{e^{x}}{1+x^2}$
+    \item $y''+2y'+y=e^{-t}\ln(t)$
+    \item $3y''-6y'+6y=e^x\sec(x)$
+    \item $y''+2y'-8y=2e^{-2x}-e^{-x},\\ y(0)=1,~y'(0)=0$
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.6, Exercício 23] As funções indicadas são soluções linearmente independentes da equação diferencial homogênea associada em $(0,\infty)$. Ache a solução geral da equação não homogênea dada:
+\[x^2y''+xy'+\left(x^2-\frac{1}{4}\right)y=x^\frac{3}{2};\quad y_1=x^{-\frac{1}{2}}\cos(x),~y_2=x^{-\frac{1}{2}}\sin(x)\]
+
+\exercicio[Zill, Seção 4.6, Exercícios 25, 27] Resolva as equações diferenciais de terceira ordem por variação dos parâmetros.
+\begin{itensquestao}[2]
+    \item $y'''+y'=\tan(x)$
+    \item $y'''-2y''-y'+2y=e^{4x}$
+\end{itensquestao}
+
+\exercicio[] Resolva a equação diferencial
+\[y''+7y=\sum_{k=3}^{n}e^{3kt}\]
+
+\exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESOLUÇÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resolucao}
+    \itemresolucao Primeiramente, derivemos a solução geral fornecida:
+        \[x'(t)=-\omega c_1\sin(\omega t)+\omega c_2\cos(\omega t)\]
+
+    Agora, devemos substituir as condições iniciais fornecidas:
+    \[\begin{cases}
+        x(0)=x_0\Rightarrow \boxed{x_0=c_1}\\
+        x'(0)=x_1\Rightarrow x_1=\omega c_2\Rightarrow \boxed{c_2=\dfrac{x_1}{\omega}}
+    \end{cases}\]
+
+    Substituindo as constantes na solução geral, temos
+    \[\boxed{x(t)=x_0\cos(\omega t)+\frac{x_1}{\omega}\sin(\omega t)}\]
+
+    \itemresolucao O procedimento é análogo ao do item anterior. Aproveitando a primeira derivada obtida, substituímos as condições iniciais fornecidas:
+    \[\begin{cases}
+        x(t_0)=x_0\Rightarrow x_0=c_1\cos(\omega t)+c_2\sin(\omega t)\\
+        x'(t_0)=x_1\Rightarrow x_1=-\omega c_1\sin(\omega t)+\omega c_2\cos(\omega t)
+    \end{cases}\]
+
+    Ou, na forma matricial, 
+    \[\begin{Bmatrix}
+        x_0\\
+        x_1
+    \end{Bmatrix}
+    =
+    \begin{pmatrix}
+        \cos(\omega t_0) & \sin(\omega t_0)\\
+        -\omega\sin(\omega t_0) & \omega\cos(\omega t_0)
+    \end{pmatrix}
+    \begin{Bmatrix}
+        c_1\\
+        c_2
+    \end{Bmatrix}\]
+
+    Resolvendo o sistema,
+    \[\begin{Bmatrix}
+        c_1\\
+        c_2
+    \end{Bmatrix}
+    =
+    \underbrace{\frac{1}{\omega\cos^2(\omega t)+\omega\sin^2(\omega t)}}_{\omega}
+    \begin{pmatrix}
+        \omega\cos(\omega t_0) & -\sin(\omega t_0)\\
+        \omega\sin(\omega t_0) & \cos(\omega t_0)
+    \end{pmatrix}
+    \begin{Bmatrix}
+        x_0\\
+        x_1
+    \end{Bmatrix}\]
+    \[\begin{cases}
+        c_1=x_0\cos(\omega t_0)-\dfrac{x_1}{\omega}\sin(\omega t_0)\\
+        c_2=x_0\sin(\omega t_0)+\dfrac{x_1}{\omega}\cos(\omega t_0)
+    \end{cases}\]
+
+    Substituindo as constantes encontradas na solução geral fornecida, temos
+    \[x(t)=\left(x_0\cos(\omega t_0)-\dfrac{x_1}{\omega}\sin(\omega t_0)\right)\cos(\omega t)+\left(x_0\sin(\omega t_0)+\dfrac{x_1}{\omega}\cos(\omega t_0)\right)\sin(\omega t)\]
+    \[x(t)=x_0(\cos(\omega t_0)\cos(\omega t)+\sin(\omega t_0)\sin(\omega t))-\dfrac{x_1}{\omega}(\sin(\omega t_0)\cos(\omega t)-\cos(\omega t_0)\sin(\omega t))\]
+    \[\boxed{x(t)=x_0\cos(\omega(t-t_0))-\dfrac{x_1}{\omega}\sin(\omega(t-t_0))}\]
+\end{resolucao}
+
+\begin{resolucao}
+    Usaremos duas definições para resolver os itens dessa questão:
+    \begin{enumerate}
+        \item \textbf{Wronskiano:} Suponha que cada uma das funções $f_1(x), f_2(x), \ldots, f_n(x)$ tenha
+        pelo menos $n - 1$ derivadas. O determinante
+
+        $$W(f_1, f_2, \ldots, f_n) =
+        \begin{vmatrix}
+        f_1            & f_2            & \cdots & f_n            \\
+        f_1'           & f_2'           & \cdots & f_n'           \\
+        \vdots         & \vdots         & \cdots & \vdots         \\
+        f_1^{(n-1)}    & f_2^{(n-1)}    & \cdots & f_n^{(n-1)}
+        \end{vmatrix},$$
+
+        onde as linhas denotam derivadas, é chamado de \textbf{wronskiano das funções}.
+
+        \item \textbf{Critério de independência linear:} Sejam $y_1, y_2, \ldots, y_n$ $n$ soluções da equação diferencial linear
+        homogênea de ordem $n$ em um intervalo $I$. Então, o conjunto de soluções
+        será \textbf{linearmente independente} em $I$ se e somente se
+        $W(y_1, y_2, \ldots, y_n) \neq 0$ para todo $x$ no intervalo.
+    \end{enumerate}
+
+    \itemresolucao 
+    \[W(x)=\begin{array}{|ccc|}
+        0 & x & e^x\\
+        0 & 1 & e^x\\
+        0 & 0 & e^x
+    \end{array}=0\quad\forall~x\in(-\infty, \infty)\]
+    Portanto, as soluções são linearmente dependentes.
+
+    \itemresolucao 
+    \[W(x)=\begin{array}{|ccc|}
+        5 & \cos^2(x) & \sin^2(x)\\
+        0 & -\sin(2x) & \sin(2x)\\
+        0 & -2\cos(2x) & 2\cos(2x)
+    \end{array}=0\quad\forall~x\in(-\infty, \infty)\]
+    Portanto, as soluções são linearmente dependentes.
+
+    \itemresolucao A função $f_2(x)$ não é diferenciável em $x=0$. Assim, o Wronskiano não é definido para todo $x\in(-\infty, \infty)$ e, consequentemente, as soluções são linearmente dependentes.
+
+    \itemresolucao 
+    \[W(x)=\begin{array}{|ccc|}
+        e^x & e^{-x} & \sinh(x)\\
+        e^x & -e^{-x} & \cosh(x)\\
+        e^x & e^{-x} & \sinh(x)
+    \end{array}\]
+    \[W(x)=e^x\cdot
+    \begin{array}{|cc|}
+        -e^{-x} & \cosh(x)\\
+        e^{-x} & \sinh(x)
+    \end{array}
+    -
+    e^x\cdot
+    \begin{array}{|cc|}
+        e^{-x} & \sinh(x)\\
+        e^{-x} & \sinh(x)
+    \end{array}
+    +
+    e^x\cdot
+    \begin{array}{|cc|}
+        e^{-x} & \sinh(x)\\
+        e^{-x} & \cosh(x)
+    \end{array}
+    \]
+    \[W(x)=0\quad\forall~x\in(-\infty, \infty)\]
+    Portanto, as soluções são linearmente dependentes.
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Para verificar que $y_{p_1}$ é solução particular da equação dada, devemos substituir $y_{p_1}$ na equação e verificar se a igualdade é satisfeita. Derivando $y_{p_1}$, temos
+    \[\begin{cases}
+        y_{p_1}'=6e^{2x}\\
+        y_{p_1}''=12e^{2x}
+    \end{cases}\]
+
+    Dessa forma,
+    \[12e^{2x}-36e^{2x}+15e^{2x}=-9e^{2x}\]
+    \[\boxed{-9e^{2x}=-9e^{2x}}\]
+
+    Como a equação foi reduzida à identidade, confirmamos que $y_{p_1}$ é solução particular da primeira equação dada. De maneira análoga, derivando $y_{p_2}$, temos
+    \[\begin{cases}
+        y_{p_2}'=2x+3\\
+        y_{p_2}''=2
+    \end{cases}\]
+
+    Assim,
+    \[2-12x-18+5x^2+15x=5x^2+3x-16\]
+    \[\boxed{5x^2+3x-16=5x^2+3x-16}\]
+
+    Como a equação foi reduzida à identidade, confirmamos que $y_{p_2}$ é solução particular da segunda equação dada.
+
+    \itemresolucao Dado um operador diferencial linear $L$ e um termo não homogêneo $g(x)$, se $L[y_{p_1}]=g_1(x)$ e $L[y_{p_2}]=g_2(x)$, então $L[c_1y_{p_1}+c_2y_{p_2}]=c_1L[y_{p_1}]+c_2L[y_{p_2}]=c_1g_1(x)+c_2g_2(x)$. Com base no item anterior, definimos $g_1(x)=-9e^{2x}$ e $g_2(x)=5x^2+3x-16$. Dessa forma, para a primeira equação dada, temos
+    \[y''-6y'+5y=1 \cdot g_2(x) + 1 \cdot g_1(x)\Rightarrow y_p(x)=1\cdot y_{p_2}+1\cdot y_{p_1}\]
+    \[\boxed{y_p(x)=x^2+3x+3e^{2x}}\]
+    Para a segunda equação,
+    \[y''-6y'+5y=-2 \cdot g_2(x) + \frac{1}{9} \cdot g_1(x)\Rightarrow y_p(x)=-2\cdot y_{p_2}+\frac{1}{9}\cdot y_{p_1}\]
+    \[\boxed{y_p(x)=-2x^2-6x-\frac{1}{3}e^{2x}}\]
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Primeiramente, devemos resolver a equação homogênea auxiliar $y''-4y=0$. Sua equação característica é $\lambda^2-4=0$, por meio da qual obtemos $\lambda=\pm2$. Ou seja, as soluções que satisfazem a equação homogênea são $y_1(x) = e^{2x}$ e $y_2(x) = e^{-2x}$. Podemos escrever a solução da equação homogênea como uma combinação linear de $y_1$ e $y_2$, da forma
+    \[y_h(x)=c_1e^{2x}+c_2e^{-2x}\]
+
+    Em seguida, prosseguimos com a determinação da solução particular. Em um primeiro momento, calculamos o Wronskiano das soluções:
+    \[W(x)=\begin{vmatrix}
+        e^{2x} & e^{-2x}\\
+        2e^{2x} & -2e^{-2x}
+    \end{vmatrix}=-2-2=-4\]
+
+    Além disso,
+    \[W_1(x)=\begin{vmatrix}
+        0 & e^{-2x}\\
+        1 & -2e^{-2x}
+    \end{vmatrix}=-e^{-2x}\quad e \quad W_2(x)=\begin{vmatrix}
+        e^{2x}  & 0\\
+        2e^{2x} & 1
+    \end{vmatrix}=e^{2x}\]
+
+    Dessa forma, segue da fórmula de variação de parâmetros que
+    \[y_p(x)=\sum_{i=1}^{2}y_i\int\frac{f(x)W_i(x)}{W(x)}dx, \text{ onde } f(x)=\frac{e^{2x}}{x}\]
+    \[y_p(x)=e^{2x}\int\frac{e^{2x}(-e^{-2x})}{4x}dx+e^{-2x}\int\frac{e^{2x}e^{2x}}{4x}dx\]
+    \[y_p(x)=-\frac{e^{2x}}{4}\int\frac{1}{x}dx+\frac{e^{-2x}}{4}\int\frac{e^{4x}}{x}dx\]
+
+    Enquanto a primeira integral é direta, a segunda é não elementar. Dessa forma, vamos expressá-la por meio da variável muda $t$. Além disso, tomamos um intervalo que não engloba a descontinuidade em $x=0$:
+    \[y_p(x)=-\frac{e^{2x}}{4}\ln(x)+\frac{e^{-2x}}{4}\int_{x_0}^{x}\frac{e^{4t}}{t}dt;\quad x_0>0\]
+
+    Temos que $y(x)=y_h(x)+y_p(x)$. Assim,
+    \[\boxed{y(x)=c_1e^{2x}+c_2e^{-2x}-\frac{e^{2x}}{4}\ln(x)+\frac{e^{-2x}}{4}\int_{x_0}^{x}\frac{e^{4t}}{t}dt;\quad x_0>0}\]
+
+    \itemresolucao Tomando a equação característica da equação homogênea auxiliar, 
+    \[\lambda^2-2\lambda+1=0\Rightarrow(\lambda-1)^2=0\Rightarrow\lambda=1\]
+    Como a equação tem raízes repetidas, a fim de encontrar soluções linearmente independentes, temos $y_1=e^x$ e $y_2=xe^x$. Assim, a solução da equação homogênea será uma combinação linear de $y_1$ e $y_2$, da forma
+    \[y_h=c_1e^x+c_2xe^x\]
+    Calculando o Wronskiano das soluções,
+    \[W(x)=\begin{vmatrix}
+        e^{x} & xe^{x}\\
+        e^{x} & e^{x}(x+1)
+    \end{vmatrix}=e^{2x}(1+x)-xe^{2x}=e^{2x}\]
+
+    Além disso,
+    \[W_1(x)=\begin{vmatrix}
+        0 & xe^{x}\\
+        1 & e^{x}(x+1)
+    \end{vmatrix}=-xe^{x}\quad e \quad W_2(x)=\begin{vmatrix}
+        e^{x}  & 0\\
+        e^{x} & 1
+    \end{vmatrix}=e^{x}\]
+
+    Segue de fórmula de variação dos parâmetros que
+    \[y_p(x)=\sum_{i=1}^{2}y_i\int\frac{f(x)W_i(x)}{W(x)}dx, \text{ onde } f(x)=\frac{e^{x}}{1+x^2}\]
+    \[y_p(x)=e^x\int\frac{\frac{e^x}{1+x^2}(-xe^x)}{e^{2x}}dx+xe^x\int\frac{\frac{e^x}{1+x^2}(e^x)}{e^{2x}}dx\]
+    \[y_p(x)=-e^x\int\frac{x}{1+x^2}dx+xe^x\int\frac{1}{1+x^2}dx\]
+    \[y_p(x)=-\frac{e^x}{2}\ln(1+x^2)+xe^x\arctan(x)\]
+
+    Assim, a solução geral da equação diferencial é dada por $y(x)=y_h(x)+y_p(x)$,
+    \[\boxed{y(x)=c_1e^x+c_2xe^x+e^x\left(x\arctan(x)-\frac{\ln(1+x^2)}{2}\right)}\]
+
+    \itemresolucao Resolvendo a equação característica da homogênea auxiliar,
+    \[\lambda^2+2\lambda+1=0\Rightarrow(\lambda+1)^2\Rightarrow\lambda=-1\]
+    Dessa forma, tomando soluções linearmente independentes, temos $y_1=e^{-t}$ e $y_2=te^{-t}$. Ou seja, a solução da equação homogênea formada pela combinação linear de $y_1$ e $y_2$ é
+    \[y_h(t)=c_1e^{-t}+c_2te^{-t}\]
+
+    Partindo para a determinação da solução particular por meio da variação de parâmetros, calculamos o Wronskiano:
+    \[W(t)=\begin{vmatrix}
+        e^{-t} & te^{-t}\\
+        -e^{-t} & e^{-t}(1-t)
+    \end{vmatrix}=e^{-2t}(1-t)+te^{-2t}=e^{-2t}\]
+
+    Ademais,
+    \[W_1(t)=\begin{vmatrix}
+        0 & te^{-t}\\
+        1 & e^{-t}(1-t)
+    \end{vmatrix}=-te^{-t}\quad e \quad W_2(t)=\begin{vmatrix}
+        e^{-t}   & 0\\
+        -e^{-t} & 1
+    \end{vmatrix}=e^{-t}\]
+
+    Dessa forma, segue que
+    \[y_p(t)=e^{-t}\int\frac{e^{-t}\ln(t)(-te^{-t})}{e^{-2t}}dt+te^{-t}\int\frac{e^{-t}\ln(t)e^{-t}}{e^{-2t}}dt\]
+    \[y_p(t)=-e^{-t}\int t\ln(t)dt+te^{-t}\int\ln(t)dt\]
+    Calcularemos as duas integrais por partes. Para a primeira, tomamos $\ln(t)=u\rightarrow1/t~dt=du$ e $t~dt=dv\rightarrow t^2/2=v$. Já para a segunda, temos $\ln(t)=u\rightarrow1/t~dt=du$ e $dt=dv\rightarrow t=v$. Nesse sentido,
+    \[y_p(t)=-e^{-t}\left[\frac{t^2}{2}\ln(t)-\int\frac{t}{2}dt\right]+te^{-t}\left[t\ln(t)-\int dt\right]\]
+    \[y_p(t)=-e^{-t}\left[\frac{t^2}{2}\ln(t)-\frac{t^2}{4}\right]+te^{-t}\left[t\ln(t)-t\right]=e^{-t}\left[\frac{t^2}{2}\ln(t)-\frac{3}{4}t^2\right]\]
+
+    Assim, a solução geral da equação é
+    \[\boxed{c_1e^{-t}+c_2te^{-t}+e^{-t}\left[\frac{t^2}{2}\ln(t)-\frac{3}{4}t^2\right]}\]
+
+    \itemresolucao Primeiramente, devemos reescrever a equação diferencial na forma padrão:
+    \[y''-2y'+2=\frac{e^x\sec(x)}{3}\]
+    Resolvendo a equação característica da homogênea auxiliar,
+    \[\lambda^2-2\lambda+2=0\Rightarrow\lambda_{1,2}=\frac{2\pm\sqrt{2^2-4\cdot1\cdot2}}{2}\Rightarrow\lambda_{1,2}=1\pm i\]
+
+    Tomando $\lambda=1+i$, temos que as soluções reaisi linearmente independentes da equação são $y_1=e^x\cos(x)$ e $y_2=e^x\sin(x)$. Ou seja, uma combinação linear dessas duas soluções é
+    \[y_h(x)=c_1e^x\cos(x)+c_2e^x\sin(x)\]
+
+    Calculemos o Wronskiano das soluções:
+    \[W(x)=\begin{vmatrix}
+        e^{x}\cos(x) & e^{x}\sin(x)\\
+        e^{x}(\cos(x)-\sin(x)) & e^{x}(\sin(x)+\cos(x))
+    \end{vmatrix}=e^{2x}\]
+
+    Ademais,
+    \[W_1(x)=\begin{vmatrix}
+        0 & e^{x}\sin(x)\\
+        1 & e^{x}(\sin(x)+\cos(x))
+    \end{vmatrix}=-e^{x}\sin(x)\] 
+    \[W_2(x)=\begin{vmatrix}
+        e^{x}\cos(x) & 0\\
+        e^{x}(\cos(x)-\sin(x)) & 1
+    \end{vmatrix}=e^{x}\cos(x)\]
+
+    A partir da fórmula de variação dos parâmetros,
+    \[y_p(x)=e^x\cos(x)\int\frac{\frac{e^x\sec(x)}{3}(-e^x\sin(x))}{e^{2x}}dx+e^x\sin(x)\int\frac{\frac{e^x\sec(x)}{3}(e^x\cos(x))}{e^{2x}}dx\]
+    \[y_p(x)=-\frac{e^x\cos(x)}{3}\int\frac{\sin(x)}{\cos(x)}dx+\frac{e^x\sin(x)}{3}\int dx\]
+    \[y_p(x)=\frac{e^x}{3}(\cos(x)\ln|\cos(x)|+x\sin(x))\]
+
+    Ou seja, a solução geral da equação diferencial é
+    \[\boxed{y(x)=c_1e^x\cos(x)+c_2e^x\sin(x)+\frac{e^x}{3}(\cos(x)\ln|\cos(x)|+x\sin(x))}\]
+
+    \itemresolucao Resolvendo a equação homogênea associada,
+    \[\lambda^2+2\lambda-8=0\Rightarrow(\lambda-2)(\lambda+4)=0\Rightarrow\lambda=2\text{ ou }\lambda=-4\]
+
+    Nesse sentido, são soluções linearmente independentes da homogênea associada $y_1=e^{2x}$ e $y_2=e^{-4x}$, com $y_h=c_1e^{2x}+c_2e^{-4x}$. Calculando o Wronskiano dessas soluções,
+    \[W(x)=\begin{vmatrix}
+        e^{2x} & e^{-4x}\\
+        2e^{2x} & -4e^{-4x}
+    \end{vmatrix}=-6e^{-2x}\]
+
+    Além disso,
+    \[W_1(x)=\begin{vmatrix}
+        0 & e^{-4x}\\
+        1 & -4e^{-4x}
+    \end{vmatrix}=-e^{-4x}\quad e \quad W_2(x)=\begin{vmatrix}
+        e^{2x}  & 0\\
+        2e^{2x} & 1
+    \end{vmatrix}=e^{2x}\]
+
+    Da fórmula de variação dos parâmetros,
+    \[y_p(x)=e^{2x}\int\frac{(2e^{-2x}-e^{-x})(-e^{-4x})}{-6e^{-2x}}dx+e^{-4x}\int\frac{(2e^{-2x}-e^{-x})(e^{2x})}{-6e^{-2x}}dx\]
+    \[y_p(x)=\frac{1}{9}e^{-x}-\frac{1}{4}e^{-2x}\]
+
+    Assim, a solução geral da equação diferencial é
+    \[\boxed{c_1e^{2x}+c_2e^{-4x}+\frac{1}{9}e^{-x}-\frac{1}{4}e^{-2x}}\]
+
+    Agora, a fim de resolver o PVI, devemos substituir as condições iniciaisi fornecidas:
+    \[y(0)=1\Rightarrow c_1+c_2-\frac{5}{36}=1\Rightarrow c_1+c_2=\frac{41}{36}\]
+    \[y'(0)=0\Rightarrow 2c_1-4c_2-\frac{1}{9}+\frac{1}{2}=0\Rightarrow c_1-2c_2=-\frac{7}{36}\]
+
+    Dessa forma, temos um sistema em $c_1$ e $c_2$:
+    \[\begin{cases}
+        c_1+c_2=\frac{41}{36}\\
+        c_1-2c_2=-\frac{7}{36}
+    \end{cases}\]
+    Resolvendo esse sistema, encontramos $c_1=\frac{25}{36}$ e $c_2=\frac{4}{9}$. Ou seja, a solução geral do PVI é dada por
+    \[\boxed{\frac{25}{36}e^{2x}+\frac{4}{9}e^{-4x}+\frac{1}{9}e^{-x}-\frac{1}{4}e^{-2x}}\]
+
+\end{resolucao}
+
+\begin{resolucao}
+    Em primeira análise, percebemos que a derivada de maior ordem é multiplicada por um termo diferente de $1$, isto é, não está na forma normal. A fim de prosseguir com a resolução do problema, reorganizamos a equação nessa forma:
+    \[y''+\frac{1}{x}y'+\left(1-\frac{1}{4x^2}\right)y=x^{-\frac{1}{2}}\]
+
+    O enunciado indica que as funções dadas são soluções L.I. da equação homogênea associada. Nesse sentido, temos que a combinação linear dessas soluções também é solução da equação homogênea, da forma $y_h(x)=c_1x^{-\frac{1}{2}}\cos(x)+c_2x^{-\frac{1}{2}}\sin(x)$.
+
+    Além disso, fornecidas as soluções, podemos encontrar seu Wronskiano:
+    \[W(x)=\left|\begin{array}{c:c}
+       x^{-\frac{1}{2}}\cos(x) & x^{-\frac{1}{2}}\sin(x)\\ \hdashline
+       -\frac{1}{2}x^{-\frac{3}{2}}\cos(x)-x^{-\frac{1}{2}}\sin(x) & -\frac{1}{2}x^{-\frac{3}{2}}\sin(x)+x^{-\frac{1}{2}}\cos(x)
+    \end{array}\right|=x^{-1}\]
+
+    Além disso,
+    \[W_1(x)=\left|\begin{array}{c:c}
+        0 & x^{-\frac{1}{2}}\sin(x)\\ \hdashline
+        1 & -\frac{1}{2}x^{-\frac{3}{2}}\sin(x)+x^{-\frac{1}{2}}\cos(x)
+    \end{array}\right|=-x^{-\frac{1}{2}}\sin(x)\]
+    \[W_2(x)=\left|\begin{array}{c:c}
+        x^{-\frac{1}{2}}\cos(x)  & 0\\ \hdashline
+        -\frac{1}{2}x^{-\frac{3}{2}}\cos(x)-x^{-\frac{1}{2}}\sin(x) & 1
+    \end{array}\right|=x^{-\frac{1}{2}}\cos(x)\]
+
+    Aplicando a fórmula de variação dos parâmetros, com $f(x)=x^{-\frac{1}{2}}$,
+    \[y_p(x)=x^{-\frac{1}{2}}\cos(x)\int\frac{x^{-\frac{1}{2}}(-x^{-\frac{1}{2}}\sin(x))}{x^{-1}}dx+x^{-\frac{1}{2}}\sin(x)\int\frac{x^{-\frac{1}{2}}\cdot x^{-\frac{1}{2}}\cos(x)}{x^{-1}}dx\]
+    \[y_p(x)=x^{-\frac{1}{2}}\cos^2(x)+x^{-\frac{1}{2}}\sin^(x)=x^{-\frac{1}{2}}\]
+
+    Dessa maneira, a solução geral da equação diferencial é
+    \[\boxed{y(x)=c_1x^{-\frac{1}{2}}\cos(x)+c_2x^{-\frac{1}{2}}\sin(x)+x^{-\frac{1}{2}}}\]
+
+\end{resolucao}
+
+\begin{resolucao}
+    
+    \itemresolucao Primeiramente, determinamos as soluções da equação homogênea associada:
+    \[\lambda^3+\lambda=0\Rightarrow\lambda(\lambda^2+1)=0\Rightarrow\lambda=0,~\lambda=+i\text{ ou }\lambda=-i\]
+    Dessa maneira, temos $y_1=1$, $y_2=\cos(x)$ e $y_3=\sin(x)$, com $y_h=c_1+c_2\cos(x)+c_3\sin(x)$. Assim, partimos para a determinação do Wronskiano das soluções:
+    \[W(x)=\begin{vmatrix}
+        1 & \cos(x) & \sin(x)\\
+        0 & -\sin(x) & \cos(x)\\
+        0 & -\cos(x) & -\sin(x)
+    \end{vmatrix}=1\]
+    \[W_1(x)=\begin{vmatrix}
+        0 & \cos(x) & \sin(x)\\
+        0 & -\sin(x) & \cos(x)\\
+        1 & -\cos(x) & -\sin(x)
+    \end{vmatrix}=1, 
+    \quad W_2(x)=\begin{vmatrix}
+        1 & 0 & \sin(x)\\
+        0 & 0 & \cos(x)\\
+        0 & 1 & -\sin(x)
+    \end{vmatrix}=-\cos(x)\]
+    \[W_3(x)=\begin{vmatrix}
+        1 & \cos(x) &  0\\
+        0 & -\sin(x) & 0\\
+        0 & -\cos(x) & 1
+    \end{vmatrix}=-\sin(x)\]
+
+    A partir da fórmula de variação dos parâmetros, então,
+    \[y_p(x)=1\int\tan(x)dx+\cos(x)\int\tan(x)(\cos(x))dx+\sin(x)\int\tan(x)(-\sin(x))dx\]
+    \[y_p(x)=-\ln|\cos(x)|+\cos(x)\int\sin(x)dx+\sin(x)\int\frac{\sin^2(x)}{\cos(x)}dx\]
+
+    Mas $\displaystyle\frac{\sin^2(x)}{\cos(x)}=\frac{1-\cos^2(x)}{\cos(x)}=\sec(x)-\cos(x)$. Dessa forma, temos
+
+    \[y_p(x)=-\ln|\cos(x)|-\cos^2(x)+\sin(x)\left[\int\sec(x)dx-\int\cos(x)dx\right]\]
+    \[y_p(x)=-\ln|\cos(x)|-\cos^2(x)+\sin(x)\left[\ln|\sec(x)+\tan(x)|-\sin(x)\right]\]
+    \[y_p(x)=-\ln|\cos(x)|+\sin(x)\ln|\sec(x)+\tan(x)|-1\]
+
+    Ou seja, a solução geral é dada por
+    \begin{gather*}
+        \boxed{y(x)=c_1'+c_2\cos(x)+c_3\sin(x)-\ln|\cos(x)|+\sin(x)\ln|\sec(x)+\tan(x)|},\\
+        c_1'=c_1-1
+    \end{gather*}
+
+    \itemresolucao A equação característica da homogênea associada é 
+    \[\lambda^3-2\lambda^2-\lambda+2=0\]
+    
+    Por teste, percebemos que $1$ é raiz da equação. Aplicando Briot-Ruffini para dividir a equação por $(\lambda-1)$,
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cccc}
+            1 & 1 & -2 & -1 & 2\\
+            \hline
+              & 1 & -1 & -2 & 0
+        \end{tabular}
+    \end{table}
+
+    Dessa forma podemos fatorar a equação em $(\lambda-1)(\lambda^2-\lambda-2)=0$, o que implica que $(\lambda-1)(\lambda-2)(\lambda+1)=0$. Ou seja, são raízes da equação $\lambda=1$, $\lambda=2$ e $\lambda=-1$. Com isso, determinamos a solução homogênea como $y_h(x)=c_1e^x+c_2e^{2x}+c_3e^{-x}$. Calculando o Wronskiano das soluções,
+    \[W(x)=\begin{vmatrix}
+        e^x & e^{2x} & e^{-x}\\
+        e^x & 2e^{2x} & -e^{-x}\\
+        e^x & 4e^{2x} & e^{-x}
+    \end{vmatrix}=6e^{2x}\]
+    \[W_1(x)=\begin{vmatrix}
+        0 & e^{2x} & e^{-x}\\
+        0 & 2e^{2x} & -e^{-x}\\
+        1 & 4e^{2x} & e^{-x}
+    \end{vmatrix}=-3e^x, 
+    \quad W_2(x)=\begin{vmatrix}
+        e^x & 0 & e^{-x}\\
+        e^x & 0 & -e^{-x}\\
+        e^x & 1 & e^{-x}
+    \end{vmatrix}=2\]
+    \[W_3(x)=\begin{vmatrix}
+        e^x & e^{2x} &  0\\
+        e^x & 2e^{2x} & 0\\
+        e^x & 4e^{2x} & 1
+    \end{vmatrix}=e^{3x}\]
+
+    Da fórmula de variação dos parâmetros, então,
+    \[y_p(x)=e^x\int\frac{e^{4x}(-3e^x)}{6e^{2x}}dx+e^{2x}\int\frac{e^{4x}\cdot2}{6e^{2x}}dx+e^{-x}\int\frac{e^{4x}(e^{3x})}{6e^{2x}}dx\]
+    \[y_p(x)=-\frac{e^x}{2}\int e^{3x}dx+\frac{e^{2x}}{3}\int e^{2x}dx+\frac{e^{-x}}{6}\int e^{5x}dx\]
+    \[y_p(x)=\frac{1}{30}e^{4x}\]
+
+    Assim, combinando as soluções homogênea e particular, temos
+    \[\boxed{y(x)=c_1e^x+c_2e^{2x}+c_3e^{-x}+\frac{1}{30}e^{4x}}\]
+
+\end{resolucao}
+
+\begin{resolucao}
+    Resolvendo a equação homogênea associada,
+    \[\lambda^2+7\lambda=0\Rightarrow\lambda=\pm i\sqrt{7}\]
+    Assim, tomamos $y_1=\cos(\sqrt{7}t)$, $y_2=\sin(\sqrt{7}t)$ e $y_h(t)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)$.
+
+    Calculando o Wronskiano das soluções encontradas,
+    \[W(t)=\begin{vmatrix}
+        \cos(\sqrt{7}t)          & \sin(\sqrt{7}t)\\
+        -\sqrt{7}\sin(\sqrt{7}t) & \sqrt{7}\cos(\sqrt{7}t)
+    \end{vmatrix}=\sqrt{7}\]
+
+    Além disso,
+    \[W_1(t)=\begin{vmatrix}
+        0 & \sin(\sqrt{7}t)\\
+        1 & \sqrt{7}\cos(\sqrt{7}t)
+    \end{vmatrix}=-\sin(\sqrt{7}t)\]
+    \[W_2(t)=\begin{vmatrix}
+        \cos(\sqrt{7}t)          & 0\\
+        -\sqrt{7}\sin(\sqrt{7}t) & 1
+    \end{vmatrix}=\cos(\sqrt{7}t)\]
+
+    Da fórmula de variação de parâmetros, então,
+    \[ y_p(t)=\cos(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}(-\sin(\sqrt{7}t))}{\sqrt{7}}dt+\sin(\sqrt{7}t)\int\frac{\sum_{k=3}^{n}e^{3kt}\cos(\sqrt{7}t)}{\sqrt{7}}dt\]
+
+    Ou, reorganizando a fim de facilitar a integração,
+    \[ y_p(t)=-\frac{\cos(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\color{blue}\underbrace{\int e^{3kt}\sin(\sqrt{7}t)dt}_{\circled{1}}\color{black}+\frac{\sin(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\color{red}{\underbrace{\int e^{3kt}\cos(\sqrt{7}t)dt}_{\circled{2}}}\]
+
+    Em um primeiro momento, calcularemos a integral \circled{1} por partes. Tomamos $\sin(\sqrt{7}t)=u\rightarrow\sqrt{7}\cos(\sqrt{7}t)dt=du$ e $e^{3kt}dt=dv\rightarrow\dfrac{e^{3kt}}{3k}=v$. Dessa forma,
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\int e^{3kt}\cos(\sqrt{7}t)dt\]
+
+    Novamente, calcularemos a integral resultante por partes. Tomamos $\cos(\sqrt{7}t)=u\rightarrow-\sqrt{7}\sin(\sqrt{7}t)dt=du$ e $e^{3kt}dt=dv\rightarrow\dfrac{e^{3kt}}{3k}=v$. Ou seja,
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\left[\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\int e^{3kt}\sin(\sqrt{7}t)dt\right]\]
+    \[\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}e^{3kt}}{9k^2}\cos(\sqrt{7}t)-\frac{7}{9k^2}\int e^{3kt}\sin(\sqrt{7}t)dt\]
+    \[\left(1+\frac{7}{9k^2}\right)\int e^{3kt}\sin(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}e^{3kt}}{9k^2}\cos(\sqrt{7}t)\]
+    \[\color{blue}\text{\circled{1} }\int e^{3kt}\sin(\sqrt{7}t)dt\color{black}=\frac{e^{3kt}}{7+9k^2}\left[3k\sin(\sqrt{7}t)-\sqrt{7}\cos(\sqrt{7}t)\right]\]
+
+    É feito procedimento análogo para a integral \circled{2}, utilizando integração por partes:
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\int e^{3kt}\sin(\sqrt{7}t)dt\]
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}}{3k}\left[\frac{e^{3kt}}{3k}\sin(\sqrt{7}t)-\frac{\sqrt{7}}{3k}\int e^{3kt}\cos(\sqrt{7}t)dt\right]\]
+    \[\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}e^{3kt}}{9k^2}\sin(\sqrt{7}t)-\frac{7}{9k^2}\int e^{3kt}\cos(\sqrt{7}t)dt\]
+    \[\left(1+\frac{7}{9k^2}\right)\int e^{3kt}\cos(\sqrt{7}t)dt=\frac{e^{3kt}}{3k}\cos(\sqrt{7}t)+\frac{\sqrt{7}e^{3kt}}{9k^2}\sin(\sqrt{7}t)\]
+    \[\color{red}\text{\circled{2} }\int e^{3kt}\cos(\sqrt{7}t)dt\color{black}=\frac{e^{3kt}}{7+9k^2}\left[3k\cos(\sqrt{7}t)+\sqrt{7}\sin(\sqrt{7}t)\right]\]
+
+    Substituindo as expressões encontradas na equação de $y_p$, 
+    \begin{gather*}
+        y_p(t)=-\frac{\cos(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[3k\sin(\sqrt{7}t)-\sqrt{7}\cos(\sqrt{7}t)\right]+\\+\frac{\sin(\sqrt{7}t)}{\sqrt{7}}\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[3k\cos(\sqrt{7}t)+\sqrt{7}\sin(\sqrt{7}t)\right]
+    \end{gather*}
+    \begin{gather*}
+        y_p(t)=\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\left[-\frac{3k}{\sqrt{7}}\cos(\sqrt{7}t)\sin(\sqrt{7}t)+\cos^2(\sqrt{7}t)\right.+\\\left.+\frac{3k}{\sqrt{7}}\sin(\sqrt{7}t)\cos(\sqrt{7}t)+\sin^2(\sqrt{7}t)\right]
+    \end{gather*}
+    \[y_p(t)=\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}\]
+
+    Assim, encontramos a solução geral da EDO, da forma $y(t)=y_h(t)+y_p(t)$:
+    \[\boxed{y(t)=c_1\cos(\sqrt{7}t)+c_2\sin(\sqrt{7}t)+\sum_{k=3}^{n}\frac{e^{3kt}}{7+9k^2}}\]
+
+\end{resolucao}
+
+\begin{resolucao}
+    Considerando que o circuito é configurado em série, as fontes e quedas de tensões devem ser somadas. Nesse sentido, temos
+    \[E(t)-\frac{1}{C}Q(t)-R\frac{dQ(t)}{dt}-L\frac{d^2Q(t)}{dt^2}=0\]
+    \[500=\frac{1}{\frac{1}{108}\times10^{-3}}Q(t)+300\frac{dQ(t)}{dt}+0.2\frac{d^2Q(t)}{dt^2}\]
+    \[Q''+1500Q'+540\cdot10^3Q=2500\]
+
+    Resolvendo a equação homogênea associada,
+    \[\lambda^2+1500\lambda+540\cdot10^3=0\]
+    \[\lambda_{1,2}=\frac{1500\pm\sqrt{1500^2-4\cdot1\cdot540\cdot10^3}}{2}\Rightarrow\lambda_1=-600,~\lambda_2=-900\]
+
+    Sendo assim, são soluções do sistema $Q_1(t)=e^{-600t}$ e $Q_2(t)=e^{-900t}$, e a solução homogênea pode ser expressa por uma combinação linear das duas, da forma $Q_h(t)=c_1e^{-600t}+c_2e^{-900t}$.
+
+    Encontradas as soluções que resolvem a equação homogênea, prosseguimos com o cálculo do Wronskiano:
+    \[W(t)=\begin{vmatrix}
+        e^{-600t}          & e^{-900t}\\
+        -600e^{-600t} & -900e^{-900t}
+    \end{vmatrix}=-300e^{-1500t}\]
+
+    Além disso,
+    \[W_1(t)=\begin{vmatrix}
+        0 & e^{-900t}\\
+        1 & -900e^{-900t}
+    \end{vmatrix}=-e^{-900t}\quad e \quad W_2(t)=\begin{vmatrix}
+        e^{-600t} & 0\\
+        -600e^{-600t} & 1
+    \end{vmatrix}=e^{-600t}\]
+
+    Aplicando a fórmula de variação dos parâmetros, 
+    \[Q_p(t)=e^{-600t}\int\frac{2500(-e^{-900t})}{-300e^{-1500t}}dt+e^{-900t}\int\frac{2500e^{-600t}}{-300e^{-1500t}}dt\]
+    \[Q_p(t)=\frac{25}{3}e^{-600t}\int e^{600t}dt-\frac{25}{3}e^{-900t}\int e^{900t}dt\]
+    \[Q_p(t)=\frac{25}{1800}-\frac{25}{2700}=\frac{1}{216}\]
+
+    Dessa forma, dado que $Q(t)=Q_h(t)+Q_p(t)$, encontramos que
+    \[Q(t)=c_1e^{-600t}+c_2e^{-900t}+\frac{1}{216}\]
+
+    O enunciado fornece as seguintes condições iniciais:
+    \[\begin{cases}
+        \displaystyle Q(0)=\frac{217}{216}\\
+        \displaystyle i(0)=\frac{dQ}{dt}(0)=0
+    \end{cases}\]
+
+    Aplicando essas condições à expressão de $Q(t)$ encontrada,
+    \[\begin{cases}
+        \displaystyle\frac{217}{216}=c_1+c_2+\frac{1}{216}\\
+        \displaystyle0=-600c_1-900c_2
+    \end{cases}\Rightarrow
+    \begin{cases}
+        \displaystyle1=c_1+c_2\\
+        \displaystyle0=c_1+\frac{3}{2}c_2
+    \end{cases}\]
+
+    Resolvendo o sistema, encontramos $c_1=3$ e $c_2=-2$. Dessa maneira, temos como resposta do problema
+    \[\boxed{Q(t)=3e^{-600t}-2e^{-900t}+\frac{1}{216}}\]
+    \[\boxed{i(t)=\frac{dQ}{dt}(t)=1800\left(e^{-900t}-e^{-600t}\right)}\]
+\end{resolucao}
+
+\end{document}
