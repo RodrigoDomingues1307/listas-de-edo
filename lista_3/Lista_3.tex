@@ -66,6 +66,36 @@ respectivamente, soluções particulares de
     \item $y''-4y'+3y=x,\quad y_1=e^{x}$
 \end{itensquestao}
 
+\exercicio[Zill, Seção 4.3, Exercícios 29, 32, 35, 36] Resolva o problema de valor inicial dado.
+\begin{itensquestao}
+    \item $y'' + 16y = 0, \quad y(0) = 2, \quad y'(0) = -2$
+    \item $4y'' - 4y' - 3y = 0, \quad y(0) = 1, \quad y'(0) = 5$
+    \item $y''' + 12y'' + 36y' = 0, \quad y(0) = 0, \quad y'(0) = 1, \quad y''(0) = -7$
+    \item $y''' + 2y'' - 5y' - 6y = 0, \quad y(0) = y'(0) = 0, \quad y''(0) = 1$
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.4, Exercícios 14, 17] Use coeficientes a determinar para resolver a equação diferencial dada.
+\begin{itensquestao}[2]
+    \item $y'' - 4y = (x^2 - 3) \sin 2x$
+    \item $y'' - 2y' + 5y = e^x \cos 2x$
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.4, Exercício 41] Resolva o problema de valor inicial no qual a função entrada $g(x)$ é descontínua. [\textit{Sugestão}: Resolva o problema em dois intervalos e então ache uma solução de tal forma que $y$ e $y'$ sejam contínuas em $x = \pi/2$.]
+$$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{cases} \sin x, & 0 \leq x \leq \frac{\pi}{2} \\ 0, & x > \frac{\pi}{2} \end{cases}$$
+
+\exercicio[Zill, Seção 4.5, Exercícios 11, 13] Verifique se o operador diferencial dado anula as funções indicadas.
+\begin{itensquestao}
+    \item $D^4; \quad y = 10x^3 - 2x$
+    \item $(D - 2)(D + 5); \quad y = e^{2x} + 3e^{-5x}$
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.5, Exercícios 45, 49, 55] Resolva a equação diferencial dada usando coeficientes a determinar.
+\begin{itensquestao}
+    \item $y''-2y'-3y=4e^x-9$
+    \item $y''+6y'+9y=-xe^{4x}$
+    \item $y''+25y=20\sin(5x)$
+\end{itensquestao}
+
 \exercicio[Zill, Seção 4.6, Exercícios 9, 12, 15, 17 e 21] Resolva cada equação diferencial por variação dos parâmetros, respeitando as condições iniciais quando houver.
 \begin{itensquestao}[2]
     \item $y''-4y=\dfrac{e^{2x}}{x}$
@@ -334,6 +364,338 @@ respectivamente, soluções particulares de
     \[y(x)=\frac{1}{3}x+\frac{4}{9}+c_2e^{3x}+c_1e^{x}\]
 
     Onde $c_2=c_2'/2$. Assim, a segunda solução da equação homogênea associada é $\boxed{y_2(x)=e^{3x}}$ e uma solução particular da equação não homogênea é $\boxed{y_p(x)=\frac{1}{3}x+\frac{4}{9}}$.
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Para a equação diferencial linear homogênea de segunda ordem $y'' + 16y = 0$, a equação característica associada é dada por:
+    \[\lambda^2 + 16 = 0 \Rightarrow \lambda = \pm 4i\]
+
+    Como as raízes são complexas conjugadas da forma $\lambda = \alpha \pm \beta i$, com $\alpha = 0$ e $\beta = 4$, a solução geral é expressa em termos de senos e cossenos:
+    \[y(x) = c_1 \cos(4x) + c_2 \sin(4x)\]
+
+    Derivando a solução geral para aplicar as condições iniciais, obtemos:
+    \[y'(x) = -4c_1 \sin(4x) + 4c_2 \cos(4x)\]
+
+    Impondo a primeira condição inicial $y(0) = 2$:
+    \[y(0) = c_1 \cos(0) + c_2 \sin(0) = 2 \Rightarrow c_1 = 2\]
+
+    Impondo a segunda condição inicial $y'(0) = -2$:
+    \[y'(0) = -4(2)\sin(0) + 4c_2 \cos(0) = -2 \Rightarrow 4c_2 = -2 \Rightarrow c_2 = -\frac{1}{2}\]
+
+    Substituindo as constantes encontradas na solução geral, o problema de valor inicial possui a seguinte solução:
+    \[\boxed{y(x) = 2 \cos(4x) - \frac{1}{2} \sin(4x)}\]
+
+    \itemresolucao Para a equação diferencial linear homogênea $4y'' - 4y' - 3y = 0$, a equação característica associada é dada por:
+    \[4\lambda^2 - 4\lambda - 3 = 0\]
+
+    Resolvendo, encontramos as raízes reais e distintas:
+    \[\lambda = \frac{-(-4) \pm \sqrt{(-4)^2 - 4(4)(-3)}}{2(4)} = \frac{4 \pm \sqrt{16 + 48}}{8} = \frac{4 \pm 8}{8}\]
+    \[\lambda_1 = \frac{3}{2} \quad \text{e} \quad \lambda_2 = -\frac{1}{2}\]
+
+    Assim, a solução geral da equação diferencial é:
+    \[y(x) = c_1 e^{\frac{3}{2}x} + c_2 e^{-\frac{1}{2}x}\]
+
+    Sua primeira derivada é dada por:
+    \[y'(x) = \frac{3}{2}c_1 e^{\frac{3}{2}x} - \frac{1}{2}c_2 e^{-\frac{1}{2}x}\]
+
+    Aplicando as condições iniciais fornecidas, montamos o seguinte sistema linear:
+    \[\begin{cases}
+        y(0) = c_1 + c_2 = 1 \\
+        y'(0) = \frac{3}{2}c_1 - \frac{1}{2}c_2 = 5
+    \end{cases}\]
+
+    Multiplicando a segunda equação por $2$, obtemos $3c_1 - c_2 = 10$. Somando esta com a primeira equação ($c_1 + c_2 = 1$), temos:
+    \[4c_1 = 11 \Rightarrow c_1 = \frac{11}{4}\]
+
+    Substituindo de volta na primeira equação, encontramos $c_2$:
+    \[c_2 = 1 - \frac{11}{4} = -\frac{7}{4}\]
+
+    Portanto, a solução do problema de valor inicial é:
+    \[\boxed{y(x) = \frac{11}{4}e^{\frac{3}{2}x} - \frac{7}{4}e^{-\frac{1}{2}x}}\]
+
+    \itemresolucao Para a equação diferencial linear homogênea de terceira ordem $y''' + 12y'' + 36y' = 0$, determinamos a equação característica correspondente:
+    \[\lambda^3 + 12\lambda^2 + 36\lambda = 0\]
+
+    Colocando $\lambda$ em evidência, temos:
+    \[\lambda(\lambda^2 + 12\lambda + 36) = 0 \Rightarrow \lambda(\lambda + 6)^2 = 0\]
+
+    As raízes obtidas são $\lambda_1 = 0$ (simples) e $\lambda_2 = \lambda_3 = -6$ (raiz real de multiplicidade 2). Desse modo, a solução geral assume a forma:
+    \[y(x) = c_1 + c_2 e^{-6x} + c_3 x e^{-6x}\]
+
+    Para aplicar as condições iniciais, calculamos a primeira e a segunda derivadas de $y(x)$:
+    \[y'(x) = -6c_2 e^{-6x} + c_3 e^{-6x} - 6c_3 x e^{-6x}\]
+    \[y''(x) = 36c_2 e^{-6x} - 12c_3 e^{-6x} + 36c_3 x e^{-6x}\]
+
+    Aplicando as condições iniciais no ponto $x = 0$, obtemos o sistema:
+    \[\begin{cases}
+        y(0) = c_1 + c_2 = 0 \\
+        y'(0) = -6c_2 + c_3 = 1 \\
+        y''(0) = 36c_2 - 12c_3 = -7
+    \end{cases}\]
+
+    Da segunda equação, isolamos $c_3 = 1 + 6c_2$. Substituindo na terceira equação:
+    \[36c_2 - 12(1 + 6c_2) = -7 \Rightarrow -36c_2 - 12 = -7 \Rightarrow -36c_2 = 5 \Rightarrow c_2 = -\frac{5}{36}\]
+
+    Consequentemente, determinamos $c_1$ e $c_3$:
+    \[c_1 = -c_2 = \frac{5}{36}\]
+    \[c_3 = 1 + 6\left(-\frac{5}{36}\right) = 1 - \frac{5}{6} = \frac{1}{6}\]
+
+    Assim, a solução final do problema de valor inicial é:
+    \[\boxed{y(x) = \frac{5}{36} - \frac{5}{36}e^{-6x} + \frac{1}{6}xe^{-6x}}\]
+
+    \itemresolucao Para a equação diferencial linear homogênea de terceira ordem $y''' + 2y'' - 5y' - 6y = 0$, escrevemos a equação característica associada:
+    \[\lambda^3 + 2\lambda^2 - 5\lambda - 6 = 0\]
+
+    Por inspeção, notamos que $\lambda = -1$ é uma raiz. Dividindo o polinômio por $(\lambda + 1)$ por Briot-Ruffini, obtemos:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cccc}
+            2 & 1 & 2 & -5 & 4\\
+            \hline
+              & 1 & 4 & 3 & 0
+        \end{tabular}
+    \end{table}
+
+    Ou seja, $(\lambda+1)(\lambda^2+4\lambda+3)=0=(\lambda+1)(\lambda-2)(\lambda+3)$. As raízes são reais e distintas: $\lambda_1 = -1$, $\lambda_2 = -3$ e $\lambda_3 = 2$. Portanto, a solução geral é dada por:
+    \[y(x) = c_1 e^{-x} + c_2 e^{-3x} + c_3 e^{2x}\]
+
+    Calculando as sucessivas derivadas para a aplicação das condições iniciais:
+    \[y'(x) = -c_1 e^{-x} - 3c_2 e^{-3x} + 2c_3 e^{2x}\]
+    \[y''(x) = c_1 e^{-x} + 9c_2 e^{-3x} + 4c_3 e^{2x}\]
+
+    Impondo as condições iniciais no ponto $x = 0$, obtemos o seguinte sistema linear:
+    \[\begin{cases}
+        c_1 + c_2 + c_3 = 0 \\
+        -c_1 - 3c_2 + 2c_3 = 0 \\
+        c_1 + 9c_2 + 4c_3 = 1
+    \end{cases}\]
+
+    Somando a primeira e a segunda equações, eliminamos $c_1$:
+    \[-2c_2 + 3c_3 = 0 \Rightarrow c_2 = \frac{3}{2}c_3\]
+
+    Subtraindo a primeira equação da terceira equação, também eliminamos $c_1$:
+    \[8c_2 + 3c_3 = 1\]
+
+    Substituindo $c_2 = \frac{3}{2}c_3$ na expressão acima:
+    \[8\left(\frac{3}{2}c_3\right) + 3c_3 = 1 \Rightarrow 12c_3 + 3c_3 = 1 \Rightarrow 15c_3 = 1 \Rightarrow c_3 = \frac{1}{15}\]
+
+    Encontrando os valores correspondentes para $c_2$ e $c_1$:
+    \[c_2 = \frac{3}{2}\left(\frac{1}{15}\right) = \frac{1}{10}\]
+    \[c_1 = -c_2 - c_3 = -\frac{1}{10} - \frac{1}{15} = -\frac{5}{30} = -\frac{1}{6}\]
+
+    Substituindo os valores das constantes, a solução do problema de valor inicial é:
+    \[\boxed{y(x) = -\frac{1}{6}e^{-x} + \frac{1}{10}e^{-3x} + \frac{1}{15}e^{2x}}\]
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Para determinar a solução geral da equação diferencial linear não homogênea, primeiramente resolvemos a equação homogênea associada $y'' - 4y = 0$. A equação característica é dada por:
+    \[\lambda^2 - 4 = 0 \Rightarrow \lambda = \pm 2\]
+
+    Como as raízes são reais e distintas, a solução homogênea é:
+    \[y_h(x) = c_1 e^{2x} + c_2 e^{-2x}\]
+
+    O termo não homogêneo é $g(x) = (x^2 - 3)\sin(2x)$. Visto que $\pm 2i$ não são raízes da equação característica, propomos uma solução particular da forma:
+    \[y_p(x) = (Ax^2 + Bx + C)\cos(2x) + (Dx^2 + Ex + F)\sin(2x)\]
+
+    Calculando a segunda derivada de $y_p(x)$ e substituindo na expressão $y_p'' - 4y_p$, agrupamos os termos em relação a $\cos(2x)$ e $\sin(2x)$:
+    \[[ -8Ax^2 + (8D - 4B)x + (2A + 4E - 8C) ]\cos(2x) +\] 
+    \[+[ -8Dx^2 - (8A + 4E)x + (2D - 4B - 8F)]\sin(2x) =\]
+    \[=(x^2 - 3)\sin(2x)\]
+
+    Igualando os coeficientes correspondentes em ambos os lados da equação, obtemos o seguinte sistema linear:
+    \[\begin{cases}
+        -8A = 0 \Rightarrow A = 0 \\
+        8D - 4B = 0 \Rightarrow B = 2D \\
+        2A + 4E - 8C = 0 \\
+        -8D = 1 \Rightarrow D = -\frac{1}{8} \\
+        -(8A + 4E) = 0 \Rightarrow E = 0 \\
+        2D - 4B - 8F = -3
+    \end{cases}\]
+
+    A partir de $D = -\frac{1}{8}$, encontramos $B = -\frac{1}{4}$. Substituindo $A=0$ e $E=0$ na terceira equação, obtemos $C = 0$. Por fim, substituindo os valores de $D$ e $B$ na última equação:
+    \[2\left(-\frac{1}{8}\right) - 4\left(-\frac{1}{4}\right) - 8F = -3 \Rightarrow -\frac{1}{4} + 1 - 8F = -3 \Rightarrow 8F = \frac{15}{4} \Rightarrow F = \frac{15}{32}\]
+
+    Dessa forma, a solução particular é $\boxed{y_p(x) = -\frac{1}{4}x\cos(2x) + \left(-\frac{1}{8}x^2 + \frac{15}{32}\right)\sin(2x)}$, e a solução geral da equação diferencial é:
+    \[\boxed{y(x) = c_1 e^{2x} + c_2 e^{-2x} - \frac{1}{4}x\cos(2x) + \left(-\frac{1}{8}x^2 + \frac{15}{32}\right)\sin(2x)}\]
+
+    \itemresolucao Primeiramente, determinamos a solução da equação homogênea associada $y'' - 2y' + 5y = 0$ por meio de sua equação característica:
+    \[\lambda^2 - 2\lambda + 5 = 0 \Rightarrow \lambda = \frac{2 \pm \sqrt{4 - 20}}{2} = 1 \pm 2i\]
+
+    Como as raízes são complexas conjugadas, a solução homogênea correspondente é:
+    \[y_h(x) = e^x(c_1 \cos(2x) + c_2 \sin(2x))\]
+
+    O termo forçante é $g(x) = e^x \cos(2x)$. Como o número complexo $1 + 2i$ coincide com uma das raízes da equação característica, ocorre o fenômeno de ressonância. Portanto, devemos multiplicar a forma padrão por $x$, propondo a solução particular:
+    \[y_p(x) = x e^x (A \cos(2x) + B \sin(2x))\]
+
+    Para simplificar a substituição, podemos escrever $y_p(x) = e^x z(x)$, onde $z(x) = x(A\cos(2x) + B\sin(2x))$. Inserindo essa forma na equação diferencial $y_p'' - 2y_p' + 5y_p = e^x \cos(2x)$, a expressão reduz-se elegantemente a:
+    \[e^x(z'' + 4z) = e^x \cos(2x) \Rightarrow z'' + 4z = \cos(2x)\]
+
+    Calculando as derivadas de $z(x)$:
+    \[z'(x) = (A\cos(2x) + B\sin(2x)) + x(-2A\sin(2x) + 2B\cos(2x))\]
+    \[z''(x) = 4B\cos(2x) - 4A\sin(2x) - 4x(A\cos(2x) + B\sin(2x))\]
+
+    Substituindo $z''(x)$ em $z'' + 4z = \cos(2x)$, os termos multiplicados por $x$ se cancelam, restando apenas:
+    \[4B\cos(2x) - 4A\sin(2x) = \cos(2x)\]
+
+    Comparando os coeficientes, obtemos diretamente:
+    \[4B = 1 \Rightarrow B = \frac{1}{4} \quad \text{e} \quad -4A = 0 \Rightarrow A = 0\]
+
+    Desse modo, a solução particular é $\boxed{y_p(x) = \frac{1}{4}xe^x\sin(2x)}$, estabelecendo a solução geral da equação diferencial como:
+    \[\boxed{y(x) = e^x(c_1 \cos(2x) + c_2 \sin(2x)) + \frac{1}{4}xe^x\sin(2x)}\]
+\end{resolucao}
+
+\begin{resolucao}
+    Para resolver o problema de valor inicial com termo forçante descontínuo, dividimos a análise em dois intervalos de continuidade da função entrada $g(x)$.
+
+    \textbf{Intervalo 1:} Para $0 \leq x \leq \frac{\pi}{2}$, a equação diferencial é dada por $y'' + 4y = \sin x$. 
+    A equação característica associada à parte homogênea é:
+    \[\lambda^2 + 4 = 0 \Rightarrow \lambda = \pm 2i\]
+    Fornecendo a solução homogênea $y_h(x) = c_1 \cos(2x) + c_2 \sin(2x)$. Pelo método dos coeficientes a determinar, assumimos uma solução particular da forma $y_p(x) = A \cos x + B \sin x$. Substituindo $y_p(x)$ e sua segunda derivada na EDO, obtemos:
+    \[3A \cos x + 3B \sin x = \sin x \Rightarrow A = 0 \quad \text{e} \quad B = \frac{1}{3}\]
+    Desse modo, a solução geral no primeiro intervalo é:
+    \[y_1(x) = c_1 \cos(2x) + c_2 \sin(2x) + \frac{1}{3} \sin x\]
+    Determinamos as constantes $c_1$ e $c_2$ aplicando as condições iniciais em $x = 0$:
+    \[y_1(0) = c_1 = 1\]
+    \[y_1'(0) = 2c_2 + \frac{1}{3} = 2 \Rightarrow c_2 = \frac{5}{6}\]
+    Portanto, a solução para o primeiro intervalo é:
+    \[y_1(x) = \cos(2x) + \frac{5}{6} \sin(2x) + \frac{1}{3} \sin x\]
+    Para assegurar a continuidade da solução e de sua primeira derivada na fronteira $x = \frac{\pi}{2}$, avaliamos os limites à esquerda:
+    \[y_1\left(\frac{\pi}{2}\right) = \cos(\pi) + \frac{5}{6}\sin(\pi) + \frac{1}{3}\sin\left(\frac{\pi}{2}\right) = -\frac{2}{3}\]
+    \[y_1'\left(\frac{\pi}{2}\right) = -2\sin(\pi) + \frac{5}{3}\cos(\pi) + \frac{1}{3}\cos\left(\frac{\pi}{2}\right) = -\frac{5}{3}\]
+
+    \textbf{Intervalo 2:} Para $x > \frac{\pi}{2}$, o termo forçante torna-se nulo, resultando na EDO homogênea $y'' + 4y = 0$. A solução geral neste intervalo é:
+    \[y_2(x) = c_3 \cos(2x) + c_4 \sin(2x)\]
+    Sua derivada é dada por $y_2'(x) = -2c_3 \sin(2x) + 2c_4 \cos(2x)$. Aplicando as condições de colagem em $x = \frac{\pi}{2}$ para garantir que $y$ e $y'$ sejam contínuas:
+    \[y_2\left(\frac{\pi}{2}\right) = -c_3 = -\frac{2}{3} \Rightarrow c_3 = \frac{2}{3}\]
+    \[y_2'\left(\frac{\pi}{2}\right) = -2c_4 = -\frac{5}{3} \Rightarrow c_4 = \frac{5}{6}\]
+    Assim, a solução particular do problema para cada intervalo é escrita como:
+    \[\boxed{y(x) = \begin{cases} \cos(2x) + \frac{5}{6} \sin(2x) + \frac{1}{3} \sin x, & 0 \leq x \leq \frac{\pi}{2} \\ \frac{2}{3} \cos(2x) + \frac{5}{6} \sin(2x), & x > \frac{\pi}{2} \end{cases}}\]
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao O operador diferencial $D^n$ representa a aplicação sucessiva de $n$ derivadas ordinárias em relação à variável independente $x$. Para verificar se o operador $D^4$ anula a função polinomial $y(x) = 10x^3 - 2x$, calculamos suas derivadas sequencialmente:
+
+    A primeira derivada ($D$) resulta em:
+    \[D(10x^3 - 2x) = 30x^2 - 2\]
+
+    A segunda derivada ($D^2$) é obtida derivando o resultado anterior:
+    \[D^2(10x^3 - 2x) = D(30x^2 - 2) = 60x\]
+
+    A terceira derivada ($D^3$) corresponde a:
+    \[D^3(10x^3 - 2x) = D(60x) = 60\]
+
+    Finalmente, a quarta derivada ($D^4$) da função é a derivada de uma constante:
+    \[D^4(10x^3 - 2x) = D(60) = 0\]
+
+    Como o resultado final é identicamente nulo, conclui-se que \boxed{\text{o operador } D^4 \text{ anula a função dada}}.
+
+    \itemresolucao Para verificar se o operador composto $(D - 2)(D + 5)$ anula a função $y(x) = e^{2x} + 3e^{-5x}$, podemos aplicar os operadores linearmente e de forma sequencial (da direita para a esquerda).
+
+    Primeiramente, aplicamos o operador interno $(D + 5)$ sobre a função $y(x)$:
+    \[(D + 5)(e^{2x} + 3e^{-5x}) = D(e^{2x} + 3e^{-5x}) + 5(e^{2x} + 3e^{-5x})\]
+
+    Efetuando a diferenciação do primeiro termo, obtemos:
+    \[D(e^{2x} + 3e^{-5x}) = 2e^{2x} - 15e^{-5x}\]
+
+    Substituindo de volta na expressão do operador interno e agrupando os termos semelhantes:
+    \[(2e^{2x} - 15e^{-5x}) + (5e^{2x} + 15e^{-5x}) = 7e^{2x}\]
+
+    Agora, aplicamos o operador restante $(D - 2)$ ao resultado obtido no passo anterior:
+    \[(D - 2)(7e^{2x}) = D(7e^{2x}) - 2(7e^{2x})\]
+    \[= 14e^{2x} - 14e^{2x} = 0\]
+
+    Como a aplicação sucessiva dos operadores lineares reduziu a expressão a zero, confirma-se que \boxed{\text{o operador } (D - 2)(D + 5) \text{ de fato anula a função dada}}.
+\end{resolucao}
+
+\begin{resolucao}
+
+    \itemresolucao Primeiramente, devemos resolver a equação homogênea auxiliar $y'' - 2y' - 3y = 0$. Sua equação característica é
+    \[\lambda^2 - 2\lambda - 3 = 0 \Rightarrow (\lambda - 3)(\lambda + 1) = 0 \Rightarrow \lambda_1 = 3,\quad \lambda_2 = -1\]
+    Logo, a solução complementar é
+    \[y_c(x) = c_1 e^{3x} + c_2 e^{-x}\]
+
+    Em seguida, identificamos o operador anulador de $g(x) = 4e^x - 9$. Como $e^x$ é anulado por $(D-1)$ e a constante $9$ é anulada por $D$, o anulador de $g(x)$ é $L_1 = D(D-1)$. Aplicando $L_1$ a ambos os lados da equação não homogênea, obtemos
+    \[D(D-1)(D^2-2D-3)\,y = 0 \Rightarrow D(D-1)(D-3)(D+1)\,y = 0\]
+
+    A solução geral da equação homogênea de ordem superior associada tem raízes $r = 0,\, 1,\, 3,\, -1$, resultando em
+    \[y = c_1 e^{3x} + c_2 e^{-x} + c_3 e^{x} + c_4\]
+
+    Desconsiderando os termos que já aparecem em $y_c$, a forma da solução particular é
+    \[y_p(x) = Ae^x + B\]
+
+    Calculamos as derivadas necessárias, $y_p' = Ae^x$ e $y_p'' = Ae^x$, e substituímos na equação original:
+    \[Ae^x - 2Ae^x - 3(Ae^x + B) = 4e^x - 9\]
+    \[-4Ae^x - 3B = 4e^x - 9\]
+
+    Agrupando os coeficientes de cada função, chegamos ao sistema
+    \[\begin{cases}
+        -4A = 4\\
+        -3B = -9
+    \end{cases}\Rightarrow A = -1,\quad B = 3\]
+
+    Portanto, $y_p(x) = -e^x + 3$, e a solução geral da equação diferencial é
+    \[\boxed{y(x) = c_1 e^{3x} + c_2 e^{-x} - e^x + 3}\]
+
+    \itemresolucao Primeiramente, devemos resolver a equação homogênea auxiliar $y'' + 6y' + 9y = 0$. Sua equação característica é
+    \[\lambda^2 + 6\lambda + 9 = 0 \Rightarrow (\lambda + 3)^2 = 0 \Rightarrow \lambda = -3\quad \text{(raiz dupla)}\]
+    Como a equação possui raiz repetida, a fim de encontrar soluções linearmente independentes, temos $y_1 = e^{-3x}$ e $y_2 = xe^{-3x}$. Assim, a solução complementar é
+    \[y_c(x) = c_1 e^{-3x} + c_2 x e^{-3x}\]
+
+    Em seguida, identificamos o operador anulador de $g(x) = -xe^{4x}$. Como $xe^{4x}$ é um polinômio de grau 1 multiplicado por $e^{4x}$, o operador que anula tal função é $L_1 = (D - 4)^2$. Aplicando $L_1$ a ambos os lados da equação não homogênea, obtemos
+    \[(D-4)^2(D+3)^2\,y = 0\]
+
+    As raízes da equação homogênea de ordem superior resultante são $r = 4$ (dupla) e $r = -3$ (dupla), de modo que
+    \[y = c_1 e^{-3x} + c_2 x e^{-3x} + c_3 e^{4x} + c_4 x e^{4x}\]
+
+    Desconsiderando os termos que já aparecem em $y_c$, a forma da solução particular é
+    \[y_p(x) = Ae^{4x} + Bxe^{4x}\]
+
+    Calculamos as derivadas necessárias:
+    \[y_p' = (4A + B + 4Bx)e^{4x}, \qquad y_p'' = (16A + 8B + 16Bx)e^{4x}\]
+
+    Substituindo na equação original e agrupando os termos semelhantes:
+    \[(16A + 8B + 16Bx)e^{4x} + 6(4A + B + 4Bx)e^{4x} + 9(A + Bx)e^{4x} = -xe^{4x}\]
+    \[(49A + 14B)e^{4x} + 49Bxe^{4x} = -xe^{4x}\]
+
+    Igualando os coeficientes de cada função, chegamos ao sistema
+    \[\begin{cases}
+        49A + 14B = 0\\
+        49B = -1
+    \end{cases}\Rightarrow B = -\frac{1}{49},\quad A = \frac{2}{343}\]
+
+    Portanto, $y_p(x) = \dfrac{2}{343}e^{4x} - \dfrac{1}{49}xe^{4x}$, e a solução geral da equação diferencial é
+    \[\boxed{y(x) = c_1 e^{-3x} + c_2 x e^{-3x} + \frac{2}{343}e^{4x} - \frac{1}{49}xe^{4x}}\]
+
+    \itemresolucao Primeiramente, devemos resolver a equação homogênea auxiliar $y'' + 25y = 0$. Sua equação característica é
+    \[\lambda^2 + 25 = 0 \Rightarrow \lambda = \pm\, 5i\]
+    Dessa forma, a solução complementar é
+    \[y_c(x) = c_1\cos(5x) + c_2\operatorname{sen}(5x)\]
+
+    Em seguida, identificamos o operador anulador de $g(x) = 20\operatorname{sen}(5x)$. Como $\operatorname{sen}(5x)$ é anulado por $(D^2 + 25)$, o operador anulador é $L_1 = D^2 + 25$. Aplicando $L_1$ a ambos os lados da equação não homogênea, obtemos
+    \[(D^2 + 25)^2\,y = 0\]
+
+    As raízes da equação homogênea de ordem superior resultante são $r = \pm\,5i$, cada uma de multiplicidade 2. Assim, a solução geral é
+    \[y = c_1\cos(5x) + c_2\operatorname{sen}(5x) + c_3 x\cos(5x) + c_4 x\operatorname{sen}(5x)\]
+
+    Desconsiderando os termos que já aparecem em $y_c$, a forma da solução particular é
+    \[y_p(x) = Ax\cos(5x) + Bx\operatorname{sen}(5x)\]
+
+    Note que este é um caso de \textit{ressonância}, visto que as funções $\cos(5x)$ e $\operatorname{sen}(5x)$ já integram $y_c$, exigindo a multiplicação por $x$. Calculamos as derivadas necessárias:
+    \[y_p' = (A + 5Bx)\cos(5x) + (B - 5Ax)\operatorname{sen}(5x)\]
+    \[y_p'' = (10B - 25Ax)\cos(5x) + (-10A - 25Bx)\operatorname{sen}(5x)\]
+
+    Substituindo na equação original:
+    \[y_p'' + 25y_p = 10B\cos(5x) - 10A\operatorname{sen}(5x) = 20\operatorname{sen}(5x)\]
+
+    Igualando os coeficientes de cada função, chegamos ao sistema
+    \[\begin{cases}
+        10B = 0\\
+        -10A = 20
+    \end{cases}\Rightarrow B = 0,\quad A = -2\]
+
+    Portanto, $y_p(x) = -2x\cos(5x)$, e a solução geral da equação diferencial é
+    \[\boxed{y(x) = c_1\cos(5x) + c_2\operatorname{sen}(5x) - 2x\cos(5x)}\]
+
 \end{resolucao}
 
 \begin{resolucao}
