@@ -669,23 +669,23 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     \itemresolucao Primeiramente, devemos resolver a equação homogênea auxiliar $y'' + 25y = 0$. Sua equação característica é
     \[\lambda^2 + 25 = 0 \Rightarrow \lambda = \pm\, 5i\]
     Dessa forma, a solução complementar é
-    \[y_c(x) = c_1\cos(5x) + c_2\operatorname{sen}(5x)\]
+    \[y_c(x) = c_1\cos(5x) + c_2\sin(5x)\]
 
-    Em seguida, identificamos o operador anulador de $g(x) = 20\operatorname{sen}(5x)$. Como $\operatorname{sen}(5x)$ é anulado por $(D^2 + 25)$, o operador anulador é $L_1 = D^2 + 25$. Aplicando $L_1$ a ambos os lados da equação não homogênea, obtemos
+    Em seguida, identificamos o operador anulador de $g(x) = 20\sin(5x)$. Como $\sin(5x)$ é anulado por $(D^2 + 25)$, o operador anulador é $L_1 = D^2 + 25$. Aplicando $L_1$ a ambos os lados da equação não homogênea, obtemos
     \[(D^2 + 25)^2\,y = 0\]
 
     As raízes da equação homogênea de ordem superior resultante são $r = \pm\,5i$, cada uma de multiplicidade 2. Assim, a solução geral é
-    \[y = c_1\cos(5x) + c_2\operatorname{sen}(5x) + c_3 x\cos(5x) + c_4 x\operatorname{sen}(5x)\]
+    \[y = c_1\cos(5x) + c_2\sin(5x) + c_3 x\cos(5x) + c_4 x\sin(5x)\]
 
     Desconsiderando os termos que já aparecem em $y_c$, a forma da solução particular é
-    \[y_p(x) = Ax\cos(5x) + Bx\operatorname{sen}(5x)\]
+    \[y_p(x) = Ax\cos(5x) + Bx\sin(5x)\]
 
-    Note que este é um caso de \textit{ressonância}, visto que as funções $\cos(5x)$ e $\operatorname{sen}(5x)$ já integram $y_c$, exigindo a multiplicação por $x$. Calculamos as derivadas necessárias:
-    \[y_p' = (A + 5Bx)\cos(5x) + (B - 5Ax)\operatorname{sen}(5x)\]
-    \[y_p'' = (10B - 25Ax)\cos(5x) + (-10A - 25Bx)\operatorname{sen}(5x)\]
+    Note que este é um caso de \textit{ressonância}, visto que as funções $\cos(5x)$ e $\sin(5x)$ já integram $y_c$, exigindo a multiplicação por $x$. Calculamos as derivadas necessárias:
+    \[y_p' = (A + 5Bx)\cos(5x) + (B - 5Ax)\sin(5x)\]
+    \[y_p'' = (10B - 25Ax)\cos(5x) + (-10A - 25Bx)\sin(5x)\]
 
     Substituindo na equação original:
-    \[y_p'' + 25y_p = 10B\cos(5x) - 10A\operatorname{sen}(5x) = 20\operatorname{sen}(5x)\]
+    \[y_p'' + 25y_p = 10B\cos(5x) - 10A\sin(5x) = 20\sin(5x)\]
 
     Igualando os coeficientes de cada função, chegamos ao sistema
     \[\begin{cases}
@@ -694,7 +694,7 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     \end{cases}\Rightarrow B = 0,\quad A = -2\]
 
     Portanto, $y_p(x) = -2x\cos(5x)$, e a solução geral da equação diferencial é
-    \[\boxed{y(x) = c_1\cos(5x) + c_2\operatorname{sen}(5x) - 2x\cos(5x)}\]
+    \[\boxed{y(x) = c_1\cos(5x) + c_2\sin(5x) - 2x\cos(5x)}\]
 
 \end{resolucao}
 
