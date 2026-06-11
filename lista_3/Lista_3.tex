@@ -119,7 +119,17 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
 
 \exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
     
+\exercicio[Zill, Seção 4.7, Exercícios 7, 15, 29] Resolva a equação diferencial ou o problema de valor inicial dado.
+\begin{itensquestao}
+    \item $x^2y''-3xy'-2y=0$
+    \item $x^3y'''-6y=0$
+    \item $xy''+y'=x,\quad y(1)=1,~y'(1)=-\frac{1}{2}$
+\end{itensquestao}
 
+\exercicio[Zill, Seção 4.7, Exercício 35] Use a substituição $x=e^t$ para transformar a equação de Cauchy-Euler dada em uma equação com coeficientes constantes. Resolva a equação original usando os procedimentos vistos nas Seções 4.3 a 4.5 para resolver a nova equação.
+\[x^2y''-3xy'+13y=4+3x\]
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESOLUÇÕES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1087,6 +1097,75 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     Resolvendo o sistema, encontramos $c_1=3$ e $c_2=-2$. Dessa maneira, temos como resposta do problema
     \[\boxed{Q(t)=3e^{-600t}-2e^{-900t}+\frac{1}{216}}\]
     \[\boxed{i(t)=\frac{dQ}{dt}(t)=1800\left(e^{-900t}-e^{-600t}\right)}\]
+\end{resolucao}
+
+\begin{resolucao}
+    \itemresolucao Substituindo $y=x^m$ na equação dada,
+    \[x^2m(m-1)x^{m-2}-3xmx^{m-1}-2x^m=0\]
+    \[x^m(m^2-m-3m-2)=0\Rightarrow x^m(m^2-4m-2)=0\]
+
+    Como $x^m\neq0~\forall~x$, o outro termo deve ser igual a 0. Pela fórmula quadrática,
+    \[m=\frac{4\pm\sqrt{16+8}}{2}=2\pm\sqrt{6}\]
+
+    Ou seja, a solução da EDO homogênea é
+    \[\boxed{y(x)=c_1x^{2-\sqrt{6}}+c_2x^{2+\sqrt{6}}}\]
+
+    \itemresolucao Realizando a substituição $y=x^m$ na equação original,
+    \[x^3m(m-1)(m-2)x^{m-3}-6x^m=0\Rightarrow x^m[m(m^2-3m+2)-6]=0\]
+    \[x^m[m^3-3m^2+2m-6]=0\]
+    Notamos que 3 é solução do polinômio. Aplicando Briot-Ruffini,
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cccc}
+            3 & 1 & -3 & 2 & -6\\
+            \hline
+              & 1 & 0 & 2 & 0
+        \end{tabular}
+    \end{table}
+    Sendo assim, como $x^m$ é sempre diferente de zero, $(m-3)(m^2+2)=0$. Ou seja, $m=3$, $m=i\sqrt{2}$ e $m=-i\sqrt{2}$. Ou seja, a solução da equação homogênea é
+    \[y(x)=c_1x^3+c_2'x^{-i\sqrt{2}}+c_3'x^{i\sqrt{2}}\]
+    Agora, manipulemos a solução geral para encontrar uma que seja expressa apenas por soluções reais. Usando o fato de que $x=e^{\ln(x)}$ e $e^{i\theta}=\cos\theta+i\sin\theta$,
+    \[y(x)=c_1x^3+c_2'e^{-i\sqrt{2}\ln (x)}+c_3'e^{i\sqrt{2}\ln (x)}\]
+    \[y(x)=c_1x^3+c_2'[\cos(\sqrt{2}\ln(x))-i\sin(\sqrt{2}\ln(x))]+c_3'[\cos(\sqrt{2}\ln(x))+i\sin(\sqrt{2}\ln(x))]\]
+    \[y(x)=c_1x^3+(c_2'+c_3')\cos(\sqrt{2}\ln(x))+(c_3'-c_2')i\sin(\sqrt{2}\ln(x))\]
+    Reescrevendo $c_2=(c_2'+c_3')$ e $c_3=(c_3'-c_2')i$,
+    \[\boxed{y(x)=c_1x^3+c_2\cos(\sqrt{2}\ln(x))+c_3\sin(\sqrt{2}\ln(x))}\]
+
+    \itemresolucao Comecemos pela resolução da equação homogênea associada e da substituição $y=x^m$, considerando a passagem da equação para a forma de Euler-Cauchy (expoente do coeficiente igual à ordem da derivada):
+    \[x^2m(m-1)x^{m-2}+xmx^{m-1}=0\Rightarrow x^m(m^2-m+m)=0\Rightarrow x^m(m^2)=0\]
+    Assim, $m=0$ é raiz dupla da equação, resultando na solução homogênea $y_h(x)=c_1x^0+c_2x^0\ln x=c_1+c_2\ln x$. Agora, vamos partir para a determinação da solução particular. Supondo uma solução do tipo $y_p(x)=Ax^2+Bx+C$ e substituindo na equação,
+    \[2Ax^2+x(2Ax+B)=x^2\Rightarrow4Ax^2+Bx=x^2\Rightarrow A=\frac{1}{4},~B=0\]
+    Dessa forma, $y_p(x)=x^2/4$ e $y(x)=c_1+c_2\ln x+x^2/4$. Substituindo as condições iniciais,
+    \begin{equation}
+        \begin{cases}
+            y(1)=1\\
+            y'(1)=-\frac{1}{2}
+        \end{cases}\Rightarrow
+        \begin{cases}
+            1=c_1+\frac{1}{4}\Rightarrow c_1=\frac{3}{4}\\
+            -\frac{1}{2}=\frac{c_2}{1}+\frac{1}{2}\Rightarrow c_2=-1
+        \end{cases}
+    \end{equation}
+    Assim, a solução do PVI é dada por
+    \[\boxed{y(x)=\frac{3}{4}-\ln x+\frac{x^2}{4}}\]
+    
+\end{resolucao}
+
+\begin{resolucao}
+    Recalculemos as derivadas de $y$ em relação a $x$ para expressá-las em função de $t$ por meio da regra da cadeia:
+    \[\frac{dy}{dx}=\frac{dy}{dt}\frac{dt}{dx}\Rightarrow y'=\frac{dy}{dt}\frac{1}{x}\Rightarrow\boxed{\frac{dy}{dt}=\dot{y}=xy'}\]
+    \[\frac{d^2y}{dx^2}=\frac{d}{dx}\left(\frac{dy}{dx}\right)=\frac{d}{dx}\left(\frac{dy}{dt}\frac{1}{x}\right)=\frac{d}{dx}\left(\frac{dy}{dt}\right)\frac{1}{x}-\frac{dy}{dt}\frac{1}{x^2}\]
+    \[\frac{d^2y}{dx^2}=\frac{d}{dt}\left(\frac{dy}{dt}\right)\frac{dt}{dx}\frac{1}{x}-\frac{dy}{dt}\frac{1}{x^2}\Rightarrow y''=\frac{1}{x^2}\left(\frac{d^2y}{dt^2}-\frac{dy}{dt}\right)\]
+    \[\boxed{x^2y''=\frac{d^2y}{dt^2}-\frac{dy}{dt}=\ddot{y}-\dot{y}}\]
+    Substiuindo na equação homogênea associada,
+    \[\ddot{y}-\dot{y}-3\dot{y}+13y=0\]
+    \[\lambda^2-4\lambda+13=0\Rightarrow\lambda=2\pm3i\]
+    Assim, a solução homogênea é dada por $y_h(t)=c_1e^{2t}\cos(3t)+c_2e^{2t}\sin(3t)$. Como $g(t)=4+3e^t$ após a realização da substituição de $x=e^t$, propomos uma solução da forma $y_p(t)=A + Be^t$. Substituindo na equação,
+    \[Be^t-4Be^t+13A+13Be^t=4+3e^t\Rightarrow 13A+10Be^t=4+3e^t\Rightarrow A=\frac{4}{13},~B=\frac{3}{10}\]
+    Ou seja, $y_p(t)=\frac{4}{13}+\frac{3}{10}e^t$. A solução em função de $t$ fica, portanto,
+    \[y(t)=c_1e^{2t}\cos(3t)+c_2e^{2t}\sin(3t)+\frac{4}{13}+\frac{3}{10}e^t\]
+    Retornando à variável original,
+    \[\boxed{y(x)=c_1x^2\cos(3\ln x)+c_2x^2\sin(3\ln x)+\frac{4}{13}+\frac{3}{10}x}\]
 \end{resolucao}
 
 \end{document}
