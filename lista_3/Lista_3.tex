@@ -1212,7 +1212,7 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     \end{resolucao}
 
     \begin{resolucao}
-        A resolução da equação homogênea associada segu da forma
+        A resolução da equação homogênea associada segue da forma
         \[\lambda^2+1=0\Rightarrow\lambda=\pm i\]
         A solução homogênea é $y_h(x)=c_1\cos(x)+c_2\sin(x)$. Substituindo as condições iniciais nessa solução,
         \[\begin{cases}
@@ -1226,6 +1226,14 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     \end{vmatrix}=1\]
     A função de Green fica, portanto,
     \[G(x, t)=\frac{-\cos(x)\sin(t)+\sin(x)\cos(t)}{1}=\sin(x)\cos(t)-\cos(x)\sin(t)\]
-    Do cálculo da solução particular,
+    Do cálculo da solução particular, segue que
+    \[y_p(x)=\int_{\frac{\pi}{2}}^{x}G(x,t)f(t)dt=\int_{\frac{\pi}{2}}^{x}(\sin(x)\cos(t)-\cos(x)\sin(t))\cdot\frac{\cos(t)}{\sin^2(t)}dt\]
+    \[y_p(x)=\sin(x)\int_{\frac{\pi}{2}}^{x}\left(\frac{1}{\sin^2(t)}-1\right)dt-\cos(x)\int_{\frac{\pi}{2}}^{x}\cot(t)dt\]
+    \[y_p(x)=\sin(x)[-\cot(t)-t]\rvert^x_\frac{\pi}{2}-\cos(x)[\ln|\sin(t)|]\rvert^x_\frac{\pi}{2}\]
+    \[y_p(x)=\sin(x)[-\cot(x)-x+\frac{\pi}{2}]-\cos(x)\ln|\sin(x)|\]
+    \[y_p(x)=-\cos(x)-x\sin(x)+\frac{\pi}{2}\sin(x)-\cos(x)\ln|\sin(x)|\]
+    Dado que $y(x)=y_h(x)+y_p(x)$, 
+    \[\boxed{y(x)=-x\sin(x)-\cos(x)\ln|\sin(x)|}\]
     \end{resolucao}
+    
 \end{document}
