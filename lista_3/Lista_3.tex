@@ -84,13 +84,13 @@ respectivamente, soluções particulares de
 $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{cases} \sin x, & 0 \leq x \leq \frac{\pi}{2} \\ 0, & x > \frac{\pi}{2} \end{cases}$$
 
 \exercicio[Zill, Seção 4.5, Exercícios 11, 13] Verifique se o operador diferencial dado anula as funções indicadas.
-\begin{itensquestao}
+\begin{itensquestao}[2]
     \item $D^4; \quad y = 10x^3 - 2x$
     \item $(D - 2)(D + 5); \quad y = e^{2x} + 3e^{-5x}$
 \end{itensquestao}
 
 \exercicio[Zill, Seção 4.5, Exercícios 45, 49, 55] Resolva a equação diferencial dada usando coeficientes a determinar.
-\begin{itensquestao}
+\begin{itensquestao}[2]
     \item $y''-2y'-3y=4e^x-9$
     \item $y''+6y'+9y=-xe^{4x}$
     \item $y''+25y=20\sin(5x)$
@@ -120,7 +120,7 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
 \exercicio[] Um circuito em série tem um gerador $E(t)=500~\mathrm{volts}$, um capacitor de $\frac{1}{108}\times10^{-3}~\mathrm{farad}$, um resistor de $300~\mathrm{ohms}$ e um indutor de $0.2~\mathrm{henry}$. Se a carga inicial no capacitor é de $\frac{217}{216}~\mathrm{coulomb}$ e não há corrente inicial, encontre a carga $Q(t)$ no capacitor e a corrente no circuito $I(t)$ no instante $t$.
     
 \exercicio[Zill, Seção 4.7, Exercícios 7, 15, 29] Resolva a equação diferencial ou o problema de valor inicial dado.
-\begin{itensquestao}
+\begin{itensquestao}[2]
     \item $x^2y''-3xy'-2y=0$
     \item $x^3y'''-6y=0$
     \item $xy''+y'=x,\quad y(1)=1,~y'(1)=-\frac{1}{2}$
@@ -137,6 +137,79 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
 
 \exercicio[Zill, Seção 4.8, Exercício 23] Encontre uma solução do problema de valor inicial dado.
 \[y''+y=\csc(x)\cot(x),\quad y\left(\frac{\pi}{2}\right)=-\frac{\pi}{2},~y'\left(\frac{\pi}{2}\right)=-1\]
+
+\exercicio[Zill, Seção 4.9, Exercícios 8, 18] Resolva o sistema de equações diferenciais dado por eliminação sistemática.
+\begin{itensquestao}[2]
+    \item \[\begin{cases}\displaystyle\frac{d^2x}{dt^2}+\frac{dy}{dt}=-5x\\\displaystyle
+    \frac{dx}{dt}+\frac{dy}{dt}=-x+4y\end{cases}\]
+    \item \[\begin{cases}Dx+z=e^t\\(D-1)x+Dy+Dz=0\\x+2y+Dz=e^t\end{cases}\]
+\end{itensquestao}
+
+\exercicio[Zill, Seção 4.9, Exercícios 23, 24] 
+\begin{itensquestao} 
+    \item Um projétil atirado de uma arma tem peso $w = mg$ e velocidade $v$ tangente à trajetória do movimento. Ignorando a resistência do ar e todas as outras forças, exceto o peso, determine um sistema de equações diferenciais que descreva o movimento. [\textit{Sugestão}: Use a segunda lei do movimento de Newton nas direções $x$ e $y$.]
+    \item Determine um sistema de equações diferenciais que descreva o movimento do Problema 23 se o projétil sofre uma força retardadora $k$ atuando tangencialmente à trajetória, mas oposta ao movimento. Resolva o sistema. [\textit{Sugestão}: $k$ é um múltiplo da velocidade -- digamos, $\beta v$.]
+\end{itensquestao}
+\begin{figure}[H]
+  \centering
+  % --- PRIMEIRA FIGURA (Problema 23) ---
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=1]
+      % Eixos coordenados
+      \draw[->] (-0.5,0) -- (4.0,0) node[below] {$x$};
+      \draw[->] (0,-0.5) -- (0,3.0) node[left] {$y$};
+      
+      % Trajetória parabólica do projétil
+      \draw[thick, domain=0:3.4, samples=100] plot (\x, {1.8*\x - 0.53*\x*\x});
+      
+      % Posição do projétil (ponto preto)
+      \coordinate (P) at (0.8, 1.1);
+      \fill (P) circle (2.5pt);
+      
+      % Vetor velocidade tangente (v)
+      \draw[->, thick, blue] (P) -- ++(43.6:1.2) node[above right, black] {$v$};
+      
+      % Vetor força peso (mg)
+      \draw[->, thick, blue] (P) -- ++(0,-1.0) node[above right, black] {$mg$};
+    \end{tikzpicture}
+    \caption{Problema a).}
+  \end{minipage}
+  \hfill
+  % --- SEGUNDA FIGURA (Problema 24) ---
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=1]
+      % Definição de coordenadas baseadas no ângulo de lançamento
+      \coordinate (O) at (0,0);
+      \coordinate (D) at (35:1.2);
+      \coordinate (T) at (35:3.8);
+      \coordinate (B) at ({3.8*cos(35)},0);
+      
+      % Linhas finas de projeção do triângulo retângulo
+      \draw[thin, gray, dashed] (O) -- (B) -- (T);
+      
+      % Vetor de resistência do ar (k) apontando para a origem
+      \draw[->, thick] (D) -- (O) node[left, black] {$k$};
+      
+      % Vetor velocidade (v) apontando para a frente
+      \draw[->, thick, blue] (D) -- (T) node[above, black] {$v$};
+      
+      % Posição do projétil (ponto preto)
+      \fill (D) circle (2.5pt);
+      
+      % Arco do ângulo teta (\theta)
+      \draw (0.6,0) arc (0:35:0.6) node[midway, right=2pt] {$\theta$};
+    \end{tikzpicture}
+    \caption{Problema b).}
+  \end{minipage}
+\end{figure}
+
+\exercicio[Zill, Seção 4.10, Exercício 13] Mostre que a substituição $u=y'$ leva a uma equação de Bernoulli. Resolva essa equação.
+\[xy''=y'+(y')^3\]
+
+\exercicio[Zill, Seção 4.10, Exercício 17] Obtenha os seis primeiros termos diferentes de zero de uma solução em série de Taylor em torno do zero do problema de valor inicial dado. Use um solucionador numérico e um utilitário gráfico para comparar a curva integral com o gráfico do polinômio de Taylor.
+\[y''=x^2+y^2-2y',\quad y(0)=1, \quad y'(0)=1\]
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1234,6 +1307,222 @@ $$y'' + 4y = g(x), \quad y(0) = 1, \quad y'(0) = 2,~\text{onde}~g(x) = \begin{ca
     \[y_p(x)=-\cos(x)-x\sin(x)+\frac{\pi}{2}\sin(x)-\cos(x)\ln|\sin(x)|\]
     Dado que $y(x)=y_h(x)+y_p(x)$, 
     \[\boxed{y(x)=-x\sin(x)-\cos(x)\ln|\sin(x)|}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Reescrevendo o sistema,
+        \[\begin{cases}
+            D^2x+Dy=-5x\\
+            Dx+Dy=-x+4y
+        \end{cases}\Rightarrow
+        \begin{cases}
+            (D^2+5)x+Dy=0\\
+            (D+1)x+(D-4)y=0
+        \end{cases}\]
+        Para eliminar $y$, multiplicamos a primeira equação por $(D-4)$, a segunda por $D$ e subtraímos os resultados:
+        \[\begin{cases}
+            (D^2+5)(D-4)x+(D^2-4D)y=0\\
+            (D+1)Dx+(D^2-4D)y=0
+        \end{cases}~\text{\textcircled{$-$}}\Rightarrow [D^3-5D^2+4D-20]x=0\]
+        Resolvendo a equação homogênea por meio da substituição $x=e^{\lambda t}$,
+        \[\lambda^3-5\lambda^2+4\lambda-20=0\Rightarrow(\lambda-5)(\lambda^2+4)=0\]
+        Ou seja, as raízes da equação característica são $\lambda=5$ e $\lambda=\pm2i$. Assim, escrevemos $x(t)$ como $x(t)=c_1e^{5t}+c_2\cos(2t)+c_3\sin(2t)$. Procedimento análogo é realizado para a eliminação de $x$ do sistema original, no qual a primeira equação é multiplicada por $D+1$, e a segunda por $D^2+5$:
+        \[\begin{cases}
+            (D^2+5)(D+1)x+D(D+1)y=0\\
+            (D+1)(D^2+5)Dx+(D-4)(D^2+5)y=0
+        \end{cases}~\text{\textcircled{$-$}}\Rightarrow [D^3-5D^2+4D-20]y=0\]
+        Percebe-se que a equação característica é igual àquela para $x$ isolado, indicando que a solução é da forma $y(t)=c_4e^{5t}+c_5\cos(2t)+c_6\sin(2t)$. A fim de determinar as relações entre as constantes, substituímos as soluções na segunda equação do sistema:
+        \begin{align*}5c_1e^{5t}-2c_2\sin(2t)+2c_3\cos(2t)+5c_4e^{5t}-2c_5\sin(2t)+2c_6\cos(2t)=\\
+        =-c_1e^{5t}-c_2\cos(2t)-c_3\sin(2t)+4c_4e^{5t}+4c_5\cos(2t)+4c_6\sin(2t)
+        \end{align*}
+        \[e^{5t}(5c_1+5c_4+c_1-4c_4)+\cos(2t)(2c_3+2c_6+c_2-4c_5)+\sin(2t)(-2c_2-2c_5+c_3-4c_6)=0\]
+        Comparando os dois lados da equação, segue o sistema
+        \[\begin{cases}
+            6c_1+c_4&=0\\
+            c_2+2c_3-4c_5+2c_6&=0\\
+            -2c_2+c_3-2c_5-4c_6&=0
+        \end{cases}\]
+        Dessa forma,
+        \[\begin{cases}
+            c_4&=-6c_1\\
+            5c_3-10c_5&=0\\
+            5c_2+10c_6&=0
+        \end{cases}\quad\Rightarrow\quad\begin{cases}
+            c_4&=-6c_1\\
+            c_5&=\frac{1}{2}c_3\\
+            c_6&=-\frac{1}{2}c_2
+        \end{cases}\]
+        Assim, as soluções encontradas são da forma
+        \[\boxed{x(t)=c_1e^{5t}+c_2\cos(2t)+c_3\sin(2t)}\]
+        \[\boxed{y(t)=-6c_1e^{5t}+\frac{1}{2}c_3\cos(2t)-\frac{1}{2}c_2\sin(2t)}\]
+
+        \itemresolucao Resolveremos esse item por meio do uso da Regra de Cramer para isolar as variáveis. Primeiramente, calculando o determinante principal $\Delta$, 
+        \[\Delta=\begin{vmatrix}
+            D & 0 & 1\\
+            D-1 & D & D\\
+            1 & 2 & D
+        \end{vmatrix}=D^3-2D^2+D-2\]
+        Agora, calculando os determinantes secundários,
+        \[\Delta_x=\begin{vmatrix}
+            e^t & 0 & 1\\
+            0 & D & D\\
+            e^t & 2 & D
+        \end{vmatrix}=(D^2-3D)e^t=-2e^t\]
+        \[\Delta_y=\begin{vmatrix}
+            D & e^t & 1\\
+            D-1 & 0 & D\\
+            1 & e^t & D
+        \end{vmatrix}=(-2D^2+3D-1)e^t=0\]
+        \[\Delta_z=\begin{vmatrix}
+            D & 0 & e^t\\
+            D-1 & D & 0\\
+            1 & 2 & e^t
+        \end{vmatrix}=(D^2+D-2)e^t=0\]
+        Assim, segue que o cálculo de $x$ é dado por
+        \[x=\frac{\Delta_x}{\Delta}\Rightarrow\Delta\cdot x=\Delta_x,\]
+        onde a parcela $\Delta\cdot x=0$ representa a equação homogênea associada e $\Delta_x$ representa o termo forçante. Dessa forma, resolvendo a homogênea associada,
+        \[(D^3-2D^2+D-2)x=0\Rightarrow\lambda^3-2\lambda^2+\lambda-2=0\]
+        \[(\lambda-2)(\lambda^2+1)=0\Rightarrow\lambda=2,~\lambda=\pm i\]
+        Assim, a parcela da solução relativa à parte homogênea é \[x_h(t)=c_1e^{2t}+c_2\cos(t)+c_3\sin(t)\]. Para encontrar a solução particular, adota-se a forma $x_p(t)=Ae^t$. Substituindo na equação,
+        \[(D^3-2D^2+D-2)Ae^t=-2e^t\Rightarrow-2Ae^t=-2e^t\Rightarrow A=2\]
+        Nesse sentido, a solução de $x$ é dada por $x(t)=c_1e^{2t}+c_2\cos(t)+c_3\sin(t)+e^t$. As soluções de $y$ e $z$ seguem procedimento análogo. Para $y$,
+        \[\Delta\cdot y=\Delta_y\Rightarrow(D^3-2D^2+D-2)y=0\]
+        Ou seja, \[y(t)=c_4e^{2t}+c_5\cos(t)+c_6\sin(t)\], já que não há termo forçante. Para $z$,
+        \[\Delta\cdot z=\Delta_z\Rightarrow(D^3-2D^2+D-2)z=0\]
+        Ou seja, \[z(t)=c_7e^{2t}+c_8\cos(t)+c_9\sin(t)\], já que não há termo forçante. A fim de reescrever as constantes em função daquelas de $x(t)$, em um primeiro momento, são substituídas $x(t)$ e $z(t)$ na primeira equação do sistema original:
+        \[2c_1e^{2t}-c_2\sin(t)+c_3\cos(t)+e^t+c_7e^{2t}+c_8\cos(t)+c_9\sin(t)=e^t\]
+        \[e^{2t}(2c_1+c_7)+\cos(t)(c_3+c_8)+\sin(t)(c_9-c_2)+e^t=e^t\]
+        Comparando os dois lados da igualdade, descobrimos que $c_7=-2c_1$, $c_8=-c_3$ e $c_9=c_2$. Nesse sentido, \[z(t)=-2c_1e^{2t}-c_3\cos(t)+c_2\sin(t)\]. Agora, substituindo as três soluções na terceira equação do sistema original,
+        \begin{align*}
+            c_1e^{2t}+c_2\cos(t)+c_3\sin(t)+e^t+2c_4e^{2t}+2c_5\cos(t)+2c_6\sin(t)-\\
+            -4c_1e^{2t}+c_3\sin(t)+c_2\cos(t)=e^t
+        \end{align*}
+        \[e^{2t}(c_1+2c_4-4c_1)+\cos(t)(c_2+2c_5+c_2)+\sin(t)(c_3+2c_6+c_3)+e^t=e^t\]
+        Assim, $c_4=\frac{3}{2}c_1$, $c_5=-c_2$ e $c_6=-c_3$. As três soluções em sua forma final são dadas por
+        \[\boxed{x(t)=c_1e^{2t}+c_2\cos(t)+c_3\sin(t)+e^t}\]
+        \[\boxed{y(t)=\frac{3}{2}c_1e^{2t}-c_2\cos(t)-c_3\sin(t)}\]
+        \[\boxed{z(t)=-2c_1e^{2t}-c_3\cos(t)+c_2\sin(t)}\]
+
+    \end{resolucao}
+
+    \begin{resolucao}
+        \itemresolucao Usando a primeira lei de Newton ($\sum F=ma$) aplicada aos dois eixos de movimento,
+        \begin{align*}
+            &x: 0=m\frac{d^2x}{dt^2}\Rightarrow D^2x=0\\
+            &y: -mg=m\frac{d^2y}{dt^2}\Rightarrow D^2y=-g
+        \end{align*}
+        Assim, o sistema fica
+        \[\boxed{\begin{cases}
+            D^2x=0\\
+            D^2y=-g
+        \end{cases}}\]
+
+        \itemresolucao Dado que o arrasto $k=\beta v$ é tangente à velocidade, devemos decompô-lo nos eixos $x$ e $y$ para prosseguir com a abordagem previamente realizada:
+        \begin{align*}
+            &x:k\cos\theta=\beta v\cos\theta=\beta v \frac{v_x}{v}=\beta v_x = \beta\frac{dx}{dt}\\
+            &y:k\sin\theta=\beta v\sin\theta=\beta v \frac{v_y}{v}=\beta v_y = \beta\frac{dy}{dt}
+        \end{align*}
+        Fazendo o balanço de forças, portanto,
+        \begin{align*}
+            &x: -\beta\frac{dx}{dt}=m\frac{d^2x}{dt^2}\Rightarrow \left(D^2+\frac{\beta}{m}D\right)x=0\\
+            &y: -mg-\beta\frac{dy}{dt}=m\frac{d^2y}{dt^2}\Rightarrow \left(D^2+\frac{\beta}{m}D\right)y=-g
+        \end{align*}
+        As raízes das equações homogêneas associadas são $\lambda=0$ e $\lambda=-\frac{\beta}{m}$, produzindo soluções homogêneas da forma $x_h(t)=c_1+c_2e^{-\frac{\beta}{m}t}$ e $y_h(t)=c_3+c_4e^{-\frac{\beta}{m}t}$. Como a equação diferencial em $x$ não tem termo forçante, a solução $x(t)$ é igual à homogênea. Já em $y$, podemos supor uma solução particular da forma $y_p(t)-At$. Substituindo na ED,
+        \[\left(D^2+\frac{\beta}{m}D\right)At=-g\Rightarrow\frac{\beta A}{m}=-g\Rightarrow A=-\frac{mg}{\beta}\]
+        Nesse sentido, a solução em $y$ é dada por $y(t)=c_3+c_4e^{-\frac{\beta}{m}t}-\frac{mg}{\beta}t$. A fim de encontrar as constantes, vamos supor algumas condições iniciais:
+        \begin{align*}
+            &x(0)=0 &x'(0)=v_{x_0}\\
+            &y(0)=0 &y'(0)=v_{y_0}\\
+        \end{align*}
+        Substituindo essas condições nas soluções encontradas,
+        \[\begin{cases}
+            x(0)=0\Rightarrow c_1+c_2=0\Rightarrow c_1=-c_2\\
+            x'(0)=v_{x_0}\Rightarrow -\frac{\beta c_2}{m}=v_{x_0}\Rightarrow c_2=-\frac{mv_{x_0}}{\beta}
+        \end{cases}\]
+        Ou seja,
+        \[\boxed{x(t)=\frac{mv_{x_0}}{\beta}\left(1-e^{-\frac{\beta}{m}t}\right)}\]
+        Além disso,
+        \[\begin{cases}
+            y(0)=0\Rightarrow c_3+c_4=0\Rightarrow c_3=-c_4\\
+            x'(0)=v_{y_0}\Rightarrow -\frac{\beta c_4}{m}-\frac{mg}{\beta}=v_{y_0}\Rightarrow c_4=-\frac{mv_{y_0}}{\beta}+\frac{m^2g}{\beta^2}
+        \end{cases}\]
+        Ou seja,
+        \[\boxed{y(t)=\left(\frac{mv_{y_0}}{\beta}-\frac{m^2g}{\beta^2}\right)\left(1-e^{-\frac{\beta}{m}t}\right)-\frac{mg}{\beta}t}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        Realizando a substituição $u=y'$,
+        \[xu'=u+u^3\Rightarrow u'-\frac{1}{x}u=\frac{1}{x}u^3\]
+        O que é uma equação de Bernoulli da forma $y'-P(x)y=Q(x)y^n$. Para resolver essa equação, dividimos ambos os lados pelo termo de maior grau e fazemos a substituição $z=u^{-2},~z'=-2u^{-3}u'$:
+        \[u^{-3}u'-\frac{1}{x}u^{-2}u=\frac{1}{x}\Rightarrow -\frac{1}{2}z'-\frac{1}{x}z=\frac{1}{x}\Rightarrow\]
+        \[\Rightarrow z'+\frac{2}{x}z=-\frac{2}{x}\]
+        Um fator integrante para essa equação é $\mu(x)=e^{\int \frac{2}{x}dx}=e^{2\ln|x|}=x^2$. Multiplicando ambos os lados por esse fator,
+        \[\frac{d}{dx}\left(x^2z\right)=-2x\Rightarrow x^2z=-2\int x dx=-2\frac{x^2}{2}+c_1'=-x^2+c_1'\]
+        \[z=\frac{-x^2+c_1'}{x^2}=\frac{1-c_1^2x^2}{c_1^2x^2},\]
+        onde $c_1^2=\frac{1}{c_1'}$. Como $u=z^{-1/2}$ e $y'=u$,
+        \[y'=u=\sqrt{\frac{c_1^2x^2}{1-c_1^2x^2}}\Rightarrow y=\int\sqrt{\frac{c_1^2x^2}{1-c_1^2x^2}}dx=\int\frac{c_1x}{\sqrt{1-c_1^2x^2}}dx\]
+        \[\boxed{y=-\frac{1}{c_1}\sqrt{1-c_1^2x^2}+c_2}\]
+    \end{resolucao}
+
+    \begin{resolucao}
+        O polinômio de Taylor centrado em zero escrito até o sexto termo é da forma
+        \[y(x)=y(0)+y'(0)x+\frac{y''(0)}{2}x^2+\frac{y'''(0)}{6}x^3+\frac{y^{(4)}(0)}{24}x^4+\frac{y^{(5)}(0)}{120}x^5\]
+        Nesse sentido, devemos achar quando valem as derivadas presentes na expressão:
+        \begin{align*}
+          &y''(x)=x^2+y^2-2y'& y''(0)=0^2+1^2-2\cdot1=-1&\\
+          &y'''(x)=2x+2yy'-2y''& y'''(0)=2\cdot 1+2\cdot1\cdot1-2\cdot(-1)=4&\\
+          &y^{(4)}(x)=2+2[(y')^2+yy'']-2y'''& y^{(4)}(0)=2+2[1^2+1\cdot(-1)]-2\cdot4=-6&\\
+          &y^{(5)}(x)=4y'y''+2[y'y''+yy''']-2y^{(4)}& y^{(5)}(0)=4\cdot1\cdot(-1)+2[1\cdot(-1)+&\\
+          & & +1\cdot4]-2\cdot(-6)=14&
+        \end{align*}
+        Substituindo os valores encontrados no polinômio de Taylor construído, a expressão final fica
+        \[\boxed{y(x)=1+x-\frac{1}{2}x^2+\frac{2}{3}x^3-\frac{1}{4}x^4+\frac{7}{70}x^5}\]
+
+        Essa EDO não linear foi resolvida em MATLAB por meio do \textit{solver} \texttt{ode45}, conforme o código disposto abaixo, a fim de comparar a solução numérica (o \textit{solver} usado emprega uma forma do algoritmo de Runge-Kutta) à solução aproximada em torno de zero obtida pelo polinômio de Taylor. Os resultados são apresentados na Figura \ref{fig:ex_22}.
+
+        \begin{lstlisting}
+clear, clc, close all
+
+xspan = [0, 2.8];  % Limites de integração
+u0 = [1; 1];  % Condições iniciais
+
+%% Resolução numérica da EDO
+EDO_num = @(x, u) [u(2); x^2 + u(1)^2 - 2*u(2)];  % Mudança: u1=y, u2=y'
+[x_num, u_num] = ode45(EDO_num, xspan, u0);
+
+y_num = u_num(:, 1);
+
+%% Solução centrada em 0 pela série de Taylor
+EDO_taylor = @(x) 1+x-(1/2)*x.^2+(2/3)*x.^3-(1/4)*x.^4+(7/60)*x.^5;
+x_taylor = linspace(xspan(1), xspan(2), 100);
+
+y_taylor = EDO_taylor(x_taylor);
+
+%% Plot
+figure(Position=[100 100 600 300]);
+plot(x_num, y_num, '-b', 'LineWidth', 1.5);
+hold on;
+plot(x_taylor, y_taylor, '-r', 'LineWidth', 1.5);
+
+grid on;
+xlim([0 2.8])
+xlabel('x');
+ylabel('y');
+legend('Solver (ode45)', 'Taylor', 'Location', 'northwest');
+fontname("Times New Roman")
+fontsize(12, "points")
+
+exportgraphics(gcf,'ex_22.pdf')
+        \end{lstlisting}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[]{ex_22.pdf}
+            \caption{Comparação entre os métodos.}\label{fig:ex_22}
+        \end{figure}
+
+        Pela figura, percebemos que o polinômio de Taylor de quinta ordem aproxima satisfatoriamente a curva integral do PVI até o entorno de $x=2$. Após isso, o polinômio e a curva integral passam a apresentar comportamentos distintos, sendo o primeiro insuficiente para aproximar a solução.
+        
+
     \end{resolucao}
     
 \end{document}

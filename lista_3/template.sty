@@ -12,7 +12,7 @@
 \usepackage{tensor}
 \usepackage{sectsty}
 \usepackage{array}
-\usepackage[table,xcdraw]{xcolor}
+\usepackage[table,xcdraw, dvipsnames]{xcolor}
 \usepackage{tabularx}
 \usepackage{mathtools}
 \usepackage{caption} 
@@ -36,6 +36,29 @@
 \usepackage[alf, abnt-emphasize=bf, abnt-thesis-year=both,
 abnt-repeated-author-omit=no, abnt-last-names=abnt,
 abnt-etal-cite, abnt-etal-list=3, abnt-etal-text=emph]{abntex2cite}
+\lstset{
+    language=Octave, 
+    xleftmargin=.05\textwidth, xrightmargin=.05\textwidth,
+    keywordstyle=\color{blue},
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{magenta},
+    basicstyle=\ttfamily\scriptsize,
+    numberstyle=\tiny\ttfamily\color{gray},
+    numbers=left,
+    backgroundcolor=\color{blue!3!white},
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{black!30},
+    escapeinside={\%*}{*)},
+    breaklines=true,
+    breakatwhitespace=true,
+    framextopmargin=2pt,
+    framexbottommargin=2pt,
+    inputencoding=utf8,
+    showstringspaces=false,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {â}{{\^a}}1 {Á}{{\'A}}1 {Â}{{\^A}}1 {Ã}{{\~A}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {í}{{\'{i}}}1 {ó}{{\'{o}}}1 {õ}{{\~{o}}}1 {ú}{{\'{u}}}1,
+}
 
 % =========================================================
 % DEFINIÇÕES
